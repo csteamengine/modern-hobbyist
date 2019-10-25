@@ -32,9 +32,21 @@
 .sidebar .nav-dropdown.open .nav-link{
     background: none;
 }
+
 .sidebar .nav-dropdown.open .nav-link:hover {
     color: $body-color;
     background: $card-cap-bg;
 }
 
+.sidebar .nav-dropdown.open .nav-link.active{
+    color: $body-color;
+    background: $card-cap-bg;
+}
 
+.sidebar .nav-dropdown.open .nav-dropdown-toggle.active{
+    background: none;
+}
+.sidebar .nav-dropdown.open .nav-dropdown-toggle.active:hover{
+    color: $body-color;
+    background: $card-cap-bg;
+}
