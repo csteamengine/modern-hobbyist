@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Job;
+namespace App\Http\Controllers\Backend;
 
 use App\Events\Backend\Job\JobDeleted;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use App\Http\Requests\Backend\Job\ManageJobRequest;
 use App\Http\Requests\Backend\Job\StoreJobRequest;
 use App\Http\Requests\Backend\Job\UpdateJobRequest;
 use App\Models\Job;
-use App\Repositories\Backend\Auth\JobRepository;
+use App\Repositories\Backend\JobRepository;
 
 
 /**
@@ -32,22 +32,18 @@ class JobController extends Controller
     }
 
     /**
-     * @param ManageJobRequest $request
-     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(ManageJobRequest $request)
+    public function index()
     {
         return view('backend.jobs.index')
             ->withJobs($this->jobRepository->getActivePaginated(25, 'id', 'asc'));
     }
 
     /**
-     * @param ManageJobRequest    $request
-     *
      * @return mixed
      */
-    public function create(ManageJobRequest $request)
+    public function create()
     {
         return view('backend.jobs.create');
     }

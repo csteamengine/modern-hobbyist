@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Backend\Auth;
+namespace App\Repositories\Backend;
 
 use App\Events\Backend\Job\JobCreated;
 use App\Events\Backend\Job\JobDeleted;
@@ -129,54 +129,5 @@ class JobRepository extends BaseRepository
 
             throw new GeneralException(__('exceptions.backend.jobs.update_error'));
         });
-    }
-
-    /**
-     * @param Job $job
-     *
-     * @throws GeneralException
-     * @throws \Exception
-     * @throws \Throwable
-     * @return Job
-     */
-    public function delete(Job $job) : Job
-    {
-        if ($job->deleted_at === null) {
-            throw new GeneralException(__('exceptions.backend.jobs.delete_first'));
-        }
-
-        return DB::transaction(function () use ($job) {
-            // Delete associated relationships
-            //TODO delete the associated relationships
-
-            if ($job->delete()) {
-                event(new JobDeleted($job));
-
-                return $job;
-            }
-
-            throw new GeneralException(__('exceptions.backend.jobs.delete_error'));
-        });
-    }
-
-    /**
-     * @param Job $job
-     *
-     * @throws GeneralException
-     * @return Job
-     */
-    public function restore(Job $job) : Job
-    {
-        if ($job->deleted_at === null) {
-            throw new GeneralException(__('exceptions.backend.jobs.cant_restore'));
-        }
-
-        if ($job->restore()) {
-            event(new JobRestored($job));
-
-            return $job;
-        }
-
-        throw new GeneralException(__('exceptions.backend.jobs.restore_error'));
     }
 }

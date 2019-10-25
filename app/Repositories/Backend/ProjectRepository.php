@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Backend\Auth;
+namespace App\Repositories\Backend;
 
 use App\Events\Backend\Project\ProjectCreated;
 use App\Events\Backend\Project\ProjectDeleted;
@@ -130,54 +130,5 @@ class ProjectRepository extends BaseRepository
 
             throw new GeneralException(__('exceptions.backend.projects.update_error'));
         });
-    }
-
-    /**
-     * @param Project $project
-     *
-     * @throws GeneralException
-     * @throws \Exception
-     * @throws \Throwable
-     * @return Project
-     */
-    public function delete(Project $project) : Project
-    {
-        if ($project->deleted_at === null) {
-            throw new GeneralException(__('exceptions.backend.projects.delete_first'));
-        }
-
-        return DB::transaction(function () use ($project) {
-            // Delete associated relationships
-            //TODO delete the associated relationships
-
-            if ($project->delete()) {
-                event(new ProjectDeleted($project));
-
-                return $project;
-            }
-
-            throw new GeneralException(__('exceptions.backend.projects.delete_error'));
-        });
-    }
-
-    /**
-     * @param Project $project
-     *
-     * @throws GeneralException
-     * @return Project
-     */
-    public function restore(Project $project) : Project
-    {
-        if ($project->deleted_at === null) {
-            throw new GeneralException(__('exceptions.backend.projects.cant_restore'));
-        }
-
-        if ($project->restore()) {
-            event(new ProjectRestored($project));
-
-            return $project;
-        }
-
-        throw new GeneralException(__('exceptions.backend.projects.restore_error'));
     }
 }

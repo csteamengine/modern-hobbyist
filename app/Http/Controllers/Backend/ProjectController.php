@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Project;
+namespace App\Http\Controllers\Backend;
 
 use App\Events\Backend\Project\ProjectDeleted;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use App\Http\Requests\Backend\Project\ManageProjectRequest;
 use App\Http\Requests\Backend\Project\StoreProjectRequest;
 use App\Http\Requests\Backend\Project\UpdateProjectRequest;
 use App\Models\Project;
-use App\Repositories\Backend\Auth\ProjectRepository;
+use App\Repositories\Backend\ProjectRepository;
 
 
 /**
