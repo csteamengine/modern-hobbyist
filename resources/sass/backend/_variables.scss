@@ -25,7 +25,7 @@ $dropdown-link-hover-color:           $body-color;
 $dropdown-header-color:               $body-color;
 $dropdown-link-color:                 $body-color;
 $dropdown-border-color:               $border-color;
-
+$card-cap-bg:                         #343b41;
 
 //$dropdown-header-color:
 
@@ -52,6 +52,22 @@ $navbar-hover-color:                  #e4e7ea !default;
 $navbar-active-color:                 $gray-800 !default;
 $navbar-disabled-color:               $gray-300 !default;
 
+$nav-tabs-border-color:             $gray-300 !default;
+$nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        #f3f4f5 !default;
+$nav-tabs-link-active-bg:           #343b41 !default;
+$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+$modal-content-color:               null !default;
+$modal-content-bg:                  blue !default;
+$modal-content-border-color:        rgba($black, .2) !default;
+$modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5) !default;
+$modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5) !default;
+
+$modal-backdrop-bg:                 $black !default;
+$modal-backdrop-opacity:            .5 !default;
+$modal-header-border-color:         $border-color !default;
+$modal-footer-border-color:         $modal-header-border-color !default;
+
 $sidebar-borders: (
     right: (
         size:                             1px,
@@ -59,8 +75,27 @@ $sidebar-borders: (
         color:                            $border-color
     )
 ) !default;
+
 $sidebar-nav-link-hover-color:        $body-color;
 $sidebar-nav-link-hover-bg:           $card-cap-bg;
+
+$sidebar-nav-color:                   #fff !default;
+$sidebar-nav-title-color:             $gray-200 !default;
+$sidebar-nav-link-color:              #fff !default;
+$sidebar-nav-link-bg:                 transparent !default;
+$sidebar-nav-link-icon-color:         $gray-600 !default;
+$sidebar-nav-link-borders:            0 !default;
+
+$sidebar-nav-link-hover-icon-color:   #fff !default;
+$sidebar-nav-link-hover-borders:      0 !default;
+
+$sidebar-nav-link-active-color:       #fff !default;
+$sidebar-nav-link-active-borders:     0 !default;
+
+$sidebar-nav-dropdown-color:          #fff !default;
+$sidebar-nav-dropdown-bg:             rgba(0,0,0,.2) !default;
+$sidebar-nav-dropdown-borders:        0 !default;
+$sidebar-nav-dropdown-indicator-color:$gray-600 !default;
 
 // Breadcrumb
 $breadcrumb-borders: (
@@ -120,7 +155,6 @@ $card-icon-bg:                        transparent !default;
 $card-bg:                             $breadcrumb-bg;
 $card-icon-color:                     $body-color !default;
 $card-border-color:                   $border-color;
-$card-cap-bg:                         #343b41;
 $card-color:                          $body-color;
 
 // Switches

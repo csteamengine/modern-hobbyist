@@ -2,27 +2,26 @@
 
 namespace App\Repositories\Backend\Auth;
 
-use App\Events\Backend\Project\ProjectCreated;
-use App\Events\Backend\Project\ProjectDeleted;
-use App\Events\Backend\Project\ProjectRestored;
-use App\Events\Backend\Project\ProjectUpdated;
-use App\Models\Project;
+use App\Events\Backend\Job\JobCreated;
+use App\Events\Backend\Job\JobDeleted;
+use App\Events\Backend\Job\JobUpdated;
+use App\Models\Job;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
- * Class ProjectRepository.
+ * Class JobRepository.
  */
-class ProjectRepository extends BaseRepository
+class JobRepository extends BaseRepository
 {
     /**
      * @return string
      */
     public function model()
     {
-        return Project::class;
+        return Job::class;
     }
 
     /**
@@ -78,13 +77,13 @@ class ProjectRepository extends BaseRepository
      *
      * @throws \Exception
      * @throws \Throwable
-     * @return Project
+     * @return Job
      */
-    public function create(array $data) : Project
+    public function create(array $data) : Job
     {
         return DB::transaction(function () use ($data) {
             //TODO update the information to put in here
-            $project = parent::create([
+            $job = parent::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
@@ -94,90 +93,90 @@ class ProjectRepository extends BaseRepository
                 'confirmed' => isset($data['confirmed']) && $data['confirmed'] === '1',
             ]);
 
-            if ($project) {
+            if ($job) {
 
-                event(new ProjectCreated($project));
+                event(new JobCreated($job));
 
-                return $project;
+                return $job;
             }
 
-            throw new GeneralException(__('exceptions.backend.projects.create_error'));
+            throw new GeneralException(__('exceptions.backend.jobs.create_error'));
         });
     }
 
     /**
-     * @param Project  $project
+     * @param Job  $job
      * @param array $data
      *
      * @throws GeneralException
      * @throws \Exception
      * @throws \Throwable
-     * @return Project
+     * @return Job
      */
-    public function update(Project $project, array $data) : Project
+    public function update(Job $job, array $data) : Job
     {
-        return DB::transaction(function () use ($project, $data) {
-            if ($project->update([
+        return DB::transaction(function () use ($job, $data) {
+            if ($job->update([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
             ])) {
 
-                event(new ProjectUpdated($project));
+                event(new JobUpdated($job));
 
-                return $project;
+                return $job;
             }
 
-            throw new GeneralException(__('exceptions.backend.projects.update_error'));
+            throw new GeneralException(__('exceptions.backend.jobs.update_error'));
         });
     }
 
     /**
-     * @param Project $project
+     * @param Job $job
      *
      * @throws GeneralException
      * @throws \Exception
      * @throws \Throwable
-     * @return Project
+     * @return Job
      */
-    public function delete(Project $project) : Project
+    public function delete(Job $job) : Job
     {
-        if ($project->deleted_at === null) {
-            throw new GeneralException(__('exceptions.backend.projects.delete_first'));
+        if ($job->deleted_at === null) {
+            throw new GeneralException(__('exceptions.backend.jobs.delete_first'));
         }
 
-        return DB::transaction(function () use ($project) {
+        return DB::transaction(function () use ($job) {
             // Delete associated relationships
             //TODO delete the associated relationships
 
-            if ($project->delete()) {
-                event(new ProjectDeleted($project));
+            if ($job->delete()) {
+                event(new JobDeleted($job));
 
-                return $project;
+                return $job;
             }
 
-            throw new GeneralException(__('exceptions.backend.projects.delete_error'));
+            throw new GeneralException(__('exceptions.backend.jobs.delete_error'));
         });
     }
 
     /**
-     * @param Project $project
+     * @param Job $job
      *
      * @throws GeneralException
-     * @return Project
+     * @return Job
      */
-    public function restore(Project $project) : Project
+    public function restore(Job $job) : Job
     {
-        if ($project->deleted_at === null) {
-            throw new GeneralException(__('exceptions.backend.projects.cant_restore'));
+        if ($job->deleted_at === null) {
+            throw new GeneralException(__('exceptions.backend.jobs.cant_restore'));
         }
 
-        if ($project->restore()) {
-            event(new ProjectRestored($project));
+        if ($job->restore()) {
+            event(new JobRestored($job));
 
-            return $project;
+            return $job;
         }
 
-        throw new GeneralException(__('exceptions.backend.projects.restore_error'));
+        throw new GeneralException(__('exceptions.backend.jobs.restore_error'));
     }
 }

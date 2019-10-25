@@ -1,85 +1,140 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Project;
 
-use Illuminate\Http\Request;
+use App\Events\Backend\Project\ProjectDeleted;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\Project\ManageProjectRequest;
+use App\Http\Requests\Backend\Project\StoreProjectRequest;
+use App\Http\Requests\Backend\Project\UpdateProjectRequest;
+use App\Models\Project;
+use App\Repositories\Backend\Auth\ProjectRepository;
 
+
+/**
+ * Class ProjectController.
+ */
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var ProjectRepository
      */
-    public function index()
+    protected $projectRepository;
+
+    /**
+     * ProjectController constructor.
+     *
+     * @param ProjectRepository $projectRepository
+     */
+    public function __construct(ProjectRepository $projectRepository)
     {
-        //
+        $this->projectRepository = $projectRepository;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @param ManageProjectRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function index(ManageProjectRequest $request)
     {
-        //
+        return view('backend.projects.index')
+            ->withProjects($this->projectRepository->getActivePaginated(25, 'id', 'asc'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param ManageProjectRequest    $request
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function store(Request $request)
+    public function create(ManageProjectRequest $request)
     {
-        //
+        return view('backend.projects.create');
     }
 
     /**
-     * Display the specified resource.
+     * @param StoreProjectRequest $request
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @throws \Throwable
+     * @return mixed
      */
-    public function show($id)
+    public function store(StoreProjectRequest $request)
     {
-        //
+        $this->projectRepository->create($request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'active',
+            'confirmed',
+            'confirmation_email',
+            'roles',
+            'permissions'
+        ));
+
+        return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.created'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @param ManageProjectRequest $request
+     * @param Project              $project
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function edit($id)
+    public function show(ManageProjectRequest $request, Project $project)
     {
-        //
+        return view('backend.projects.show')
+            ->withProject($project);
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param ManageProjectRequest    $request
+     * @param RoleRepository       $roleRepository
+     * @param PermissionRepository $permissionRepository
+     * @param Project                 $project
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function update(Request $request, $id)
+    public function edit(ManageProjectRequest $request, Project $project)
     {
-        //
+        return view('backend.projects.edit')
+            ->withProject($project);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param UpdateProjectRequest $request
+     * @param Project              $project
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @throws \App\Exceptions\GeneralException
+     * @throws \Throwable
+     * @return mixed
      */
-    public function destroy($id)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $this->projectRepository->update($project, $request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'roles',
+            'permissions'
+        ));
+
+        return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.updated'));
+    }
+
+    /**
+     * @param ManageProjectRequest $request
+     * @param Project              $project
+     *
+     * @throws \Exception
+     * @return mixed
+     */
+    public function destroy(ManageProjectRequest $request, Project $project)
+    {
+        $this->projectRepository->deleteById($project->id);
+
+        event(new ProjectDeleted($project));
+
+        return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.deleted'));
     }
 }

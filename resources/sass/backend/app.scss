@@ -6,9 +6,35 @@
 // Import styles
 @import "~@coreui/coreui/scss/coreui";
 
+
 // Fix mobile footer
 .app-footer {
     flex: 0 0;
     padding-top: map-get($spacers, 3);
     padding-bottom: map-get($spacers, 3);
 }
+
+.tab-content{
+    background: $breadcrumb-bg;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-link.active:focus, .nav-tabs .nav-link.active:hover{
+    color: $nav-tabs-link-active-color;
+    //background-color: $nav-tabs-link-active-bg;
+    background: $nav-tabs-link-active-bg;
+    border-color: #23282c #23282c #23282c;
+}
+
+.nav-tabs .nav-link:hover{
+    border-color: #23282c #23282c #23282c;
+}
+
+.sidebar .nav-dropdown.open .nav-link{
+    background: none;
+}
+.sidebar .nav-dropdown.open .nav-link:hover {
+    color: $body-color;
+    background: $card-cap-bg;
+}
+
+

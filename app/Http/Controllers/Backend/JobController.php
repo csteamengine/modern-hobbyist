@@ -1,85 +1,140 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Job;
 
-use Illuminate\Http\Request;
+use App\Events\Backend\Job\JobDeleted;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\Job\ManageJobRequest;
+use App\Http\Requests\Backend\Job\StoreJobRequest;
+use App\Http\Requests\Backend\Job\UpdateJobRequest;
+use App\Models\Job;
+use App\Repositories\Backend\Auth\JobRepository;
 
+
+/**
+ * Class JobController.
+ */
 class JobController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var JobRepository
      */
-    public function index()
+    protected $jobRepository;
+
+    /**
+     * JobController constructor.
+     *
+     * @param JobRepository $jobRepository
+     */
+    public function __construct(JobRepository $jobRepository)
     {
-        //
+        $this->jobRepository = $jobRepository;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @param ManageJobRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function index(ManageJobRequest $request)
     {
-        //
+        return view('backend.jobs.index')
+            ->withJobs($this->jobRepository->getActivePaginated(25, 'id', 'asc'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param ManageJobRequest    $request
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function store(Request $request)
+    public function create(ManageJobRequest $request)
     {
-        //
+        return view('backend.jobs.create');
     }
 
     /**
-     * Display the specified resource.
+     * @param StoreJobRequest $request
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @throws \Throwable
+     * @return mixed
      */
-    public function show($id)
+    public function store(StoreJobRequest $request)
     {
-        //
+        $this->jobRepository->create($request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'active',
+            'confirmed',
+            'confirmation_email',
+            'roles',
+            'permissions'
+        ));
+
+        return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.created'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @param ManageJobRequest $request
+     * @param Job              $job
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function edit($id)
+    public function show(ManageJobRequest $request, Job $job)
     {
-        //
+        return view('backend.jobs.show')
+            ->withJob($job);
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param ManageJobRequest    $request
+     * @param RoleRepository       $roleRepository
+     * @param PermissionRepository $permissionRepository
+     * @param Job                 $job
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function update(Request $request, $id)
+    public function edit(ManageJobRequest $request, Job $job)
     {
-        //
+        return view('backend.jobs.edit')
+            ->withJob($job);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param UpdateJobRequest $request
+     * @param Job              $job
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @throws \App\Exceptions\GeneralException
+     * @throws \Throwable
+     * @return mixed
      */
-    public function destroy($id)
+    public function update(UpdateJobRequest $request, Job $job)
     {
-        //
+        $this->jobRepository->update($job, $request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'roles',
+            'permissions'
+        ));
+
+        return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.updated'));
+    }
+
+    /**
+     * @param ManageJobRequest $request
+     * @param Job              $job
+     *
+     * @throws \Exception
+     * @return mixed
+     */
+    public function destroy(ManageJobRequest $request, Job $job)
+    {
+        $this->jobRepository->deleteById($job->id);
+
+        event(new JobDeleted($job));
+
+        return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.deleted'));
     }
 }
