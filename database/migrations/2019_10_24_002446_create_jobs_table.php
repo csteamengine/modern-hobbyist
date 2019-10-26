@@ -15,6 +15,14 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('short_description', 500)->nullable();
+            $table->text('description')->nullable();
+            $table->longText('page_content')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('finished_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -83,6 +83,13 @@ class JobRepository extends BaseRepository
     {
         return DB::transaction(function () use ($data) {
             //TODO update the information to put in here
+//            $table->string('title');
+//            $table->string('short_description', 500)->nullable();
+//            $table->text('description')->nullable();
+//            $table->longText('page_content')->nullable();
+//            $table->boolean('is_active')->default(true);
+//            $table->timestamp('started_at')->nullable();
+//            $table->timestamp('finished_at')->nullable();
             $job = parent::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
@@ -116,6 +123,13 @@ class JobRepository extends BaseRepository
     public function update(Job $job, array $data) : Job
     {
         return DB::transaction(function () use ($job, $data) {
+//            $table->string('title');
+//            $table->string('short_description', 500)->nullable();
+//            $table->text('description')->nullable();
+//            $table->longText('page_content')->nullable();
+//            $table->boolean('is_active')->default(true);
+//            $table->timestamp('started_at')->nullable();
+//            $table->timestamp('finished_at')->nullable();
             if ($job->update([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],

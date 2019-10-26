@@ -15,6 +15,11 @@ class CreateProjectImagesTable extends Migration
     {
         Schema::create('project_images', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('project_id');
+            $table->integer('image_id');
+            $table->boolean('is_active')->default(true);
+            $table->integer('order')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

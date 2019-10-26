@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobImagesTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateJobImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_images', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('project_id');
-            $table->integer('image_id');
-            $table->boolean('is_active')->default(true);
-            $table->integer('order')->default(0);
+            $table->string('title')->nullable();
+            $table->string('description', 500)->nullable();
+            $table->string('url');
+            $table->string('small_url');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateJobImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_images');
+        Schema::dropIfExists('images');
     }
 }

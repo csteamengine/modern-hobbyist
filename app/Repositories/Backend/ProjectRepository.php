@@ -84,6 +84,13 @@ class ProjectRepository extends BaseRepository
     {
         return DB::transaction(function () use ($data) {
             //TODO update the information to put in here
+//            $table->string('title');
+//            $table->string('short_description', 500)->nullable();
+//            $table->text('description')->nullable();
+//            $table->longText('page_content')->nullable();
+//            $table->boolean('is_active')->default(true);
+//            $table->timestamp('started_at')->nullable();
+//            $table->timestamp('finished_at')->nullable();
             $project = parent::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
@@ -116,6 +123,13 @@ class ProjectRepository extends BaseRepository
      */
     public function update(Project $project, array $data) : Project
     {
+//        $table->string('title');
+//        $table->string('short_description', 500)->nullable();
+//        $table->text('description')->nullable();
+//        $table->longText('page_content')->nullable();
+//        $table->boolean('is_active')->default(true);
+//        $table->timestamp('started_at')->nullable();
+//        $table->timestamp('finished_at')->nullable();
         return DB::transaction(function () use ($project, $data) {
             if ($project->update([
                 'first_name' => $data['first_name'],
