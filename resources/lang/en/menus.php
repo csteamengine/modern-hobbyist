@@ -44,6 +44,8 @@ return [
 
         'sidebar' => [
             'dashboard' => 'Dashboard',
+            'projects' => 'Projects',
+            'jobs' => 'Jobs',
             'general' => 'General',
             'history' => 'History',
             'system' => 'System',

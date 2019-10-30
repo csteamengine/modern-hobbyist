@@ -31,30 +31,14 @@ class JobRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function getActivePaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
+    public function getAll($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
     {
         return $this->model
             ->with('images')
-            ->active()
             ->orderBy($orderBy, $sort)
             ->paginate($paged);
     }
 
-    /**
-     * @param int    $paged
-     * @param string $orderBy
-     * @param string $sort
-     *
-     * @return LengthAwarePaginator
-     */
-    public function getInactivePaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
-    {
-        return $this->model
-            ->with('images')
-            ->active(false)
-            ->orderBy($orderBy, $sort)
-            ->paginate($paged);
-    }
 
     /**
      * @param int    $paged

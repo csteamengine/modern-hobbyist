@@ -13,6 +13,24 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{
+                    active_class(Active::checkUriPattern('admin/projects*'))
+                }}" href="{{ route('admin.projects.index') }}">
+                    <i class="nav-icon fas fa-lightbulb"></i>
+                    @lang('menus.backend.sidebar.projects')
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{
+                    active_class(Active::checkUriPattern('admin/jobs*'))
+                }}" href="{{ route('admin.jobs.index') }}">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    @lang('menus.backend.sidebar.jobs')
+                </a>
+            </li>
+
             <li class="nav-title">
                 @lang('menus.backend.sidebar.system')
             </li>

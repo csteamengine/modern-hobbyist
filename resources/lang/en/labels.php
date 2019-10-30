@@ -112,6 +112,13 @@ return [
                 'view' => 'View User',
             ],
         ],
+        'jobs' => [
+            'index' => 'Jobs',
+            'create' => 'Create Job',
+            'view' => 'View Job',
+            'edit' => 'Edit Job',
+            'management' => 'Manage Jobs'
+        ]
     ],
 
     'frontend' => [

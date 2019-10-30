@@ -37,7 +37,7 @@ class JobController extends Controller
     public function index()
     {
         return view('backend.jobs.index')
-            ->withJobs($this->jobRepository->getActivePaginated(25, 'id', 'asc'));
+            ->withJobs($this->jobRepository->getAll(25, 'id', 'asc'));
     }
 
     /**

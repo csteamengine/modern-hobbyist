@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Job extends Model
 {
     use SoftDeletes;
+    protected $table = 'positions';
 
     public function delete() {
 //        TODO add all related tables to be deleted as well
