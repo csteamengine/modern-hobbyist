@@ -66,22 +66,16 @@ class JobRepository extends BaseRepository
     public function create(array $data) : Job
     {
         return DB::transaction(function () use ($data) {
-            //TODO update the information to put in here
-//            $table->string('title');
-//            $table->string('short_description', 500)->nullable();
-//            $table->text('description')->nullable();
-//            $table->longText('page_content')->nullable();
-//            $table->boolean('is_active')->default(true);
-//            $table->timestamp('started_at')->nullable();
-//            $table->timestamp('finished_at')->nullable();
             $job = parent::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'password' => $data['password'],
-                'active' => isset($data['active']) && $data['active'] === '1',
-                'confirmation_code' => md5(uniqid(mt_rand(), true)),
-                'confirmed' => isset($data['confirmed']) && $data['confirmed'] === '1',
+                'title' => $data['title'],
+                'company' => $data['company'],
+                'company_url' => $data['company_url'],
+                'short_description' => $data['short_description'],
+                'description' => $data['description'],
+                'page_content' => $data['page_content'],
+                'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
+                'started_at' => $data['started_at'],
+                'finished_at' => $data['finished_at'],
             ]);
 
             if ($job) {
@@ -107,17 +101,16 @@ class JobRepository extends BaseRepository
     public function update(Job $job, array $data) : Job
     {
         return DB::transaction(function () use ($job, $data) {
-//            $table->string('title');
-//            $table->string('short_description', 500)->nullable();
-//            $table->text('description')->nullable();
-//            $table->longText('page_content')->nullable();
-//            $table->boolean('is_active')->default(true);
-//            $table->timestamp('started_at')->nullable();
-//            $table->timestamp('finished_at')->nullable();
             if ($job->update([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
+                'title' => $data['title'],
+                'company' => $data['company'],
+                'company_url' => $data['company_url'],
+                'short_description' => $data['short_description'],
+                'description' => $data['description'],
+                'page_content' => $data['page_content'],
+                'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
+                'started_at' => $data['started_at'],
+                'finished_at' => $data['finished_at'],
             ])) {
 
                 event(new JobUpdated($job));

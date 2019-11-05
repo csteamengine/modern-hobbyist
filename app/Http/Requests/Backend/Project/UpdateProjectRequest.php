@@ -26,12 +26,10 @@ class UpdateProjectRequest extends FormRequest
      */
     public function rules()
     {
-        //TODO update the rules for this model
         return [
-            'email' => ['required', 'email', 'max:191'],
-            'first_name' => ['required', 'max:191'],
-            'last_name' => ['required', 'max:191'],
-            'roles' => ['required', 'array'],
+            'title' => ['required', 'max:191'],
+            'started_at' => ['required', 'date'],
+            'finished_at' => ['required', 'date'],
         ];
     }
 }

@@ -4,7 +4,6 @@ namespace App\Repositories\Backend;
 
 use App\Events\Backend\Project\ProjectCreated;
 use App\Events\Backend\Project\ProjectDeleted;
-use App\Events\Backend\Project\ProjectRestored;
 use App\Events\Backend\Project\ProjectUpdated;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
@@ -32,30 +31,14 @@ class ProjectRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function getActivePaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
+    public function getAll($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
     {
         return $this->model
             ->with('images')
-            ->active()
             ->orderBy($orderBy, $sort)
             ->paginate($paged);
     }
 
-    /**
-     * @param int    $paged
-     * @param string $orderBy
-     * @param string $sort
-     *
-     * @return LengthAwarePaginator
-     */
-    public function getInactivePaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
-    {
-        return $this->model
-            ->with('images')
-            ->active(false)
-            ->orderBy($orderBy, $sort)
-            ->paginate($paged);
-    }
 
     /**
      * @param int    $paged
@@ -83,22 +66,15 @@ class ProjectRepository extends BaseRepository
     public function create(array $data) : Project
     {
         return DB::transaction(function () use ($data) {
-            //TODO update the information to put in here
-//            $table->string('title');
-//            $table->string('short_description', 500)->nullable();
-//            $table->text('description')->nullable();
-//            $table->longText('page_content')->nullable();
-//            $table->boolean('is_active')->default(true);
-//            $table->timestamp('started_at')->nullable();
-//            $table->timestamp('finished_at')->nullable();
             $project = parent::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'password' => $data['password'],
-                'active' => isset($data['active']) && $data['active'] === '1',
-                'confirmation_code' => md5(uniqid(mt_rand(), true)),
-                'confirmed' => isset($data['confirmed']) && $data['confirmed'] === '1',
+                'title' => $data['title'],
+                'short_description' => $data['short_description'],
+                'description' => $data['description'],
+                'page_content' => $data['page_content'],
+                'project_url' => $data['project_url'],
+                'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
+                'started_at' => $data['started_at'],
+                'finished_at' => $data['finished_at'],
             ]);
 
             if ($project) {
@@ -123,18 +99,16 @@ class ProjectRepository extends BaseRepository
      */
     public function update(Project $project, array $data) : Project
     {
-//        $table->string('title');
-//        $table->string('short_description', 500)->nullable();
-//        $table->text('description')->nullable();
-//        $table->longText('page_content')->nullable();
-//        $table->boolean('is_active')->default(true);
-//        $table->timestamp('started_at')->nullable();
-//        $table->timestamp('finished_at')->nullable();
         return DB::transaction(function () use ($project, $data) {
             if ($project->update([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
+                'title' => $data['title'],
+                'short_description' => $data['short_description'],
+                'description' => $data['description'],
+                'page_content' => $data['page_content'],
+                'project_url' => $data['project_url'],
+                'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
+                'started_at' => $data['started_at'],
+                'finished_at' => $data['finished_at'],
             ])) {
 
                 event(new ProjectUpdated($project));

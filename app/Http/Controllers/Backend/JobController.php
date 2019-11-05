@@ -37,7 +37,7 @@ class JobController extends Controller
     public function index()
     {
         return view('backend.jobs.index')
-            ->withJobs($this->jobRepository->getAll(25, 'id', 'asc'));
+            ->withJobs($this->jobRepository->all());
     }
 
     /**
@@ -56,17 +56,7 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        $this->jobRepository->create($request->only(
-            'first_name',
-            'last_name',
-            'email',
-            'password',
-            'active',
-            'confirmed',
-            'confirmation_email',
-            'roles',
-            'permissions'
-        ));
+        $this->jobRepository->create($request->all());
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.created'));
     }
@@ -107,13 +97,7 @@ class JobController extends Controller
      */
     public function update(UpdateJobRequest $request, Job $job)
     {
-        $this->jobRepository->update($job, $request->only(
-            'first_name',
-            'last_name',
-            'email',
-            'roles',
-            'permissions'
-        ));
+        $this->jobRepository->update($job, $request->all());
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.updated'));
     }
@@ -127,7 +111,7 @@ class JobController extends Controller
      */
     public function destroy(ManageJobRequest $request, Job $job)
     {
-        $this->jobRepository->deleteById($job->id);
+        $job->delete();
 
         event(new JobDeleted($job));
 

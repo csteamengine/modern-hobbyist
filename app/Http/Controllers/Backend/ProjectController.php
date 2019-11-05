@@ -39,7 +39,7 @@ class ProjectController extends Controller
     public function index(ManageProjectRequest $request)
     {
         return view('backend.projects.index')
-            ->withProjects($this->projectRepository->getActivePaginated(25, 'id', 'asc'));
+            ->withProjects($this->projectRepository->getAll());
     }
 
     /**
@@ -60,17 +60,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $this->projectRepository->create($request->only(
-            'first_name',
-            'last_name',
-            'email',
-            'password',
-            'active',
-            'confirmed',
-            'confirmation_email',
-            'roles',
-            'permissions'
-        ));
+        $this->projectRepository->create($request->all());
 
         return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.created'));
     }
@@ -111,13 +101,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $this->projectRepository->update($project, $request->only(
-            'first_name',
-            'last_name',
-            'email',
-            'roles',
-            'permissions'
-        ));
+        $this->projectRepository->update($project, $request->all());
 
         return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.updated'));
     }
@@ -131,7 +115,7 @@ class ProjectController extends Controller
      */
     public function destroy(ManageProjectRequest $request, Project $project)
     {
-        $this->projectRepository->deleteById($project->id);
+        $project->delete();
 
         event(new ProjectDeleted($project));
 

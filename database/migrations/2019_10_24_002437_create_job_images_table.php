@@ -15,7 +15,7 @@ class CreateJobImagesTable extends Migration
     {
         Schema::create('job_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('project_id');
+            $table->integer('job_id');
             $table->integer('image_id');
             $table->boolean('is_active')->default(true);
             $table->integer('order')->default(0);

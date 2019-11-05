@@ -1,5 +1,7 @@
 {
     "/js/backend.js": "/js/backend.js",
+    "/js/backend/jobs/jobs.js": "/js/backend/jobs/jobs.js",
+    "/js/backend/projects/projects.js": "/js/backend/projects/projects.js",
     "/js/frontend.js": "/js/frontend.js",
     "/css/frontend.css": "/css/frontend.css",
     "/css/backend.css": "/css/backend.css",

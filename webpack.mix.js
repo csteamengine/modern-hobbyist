@@ -16,6 +16,8 @@ mix.setPublicPath('public')
     .sass('resources/sass/frontend/app.scss', 'css/frontend.css')
     .sass('resources/sass/backend/app.scss', 'css/backend.css')
     .js('resources/js/frontend/app.js', 'js/frontend.js')
+    .js('resources/js/backend/jobs/jobs.js', 'js/backend/jobs/jobs.js')
+    .js('resources/js/backend/projects/projects.js', 'js/backend/projects/projects.js')
     .js([
         'resources/js/backend/before.js',
         'resources/js/backend/app.js',

@@ -27,13 +27,10 @@ class StoreProjectRequest extends FormRequest
      */
     public function rules()
     {
-        //TODO update the rules of the request
         return [
-            'first_name' => ['required', 'max:191'],
-            'last_name' => ['required', 'max:191'],
-            'email' => ['required', 'email', 'max:191', Rule::unique('projects')],
-            'password' => ['required', 'min:6', 'confirmed'],
-            'roles' => ['required', 'array'],
+            'title' => ['required', 'max:191'],
+            'started_at' => ['required', 'date'],
+            'finished_at' => ['required', 'date'],
         ];
     }
 }

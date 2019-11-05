@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('labels.backend.jobs.management'))
+@section('title', app_name() . ' | ' . __('labels.backend.projects.management'))
 
 @push('after-styles')
     {!! style('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') !!}
@@ -12,19 +12,19 @@
         <div class="row">
             <div class="col-sm-5">
                 <h4 class="card-title mb-0">
-                    {{ __('labels.backend.jobs.management') }}
+                    {{ __('labels.backend.projects.management') }}
                 </h4>
             </div><!--col-->
 
             <div class="col-sm-7">
-                @include('backend.jobs.includes.header-buttons')
+                @include('backend.projects.includes.header-buttons')
             </div><!--col-->
         </div><!--row-->
 
         <div class="row mt-4">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table" id="jobsTable">
+                    <table class="table" id="projectsTable">
                         <thead>
                         <tr>
                             <th>Title</th>
@@ -34,13 +34,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($jobs as $job)
+                        @foreach($projects as $project)
                             <tr>
-                                <td class="align-middle">{{$job->title}}</td>
-                                <td class="align-middle"><a href="{{$job->company_url}}" target="_blank">{{$job->company}}</a></td>
-                                <td class="align-middle">{{$job->started_at}} - {{$job->finished_at}}</td>
+                                <td class="align-middle">{{$project->title}}</td>
+                                <td class="align-middle"><a href="{{$project->company_url}}" target="_blank">{{$project->company}}</a></td>
+                                <td class="align-middle">{{$project->started_at}} - {{$project->finished_at}}</td>
                                 <td class="align-middle">
-                                    @include('backend.jobs.includes.actions')
+                                    @include('backend.projects.includes.actions')
                                 </td>
                             </tr>
                         @endforeach
@@ -55,6 +55,6 @@
 @push('after-scripts')
     {!! script('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js') !!}
     {!! script('https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js') !!}
-    {!! script(mix('js/backend/jobs/jobs.js')) !!}
+    {!! script(mix('js/backend/projects/projects.js')) !!}
 
 @endpush

@@ -50,3 +50,32 @@
     color: $body-color;
     background: $card-cap-bg;
 }
+
+.swal2-popup {
+    background: $breadcrumb-bg !important;
+    .swal2-title{
+        color: $body-color !important;
+    }
+}
+.form-control, .form-control:focus{
+    border: 1px solid $border-color;
+    background-color: $form-input-background;
+    color: $body-color;
+}
+
+.page-link{
+    color: $page-link-color !important;
+    background-color: $card-cap-bg !important;
+    border: 1px solid $border-color !important;
+}
+.page-link:hover{
+    color: $page-link-hover-color !important;
+    background-color: $body-bg !important;
+    border-color: $border-color !important;
+}
+
+.page-item.disabled .page-link{
+    color: $disabled-page-link-bg !important;
+    background-color: $border-color !important;
+    border-color: $border-color !important;
+}

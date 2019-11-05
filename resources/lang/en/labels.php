@@ -114,10 +114,40 @@ return [
         ],
         'jobs' => [
             'index' => 'Jobs',
+            'main' => 'Jobs',
             'create' => 'Create Job',
             'view' => 'View Job',
             'edit' => 'Edit Job',
-            'management' => 'Manage Jobs'
+            'management' => 'Manage Jobs',
+            'forms' => [
+                'title' => 'Title',
+                'is_active' => 'Status',
+                'short_description' => 'Short Description',
+                'description' => 'Description',
+                'page_content' => 'Page Content',
+                'started_at' => 'Started At',
+                'finished_at' => 'Finished At',
+                'company' => 'Company',
+                'company_url' => 'Company URL'
+            ]
+        ],
+        'projects' => [
+            'index' => 'Projects',
+            'main' => 'Projects',
+            'create' => 'Create Project',
+            'view' => 'View Project',
+            'edit' => 'Edit Projects',
+            'management' => 'Manage Projects',
+            'forms' => [
+                'title' => 'Title',
+                'is_active' => 'Status',
+                'short_description' => 'Short Description',
+                'description' => 'Description',
+                'page_content' => 'Page Content',
+                'started_at' => 'Started At',
+                'finished_at' => 'Finished At',
+                'project_url' => 'Project URL'
+            ]
         ]
     ],
 
