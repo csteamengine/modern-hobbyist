@@ -33,6 +33,16 @@ return [
             'updated' => 'The user was successfully updated.',
             'updated_password' => "The user's password was successfully updated.",
         ],
+        'jobs' => [
+            'created' => 'The job was successfully created.',
+            'deleted' => 'The job was successfully deleted.',
+            'updated' => 'The job was successfully updated.',
+        ],
+        'projects' => [
+            'created' => 'The project was successfully created.',
+            'deleted' => 'The project was successfully deleted.',
+            'updated' => 'The project was successfully updated.',
+        ]
     ],
 
     'frontend' => [

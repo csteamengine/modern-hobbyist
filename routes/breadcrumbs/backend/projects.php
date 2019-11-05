@@ -1,7 +1,6 @@
 <?php
 
 Breadcrumbs::for('admin.projects.index', function ($trail) {
-    $trail->parent('admin.dashboard');
     $trail->push(__('labels.backend.projects.index'), route('admin.projects.index'));
 });
 

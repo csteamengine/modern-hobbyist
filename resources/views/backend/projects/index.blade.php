@@ -28,7 +28,6 @@
                         <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Company</th>
                             <th>Date</th>
                             <th>Actions</th>
                         </tr>
@@ -37,7 +36,6 @@
                         @foreach($projects as $project)
                             <tr>
                                 <td class="align-middle">{{$project->title}}</td>
-                                <td class="align-middle"><a href="{{$project->company_url}}" target="_blank">{{$project->company}}</a></td>
                                 <td class="align-middle">{{$project->started_at}} - {{$project->finished_at}}</td>
                                 <td class="align-middle">
                                     @include('backend.projects.includes.actions')
