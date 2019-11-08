@@ -3,6 +3,10 @@ $(document).ready(function() {
         readImage();
     });
 
+    if($('#preview-images-zone-existing').children().length == 0){
+        $('#preview-images-zone-existing').hide();
+    }
+
     // $( "#preview-images-zone" ).sortable();
     $( "#preview-images-zone-existing" ).sortable();
 
