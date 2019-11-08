@@ -4,10 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class ProjectImage extends Model
 {
     //
-    protected $fillable = [
-      'url'
-    ];
 }

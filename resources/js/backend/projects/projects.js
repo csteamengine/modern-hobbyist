@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#projectsTable').DataTable();
     var reset = false;
+
     // $('.switch-input').on('click', function (event) {
     //     if (reset) {
     //         reset = false;
@@ -65,3 +66,4 @@ $(document).ready(function () {
     //     }
     // });
 });
+

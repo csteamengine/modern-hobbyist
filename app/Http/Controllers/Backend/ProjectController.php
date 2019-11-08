@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Project\ManageProjectRequest;
 use App\Http\Requests\Backend\Project\StoreProjectRequest;
 use App\Http\Requests\Backend\Project\UpdateProjectRequest;
+use App\Models\Image;
 use App\Models\Project;
 use App\Repositories\Backend\ProjectRepository;
+use Illuminate\Support\Facades\Storage;
 
 
 /**
@@ -101,9 +103,18 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $this->projectRepository->update($project, $request->all());
+        $updateSuccess = $this->projectRepository->update($project, $request->all());
+        $imagesSuccess = $this->updateImages($request, $project);
 
-        return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.updated'));
+        if(!$updateSuccess){
+            return redirect()->back()->withFlashWarning('Failed to update the project');
+        }
+
+        if(!$imagesSuccess){
+            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+        }
+
+        return redirect()->back()->withFlashSuccess(__('alerts.backend.projects.updated'));
     }
 
     /**
@@ -120,5 +131,65 @@ class ProjectController extends Controller
         event(new ProjectDeleted($project));
 
         return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.deleted'));
+    }
+
+    public function updateImages(UpdateProjectRequest $request, Project $project){
+        $existing_images = $project->images()->get();
+        $success = true;
+        //remove deleted images
+        if($request->has('existing_images')){
+            $input = $request['existing_images'];
+            foreach($existing_images as $currImage){
+                if(!in_array($currImage->id, $input)){
+                    $project->images()->detach($currImage);
+                }
+            }
+
+            $count = 0;
+            foreach($input as $id){
+                $image = $project->images()->where('images.id', $id)->get();
+                $project->images()->updateExistingPivot($image, ['order' => $count]);
+                $count++;
+            }
+
+        }else if($existing_images){
+            //We have existing images, but none came through in the form request
+            foreach($existing_images as $currImage){
+                $project->images()->detach($currImage);
+            }
+        }
+
+        //Add new images
+        if($request->hasfile('images'))
+        {
+            $this->validate($request, [
+                'images' => 'required',
+                'images.*' => 'mimes:jpg,png,tif,gif'
+            ]);
+            foreach($request->file('images') as $file)
+            {
+                $upload = $file->store('images/projects');
+                if($upload){
+                    $image = Image::create([
+                        'url' => $upload
+                    ]);
+
+                    if(!$image){
+                        $success = false;
+                    }
+
+                    $project_image = $project->images()->save($image, ['order' => $existing_images->count()]);
+
+                    if(!$project_image){
+                        $success = false;
+                    }
+                }
+            }
+        }
+
+        if(!$success){
+            return false;
+        }
+        return true;
     }
 }

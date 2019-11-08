@@ -1,4 +1,4 @@
-{{ html()->modelForm($project, $method, $route)->class('form-horizontal')->open() }}
+{{ html()->modelForm($project, $method, $route)->class('form-horizontal')->acceptsFiles()->open() }}
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -106,19 +106,20 @@
                             }}
                     </div><!--col-->
                 </div><!--form-group-->
-                <div class="form-group row">
-                    <div class="col-md-12">
-                        {{ html()->label(__('labels.backend.projects.forms.page_content'))
-                            ->class('form-control-label')
-                            ->for('page_content') }}
+{{--                <div class="form-group row">--}}
+{{--                    <div class="col-md-12">--}}
+{{--                        {{ html()->label(__('labels.backend.projects.forms.page_content'))--}}
+{{--                            ->class('form-control-label')--}}
+{{--                            ->for('page_content') }}--}}
 
-                        {{ html()->textarea('page_content')
-                            ->class('form-control')
-                            ->attribute('rows', 10)
-                            ->placeholder(__('labels.backend.projects.forms.page_content'))
-                            }}
-                    </div><!--col-->
-                </div><!--form-group-->
+{{--                        {{ html()->textarea('page_content')--}}
+{{--                            ->class('form-control')--}}
+{{--                            ->attribute('rows', 10)--}}
+{{--                            ->placeholder(__('labels.backend.projects.forms.page_content'))--}}
+{{--                            }}--}}
+{{--                    </div><!--col-->--}}
+{{--                </div><!--form-group-->--}}
+                @include('backend.projects.includes.images')
             </div><!--col-->
         </div><!--row-->
     </div><!--card-body-->

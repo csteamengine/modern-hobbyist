@@ -15,9 +15,11 @@ mix.setPublicPath('public')
     .setResourceRoot('../') // turns assets paths in css relative to css file
     .sass('resources/sass/frontend/app.scss', 'css/frontend.css')
     .sass('resources/sass/backend/app.scss', 'css/backend.css')
+    .sass('resources/sass/backend/projects/project.scss', 'css/backend/project.css')
     .js('resources/js/frontend/app.js', 'js/frontend.js')
     .js('resources/js/backend/jobs/jobs.js', 'js/backend/jobs/jobs.js')
     .js('resources/js/backend/projects/projects.js', 'js/backend/projects/projects.js')
+    .js('resources/js/backend/projects/project.js', 'js/backend/projects/project.js')
     .js([
         'resources/js/backend/before.js',
         'resources/js/backend/app.js',

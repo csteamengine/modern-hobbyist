@@ -17,6 +17,6 @@ trait ProjectRelationship
      */
     public function images()
     {
-        return $this->belongsToMany(Image::class, 'project_images');
+        return $this->belongsToMany(Image::class, 'project_images')->orderBy('order');
     }
 }

@@ -1,10 +1,12 @@
 {
     "/js/backend.js": "/js/backend.js",
     "/js/backend/jobs/jobs.js": "/js/backend/jobs/jobs.js",
+    "/js/backend/projects/project.js": "/js/backend/projects/project.js",
     "/js/backend/projects/projects.js": "/js/backend/projects/projects.js",
     "/js/frontend.js": "/js/frontend.js",
     "/css/frontend.css": "/css/frontend.css",
     "/css/backend.css": "/css/backend.css",
+    "/css/backend/project.css": "/css/backend/project.css",
     "/js/manifest.js": "/js/manifest.js",
     "/js/vendor.js": "/js/vendor.js"
 }
