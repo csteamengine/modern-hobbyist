@@ -10,8 +10,8 @@
         </video>
     </div>
     <div class="homeText">
-        <div class="row">
-            <div class="col mt-auto mb-auto text-center">
+        <div class="row p-0 m-0">
+            <div class="col mt-auto mb-auto text-center ml-0 mr-0 p-0">
                 <h1>Hello,</h1>
                 <h1>
                     I'm
