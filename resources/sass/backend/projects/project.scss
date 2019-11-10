@@ -14,6 +14,9 @@
 #preview-images-zone{
     display:none;
 }
+#newImagesLabel{
+    display: none;
+}
 
 #preview-images-zone-existing > .preview-image:first-child {
     height: 185px;
@@ -73,4 +76,10 @@
 
 .container {
     padding-top: 50px;
+}
+
+#clearImages{
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

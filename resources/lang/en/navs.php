@@ -20,6 +20,7 @@ return [
     'frontend' => [
         'contact' => 'Contact',
         'dashboard' => 'Dashboard',
+        'index' => 'Home',
         'login' => 'Login',
         'macros' => 'Macros',
         'register' => 'Register',

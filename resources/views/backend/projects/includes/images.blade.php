@@ -7,7 +7,9 @@
 {{--        {{ html()->file('images')--}}
 {{--            ->class('form-control')--}}
 {{--            }}--}}
-
+        <label class="form-control-label" for="images">
+            Images
+        </label>
         <div class="preview-images-zone form-control col" id="preview-images-zone-existing">
             @foreach($project->images()->get() as $image)
                 <div class="preview-image preview-show-{{$image->id}}">
@@ -23,16 +25,24 @@
                     </div>
                 </div>
             @endforeach
+            <div class="m-auto float-right" id="newImageDiv">
+                <a class="btn btn-secondary btn-lg" href="javascript:void(0)" onclick="$('#images').click()">
+                    <i class="fas fa-plus-square"></i>
+                </a>
+                <input type="file" id="images" name="images[]" style="display: none;" class="form-control" multiple>
+            </div>
         </div>
-        <fieldset class="form-group">
-            <a href="javascript:void(0)" onclick="$('#images').click()">Upload Image</a>
-            <input type="file" id="images" name="images[]" style="display: none;" class="form-control" multiple>
-        </fieldset>
-        <button type="button" class="btn btn-secondary" id="clearImages">
-            Clear
-        </button>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-md-12">
+        <label class="form-control-label" for="images" id="newImagesLabel" >
+            Images To Be Added
+        </label>
         <div class="preview-images-zone form-control col" id="preview-images-zone">
-
+            <button type="button" class="btn btn-secondary" id="clearImages">
+                Clear
+            </button>
         </div>
     </div>
 </div>

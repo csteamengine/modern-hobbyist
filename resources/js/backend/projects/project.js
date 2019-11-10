@@ -8,21 +8,24 @@ $(document).ready(function() {
     }
 
     // $( "#preview-images-zone" ).sortable();
-    $( "#preview-images-zone-existing" ).sortable();
+    $( "#preview-images-zone-existing" ).sortable({
+        items: 'div[id!=newImageDiv]'
+    });
 
     $('.image-cancel').on('click', function() {
         let no = $(this).data('no');
         $(".preview-image.preview-show-"+no).remove();
 
-        if($('#preview-images-zone-existing').children().length == 0){
-            $('#preview-images-zone-existing').hide();
-        }
+        // if($('#preview-images-zone-existing').children().length == 0){
+        //     $('#preview-images-zone-existing').hide();
+        // }
     });
 
     $('#clearImages').on('click', function(){
         $fileInput.val('');
-        $("#preview-images-zone").html('');
+        $("#preview-images-zone").children('.preview-image').remove();
         $("#preview-images-zone").hide();
+        $('#newImagesLabel').hide();
     });
 });
 
@@ -56,6 +59,7 @@ function readImage() {
             picReader.readAsDataURL(file);
         }
         output.show();
+        $('#newImagesLabel').show();
     } else {
         console.log('File format not supported');
     }

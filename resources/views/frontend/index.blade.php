@@ -3,38 +3,34 @@
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
 @section('content')
-    <div class="row mb-4">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-home"></i> @lang('navs.general.home')
-                </div>
-                <div class="card-body">
-                    @lang('strings.frontend.welcome_to', ['place' => app_name()])
-                </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+    <div class="fullscreen-bg">
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="CAD2.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="homeText">
+        <div class="row">
+            <div class="col mt-auto mb-auto text-center">
+                <h1>Hello,</h1>
+                <h1>
+                    I'm
+                    <span class="typewrite" data-period="2500" data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
+                    <span class="wrap"></span>
+                </span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row filler-section"></div>
+    <div class="projects content-sections row text-center">
+        <div class="col-12">
+            <h1>Hello</h1>
+        </div>
+    </div>
 
-    <div class="row mb-4">
-        <div class="col">
-            <example-component></example-component>
-        </div><!--col-->
-    </div><!--row-->
-
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fab fa-font-awesome-flag"></i> Font Awesome @lang('strings.frontend.test')
-                </div>
-                <div class="card-body">
-                    <i class="fas fa-home"></i>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-pinterest"></i>
-                </div><!--card-body-->
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
 @endsection
+
+@push('after-scripts')
+    {{script('js/index.js')}}
+@endpush

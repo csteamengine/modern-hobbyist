@@ -23,14 +23,11 @@
         @stack('after-styles')
     </head>
     <body>
-        @include('includes.partials.demo')
-
+{{--        @include('includes.partials.demo')--}}
         <div id="app">
-            @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
 
-            <div class="container">
-                @include('includes.partials.messages')
+            <div class="container-fluid">
                 @yield('content')
             </div><!-- container -->
         </div><!-- #app -->

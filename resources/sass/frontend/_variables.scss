@@ -1,3 +1,12 @@
 // Override the Bootstrap defaults without modifying key, versioned files.
 
-$font-family-sans-serif: "Nunito", sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+$font-family-sans-serif: 'Inconsolata', monospace;
+
+$bg-color: #2B2B2B;
+$font-color: #BABABA;
+$font-hover-color: #A5C261;
+$font-focus-color: #F4F4F4;
+$focus-border-color: #E8BF6A;
+$focus-outline-color: none;
