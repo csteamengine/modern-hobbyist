@@ -6,7 +6,7 @@
     <div class="fullscreen-bg">
         <div class="overlay"></div>
         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="CAD2.mp4" type="video/mp4">
+            <source src="{{asset('storage/CAD2.mp4')}}" type="video/mp4">
         </video>
     </div>
     <div class="homeText">
