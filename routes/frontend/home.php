@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\JobController;
+use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
@@ -11,8 +13,14 @@ use App\Http\Controllers\Frontend\User\DashboardController;
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('about', [HomeController::class, 'index'])->name('about');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
+
+Route::resources([
+    'projects' => 'ProjectController',
+    'jobs' => 'JobController'
+]);
 
 /*
  * These frontend controllers require the user to be logged in

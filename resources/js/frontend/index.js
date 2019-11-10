@@ -41,6 +41,8 @@ TxtType.prototype.tick = function() {
 };
 
 $(document).ready(function() {
+    $('body').scrollspy();
+
     var elements = document.getElementsByClassName('typewrite');
     for (var i=0; i<elements.length; i++) {
         var toRotate = elements[i].getAttribute('data-type');
@@ -54,4 +56,24 @@ $(document).ready(function() {
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
+
+    $("#nav ul li a[href^='#']").on('click', function(e) {
+        // prevent default anchor click behavior
+        e.preventDefault();
+
+        // store hash
+        var hash = this.hash;
+
+        // animate
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 1000, function(){
+
+            // when done, add hash to url
+            // (default click behaviour)
+            window.location.hash = hash;
+        });
+
+    });
+
 });

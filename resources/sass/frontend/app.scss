@@ -16,6 +16,7 @@ body{
     font-size: 1.25rem;
     background: $bg-color;
     color: $font-color;
+    overflow: auto;
 }
 
 .container-fluid{
@@ -62,7 +63,7 @@ body{
     top: 0;
     margin: 0;
     padding: 0;
-    background: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .5);
     z-index: 1;
 }
 
@@ -82,10 +83,12 @@ body{
 }
 
 .homeText{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    color: $font-hover-color;
+    z-index: -1;
 }
 
 .homeText .row{
@@ -96,7 +99,7 @@ body{
     z-index: 2;
 }
 
-.projects{
+#projects{
     margin-top: 100vh;
     border-top: 1px solid $font-hover-color;
     min-height: 100vh;
@@ -104,4 +107,6 @@ body{
 
 .content-sections{
     background: $bg-color;
+    min-height: 100vh;
+    z-index: 3;
 }
