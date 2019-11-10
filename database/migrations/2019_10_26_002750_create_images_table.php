@@ -18,6 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('title')->nullable();
             $table->string('description', 500)->nullable();
             $table->string('url');
+            $table->string('color');
             $table->string('small_url')->nullable();
             $table->softDeletes();
             $table->timestamps();

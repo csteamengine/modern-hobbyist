@@ -7,29 +7,31 @@
 {{--        {{ html()->file('images')--}}
 {{--            ->class('form-control')--}}
 {{--            }}--}}
-        <label class="form-control-label" for="images">
+        <label class="form-control-label mt-4" for="images">
             Images
         </label>
-        <div class="preview-images-zone form-control col" id="preview-images-zone-existing">
-            @foreach($project->images()->get() as $image)
-                <div class="preview-image preview-show-{{$image->id}}">
-                    <input type="hidden" name="existing_images[]" value="{{$image->id}}"/>
-                    <div class="image-cancel" data-no="{{$image->id}}" data-id="{{$image->id}}">
-                        <i class="fas fa-trash fa-xs text-secondary"></i>
+        <div id="newImageDiv" class="float-right mb-3">
+            <a class="btn btn-secondary btn-lg" href="javascript:void(0)" onclick="$('#images').click()">
+                <i class="fas fa-plus-square"></i>
+            </a>
+            <input type="file" id="images" name="images[]" style="display: none;" class="form-control" multiple>
+        </div>
+        <div class="images-zone">
+            <div class="preview-images-zone form-control col" id="preview-images-zone-existing">
+                @foreach($project->images()->get() as $image)
+                    <div class="preview-image preview-show-{{$image->id}}">
+                        <input type="hidden" name="existing_images[]" value="{{$image->id}}"/>
+                        <div class="image-cancel" data-no="{{$image->id}}" data-id="{{$image->id}}">
+                            <i class="fas fa-trash fa-xs text-secondary"></i>
+                        </div>
+                        {{--                <div class="tools-edit-image">--}}
+                        {{--                    <a href="javascript:void(0)" data-no="1" class="fas fa-edit fa-xs text-success"></a>--}}
+                        {{--                </div>--}}
+                        <div class="image-zone">
+                            <img id="pro-img-{{$image->id}}" src="{{asset('storage/'.$image->url)}}">
+                        </div>
                     </div>
-                    {{--                <div class="tools-edit-image">--}}
-                    {{--                    <a href="javascript:void(0)" data-no="1" class="fas fa-edit fa-xs text-success"></a>--}}
-                    {{--                </div>--}}
-                    <div class="image-zone">
-                        <img id="pro-img-{{$image->id}}" src="{{asset('storage/'.$image->url)}}">
-                    </div>
-                </div>
-            @endforeach
-            <div class="m-auto float-right" id="newImageDiv">
-                <a class="btn btn-secondary btn-lg" href="javascript:void(0)" onclick="$('#images').click()">
-                    <i class="fas fa-plus-square"></i>
-                </a>
-                <input type="file" id="images" name="images[]" style="display: none;" class="form-control" multiple>
+                @endforeach
             </div>
         </div>
     </div>

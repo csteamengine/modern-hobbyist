@@ -7,10 +7,7 @@ $(document).ready(function() {
         $('#preview-images-zone-existing').hide();
     }
 
-    // $( "#preview-images-zone" ).sortable();
-    $( "#preview-images-zone-existing" ).sortable({
-        items: 'div[id!=newImageDiv]'
-    });
+    $( "#preview-images-zone-existing" ).sortable();
 
     $('.image-cancel').on('click', function() {
         let no = $(this).data('no');

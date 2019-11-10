@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Models\Project;
 use App\Repositories\Backend\ProjectRepository;
 use Illuminate\Support\Facades\Storage;
+use PHPColorExtractor\PHPColorExtractor;
 
 
 /**
@@ -164,14 +165,18 @@ class ProjectController extends Controller
         {
             $this->validate($request, [
                 'images' => 'required',
-                'images.*' => 'mimes:jpg,png,tif,gif'
+                'images[].*' => 'image|mimes:jpg,png,tif,gif'
             ]);
             foreach($request->file('images') as $file)
             {
+                $extractor = new PHPColorExtractor();
+                $extractor->setImage($file->getPathname())->setTotalColors(5)->setGranularity(10);
+                $palette = $extractor->extractPalette();
                 $upload = $file->store('images/projects');
                 if($upload){
                     $image = Image::create([
-                        'url' => $upload
+                        'url' => $upload,
+                        'color' => $palette[sizeof($palette)-1]
                     ]);
 
                     if(!$image){
