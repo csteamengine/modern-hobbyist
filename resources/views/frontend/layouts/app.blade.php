@@ -30,6 +30,8 @@
             <div class="container-fluid">
                 @yield('content')
             </div><!-- container -->
+
+            @include('frontend.includes.footer')
         </div><!-- #app -->
 
         <!-- Scripts -->

@@ -22,6 +22,11 @@ body{
 .container-fluid{
     position: absolute;
     top: 0;
+    pointer-events:none;
+}
+
+.container-fluid *{
+    pointer-events: auto;
 }
 
 .navbar-dark{
@@ -101,12 +106,45 @@ body{
 
 #projects{
     margin-top: 100vh;
-    border-top: 1px solid $font-hover-color;
+    border-top: 1px solid $font-primary-color;
     min-height: 100vh;
 }
 
 .content-sections{
-    background: $bg-color;
+    background: $bg-secondary-color;
     min-height: 100vh;
     z-index: 3;
+}
+
+.content-sections:last-child{
+    margin-bottom: 50vh;
+    border-bottom: 1px solid $font-primary-color;
+}
+
+.project{
+    width: 300px;
+    height: 300px;
+    background: $bg-color;
+}
+
+input, textarea{
+    background-color: $bg-color !important;
+    color: $font-color !important;
+    border-color: $font-color !important;
+}
+
+input:focus, textarea:focus{
+    border-color: $font-hover-color !important;
+    outline: none;
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    height: 50vh;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: $bg-color;
+    display: none;
 }

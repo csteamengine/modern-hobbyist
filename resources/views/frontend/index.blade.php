@@ -9,12 +9,11 @@
             <source src="{{asset('storage/CAD-final-short.mp4')}}" type="video/mp4">
         </video>
     </div>
-    <div class="homeText" id="home">
+    <div class="homeText">
         <div class="row p-0 m-0">
             <div class="col mt-auto mb-auto text-center ml-0 mr-0 p-0">
-                <h1>Hello,</h1>
+                <h1>Hello, I'm</h1>
                 <h1>
-                    I'm
                     <span class="typewrite" data-period="2500" data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
                     <span class="wrap"></span>
                 </span>
@@ -22,15 +21,30 @@
             </div>
         </div>
     </div>
-    <div class="row filler-section"></div>
+    <div class="row filler-section" id="home"></div>
     <div id="projects" class="content-sections row text-center">
         <div class="col-12 m-auto">
-            <div class="row justify-content-center">
-                @foreach($projects as $project)
-                    <div class="col-6 col-md-4">
-                        <h1>{{$project->title}}</h1>
-                    </div>
-                @endforeach
+            <div class="row justify-content-around">
+                <div class="project col-lg-3 col-6">
+
+                </div>
+                <div class="project col-lg-3 col-6">
+
+                </div>
+                <div class="project col-lg-3 col-6">
+
+                </div>
+{{--                @foreach($projects as $project)--}}
+{{--                    @if($project->images()->first())--}}
+{{--                        <div class="m-auto text-center project" data-image="{{asset('storage/'.$project->images()->first()->url)}}" style="background-color: #{{$project->images()->first()->color}};">--}}
+{{--                            <h1>Temp 1</h1>--}}
+{{--                        </div>--}}
+{{--                    @else--}}
+{{--                        <div class="m-auto text-center project" style="background-color: #3B3F41;">--}}
+{{--                            <h1>Temp</h1>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
             </div>
         </div>
     </div>
@@ -42,85 +56,6 @@
     <div id="about" class="content-sections row text-center">
         <div class="col-12 m-auto">
             <h1>About</h1>
-        </div>
-    </div>
-    <div id="contact" class="content-sections row text-center">
-        <div class="col-12 m-auto">
-{{--            <h1>Contact</h1>--}}
-            {{ html()->form('POST', route('frontend.contact.send'))->open() }}
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        {{ html()->label(__('validation.attributes.frontend.name'))->for('name') }}
-
-                        {{ html()->text('name', optional(auth()->user())->name)
-                            ->class('form-control')
-                            ->placeholder(__('validation.attributes.frontend.name'))
-                            ->attribute('maxlength', 191)
-                            ->required()}}
-                    </div><!--form-group-->
-                </div><!--col-->
-            </div><!--row-->
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
-                        {{ html()->email('email', optional(auth()->user())->email)
-                            ->class('form-control')
-                            ->placeholder(__('validation.attributes.frontend.email'))
-                            ->attribute('maxlength', 191)
-                            ->required() }}
-                    </div><!--form-group-->
-                </div><!--col-->
-            </div><!--row-->
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
-
-                        {{ html()->text('phone')
-                            ->class('form-control')
-                            ->placeholder(__('validation.attributes.frontend.phone'))
-                            ->attribute('maxlength', 191)
-                            ->required() }}
-                    </div><!--form-group-->
-                </div><!--col-->
-            </div><!--row-->
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        {{ html()->label(__('validation.attributes.frontend.message'))->for('message') }}
-
-                        {{ html()->textarea('message')
-                            ->class('form-control')
-                            ->placeholder(__('validation.attributes.frontend.message'))
-                            ->attribute('rows', 3)
-                            ->required() }}
-                    </div><!--form-group-->
-                </div><!--col-->
-            </div><!--row-->
-
-            @if(config('access.captcha.contact'))
-                <div class="row">
-                    <div class="col">
-                        @captcha
-                        {{ html()->hidden('captcha_status', 'true') }}
-                    </div><!--col-->
-                </div><!--row-->
-            @endif
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group mb-0 clearfix">
-                        {{ form_submit(__('labels.frontend.contact.button')) }}
-                    </div><!--form-group-->
-                </div><!--col-->
-            </div><!--row-->
-            {{ html()->form()->close() }}
         </div>
     </div>
 

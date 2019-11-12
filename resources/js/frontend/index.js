@@ -1,3 +1,11 @@
+$(window).scroll(function() {
+    if ($(this).scrollTop() < 500) { //use `this`, not `document`
+        $('footer').hide();
+    }else{
+        $('footer').show();
+    }
+});
+
 //made by vipul mirajkar thevipulm.appspot.com
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
@@ -76,4 +84,24 @@ $(document).ready(function() {
 
     });
 
+});
+
+$(window).ready(function(){
+
+    if ($(this).scrollTop() < 500) { //use `this`, not `document`
+        $('footer').hide();
+    }else{
+        $('footer').show();
+    }
+
+    $('.project').each(function(){
+        var imageElement = $(this);
+        var image = $(this).data('image');
+        var img = $('<img />').attr({
+            'src': image,
+        }).on('load', function() {
+            imageElement.css('background', 'url("'+image+'") center center');
+            imageElement.css('background-size', 'cover');
+        });
+    });
 });

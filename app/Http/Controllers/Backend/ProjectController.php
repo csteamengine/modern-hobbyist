@@ -10,6 +10,7 @@ use App\Http\Requests\Backend\Project\UpdateProjectRequest;
 use App\Models\Image;
 use App\Models\Project;
 use App\Repositories\Backend\ProjectRepository;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Storage;
 use PHPColorExtractor\PHPColorExtractor;
 
@@ -63,7 +64,16 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $this->projectRepository->create($request->all());
+        $storeSuccess = $this->projectRepository->create($request->all());
+        $imagesSuccess = $this->updateImages($request, $storeSuccess);
+
+        if(!$storeSuccess){
+            return redirect()->back()->withFlashWarning('Failed to create the project');
+        }
+
+        if(!$imagesSuccess){
+            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+        }
 
         return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.created'));
     }
@@ -134,7 +144,7 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index')->withFlashSuccess(__('alerts.backend.projects.deleted'));
     }
 
-    public function updateImages(UpdateProjectRequest $request, Project $project){
+    public function updateImages(FormRequest $request, Project $project){
         $existing_images = $project->images()->get();
         $success = true;
         //remove deleted images
