@@ -49,6 +49,15 @@ TxtType.prototype.tick = function() {
 };
 
 $(document).ready(function() {
+    var pattern = Trianglify({
+        width: $('.page-content').width(),
+        height: $('.page-content').height(),
+        cell_size: 300,
+        x_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B'],
+        y_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B']
+    });
+    $('.page-content').append(pattern.canvas());
+    $('.page-content').css('background-color', 'transparent');
     $('body').scrollspy();
 
     var elements = document.getElementsByClassName('typewrite');
@@ -97,11 +106,13 @@ $(window).ready(function(){
     $('.project').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
-        var img = $('<img />').attr({
-            'src': image,
-        }).on('load', function() {
-            imageElement.css('background', 'url("'+image+'") center center');
-            imageElement.css('background-size', 'cover');
-        });
+        if(image.length != 0){
+            var img = $('<img />').attr({
+                'src': image,
+            }).on('load', function() {
+                imageElement.css('background', 'url("'+image+'") center center');
+                imageElement.css('background-size', 'cover');
+            });
+        }
     });
 });

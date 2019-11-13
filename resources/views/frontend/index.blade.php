@@ -22,45 +22,57 @@
         </div>
     </div>
     <div class="row filler-section" id="home"></div>
-    <div id="projects" class="content-sections row text-center">
-        <div class="col-12 m-auto">
-            <div class="row justify-content-around">
-                <div class="project col-lg-3 col-6">
-
+    <div class="page-content">
+        <div id="projects" class="content-sections row text-center">
+            <div class="col-12 m-auto">
+                <div class="row justify-content-around">
+                    @foreach($projects as $project)
+                        @if($project->images()->first())
+                            <a href="{{route('frontend.projects.show', $project)}}">
+                                <div class="project" data-image="{{asset('storage/'.$project->images()->first()->url)}}" style="background-color: #{{$project->images()->first()->color}};">
+                                    <div class="project-overlay d-flex align-items-center justify-content-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h2>{{$project->title}}</h2>
+                                                <h4 class="project-date">{{date_format(date_create($project->started_at), 'Y')}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        @else
+                            <a href="{{route('frontend.projects.show', $project)}}">
+                                <div class="project" data-image="" style="background-color: #2B2B2B;">
+                                    <div class="project-overlay d-flex align-items-center justify-content-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h2>{{$project->title}}</h2>
+                                                <h4 class="project-date">{{date_format(date_create($project->started_at), 'Y')}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        @endif
+                    @endforeach
                 </div>
-                <div class="project col-lg-3 col-6">
-
-                </div>
-                <div class="project col-lg-3 col-6">
-
-                </div>
-{{--                @foreach($projects as $project)--}}
-{{--                    @if($project->images()->first())--}}
-{{--                        <div class="m-auto text-center project" data-image="{{asset('storage/'.$project->images()->first()->url)}}" style="background-color: #{{$project->images()->first()->color}};">--}}
-{{--                            <h1>Temp 1</h1>--}}
-{{--                        </div>--}}
-{{--                    @else--}}
-{{--                        <div class="m-auto text-center project" style="background-color: #3B3F41;">--}}
-{{--                            <h1>Temp</h1>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
-{{--                @endforeach--}}
             </div>
         </div>
-    </div>
-    <div id="career" class="content-sections row text-center">
-        <div class="col-12 m-auto">
-            <h1>Career</h1>
+        <div id="career" class="content-sections row text-center">
+            <div class="col-12 m-auto">
+                <h1>Career</h1>
+            </div>
         </div>
-    </div>
-    <div id="about" class="content-sections row text-center">
-        <div class="col-12 m-auto">
-            <h1>About</h1>
+        <div id="about" class="content-sections row text-center">
+            <div class="col-12 m-auto">
+                <h1>About</h1>
+            </div>
         </div>
     </div>
 
 @endsection
 
 @push('after-scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
     {{script('js/index.js')}}
 @endpush
