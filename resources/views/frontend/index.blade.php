@@ -2,6 +2,10 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
+@push('before-styles')
+    {{ style(mix('css/index.css')) }}
+@endpush
+
 @section('content')
     <div class="fullscreen-bg">
         <div class="overlay"></div>
@@ -14,24 +18,73 @@
             <div class="col mt-auto mb-auto text-center ml-0 mr-0 p-0">
                 <h1>Hello, I'm</h1>
                 <h1>
-                    <span class="typewrite" data-period="2500" data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
-                    <span class="wrap"></span>
-                </span>
+            <span class="typewrite" data-period="2500" data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
+            <span class="wrap"></span>
+        </span>
                 </h1>
             </div>
         </div>
     </div>
+    <div class="poly-background"></div>
     <div class="row filler-section" id="home"></div>
-    <div class="page-content row">
-        <div class="inner-page-content col">
-            <div id="projects" class="content-sections row text-center">
+    <div class="page-content row justify-content-center">
+        <div class="inner-page-content col-12 p-0">
+            <div id="about" class="content-sections row text-center align-content-center w-100 p-0 m-0">
+                <div class="col-10 m-auto">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 m-auto text-left">
+                            <h2>I'm Charlie Steenhagen</h2>
+                            <h4 class="text-muted">Software Engineer, Web Developer, Maker</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus.
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-6 m-auto">
+                            <img src="{{asset('storage/man.jpg')}}" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-overlap w-100 p-0 m-0">
+                <div class="row-overlap-child col-10 m-auto align-items-center">
+                    <div class="row m-auto h-100">
+                        <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
+                            <div class="row h-100">
+                                <h2 class="col-12 mt-auto">375</h2>
+                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                            </div>
+                        </div>
+                        <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
+                            <div class="row h-100">
+                                <h2 class="col-12 mt-auto">375</h2>
+                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                            </div>
+                        </div>
+                        <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
+                            <div class="row h-100">
+                                <h2 class="col-12 mt-auto">375</h2>
+                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                            </div>
+                        </div>
+                        <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
+                            <div class="row h-100">
+                                <h2 class="col-12 mt-auto">375</h2>
+                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="projects" class="content-sections row text-center w-100 p-0 m-0">
                 <div class="col-10 m-auto">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-{{--                        <ol class="carousel-indicators">--}}
-{{--                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-{{--                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-{{--                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-{{--                        </ol>--}}
+                        {{--                        <ol class="carousel-indicators">--}}
+                        {{--                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
+                        {{--                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
+                        {{--                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
+                        {{--                        </ol>--}}
                         <div class="carousel-inner">
                             @foreach($projects as $project)
                                 @if($project->images()->first())
@@ -62,27 +115,23 @@
                                 @endif
                             @endforeach
                         </div>
-{{--                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">--}}
-{{--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-{{--                            <span class="sr-only">Previous</span>--}}
-{{--                        </a>--}}
-{{--                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">--}}
-{{--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-{{--                            <span class="sr-only">Next</span>--}}
-{{--                        </a>--}}
+                        {{--                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">--}}
+                        {{--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+                        {{--                            <span class="sr-only">Previous</span>--}}
+                        {{--                        </a>--}}
+                        {{--                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">--}}
+                        {{--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+                        {{--                            <span class="sr-only">Next</span>--}}
+                        {{--                        </a>--}}
                     </div>
                 </div>
             </div>
-            <div id="career" class="content-sections row text-center">
+            <div id="career" class="content-sections row text-center w-100 p-0 m-0">
                 <div class="col-12 m-auto">
                     <h1>Career</h1>
                 </div>
             </div>
-            <div id="about" class="content-sections row text-center">
-                <div class="col-12 m-auto">
-                    <h1>About</h1>
-                </div>
-            </div>
+
         </div>
     </div>
 

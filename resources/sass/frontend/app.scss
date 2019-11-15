@@ -21,11 +21,11 @@ body{
 }
 
 .container-fluid{
-    position: absolute;
-    top: 0;
-    pointer-events:none;
-    margin: 0;
-    padding: 0;
+    ////position: absolute;
+    //top: 0;
+    //pointer-events:none;
+    //margin: 0;
+    //padding: 0;
 }
 
 .container-fluid *{
@@ -33,7 +33,11 @@ body{
 }
 
 .navbar-dark{
-    z-index: 3;
+    z-index: 5;
+}
+
+.navbar-white{
+    background-color: $bg-color;
 }
 
 .navbar-dark .navbar-toggler:focus{
@@ -51,104 +55,6 @@ body{
 
 .navbar-dark .navbar-nav .nav-link:hover{
     color: $font-hover-color !important;
-}
-
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
-}
-
-.fullscreen-bg .overlay{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    background: rgba(0, 0, 0, .6);
-    z-index: 1;
-}
-
-.fullscreen-bg video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 0;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.homeText{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: $font-hover-color;
-    z-index: -2;
-}
-
-.homeText .row{
-    height: 100vh;
-}
-
-.homeText .col{
-    z-index: 2;
-}
-
-.page-content{
-    position: relative;
-    margin: 100vh 0 50vh 0;
-    padding: 0;
-    background-color: $bg-color;
-}
-
-.page-content canvas{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-#projects{
-    //border-top: 1px solid $font-primary-color;
-    min-height: 100vh;
-}
-
-.content-sections{
-    //background: $bg-secondary-color;
-    min-height: 100vh;
-    z-index: 3;
-}
-
-.content-sections:last-child{
-    //border-bottom: 1px solid $font-primary-color;
-}
-
-.projects{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.project-bg{
-    width: 300px;
-    height: 300px;
-    //display:block;
-    //overflow:hidden;
 }
 
 input, textarea{

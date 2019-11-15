@@ -9,5 +9,6 @@
     "/css/backend/project.css": "/css/backend/project.css",
     "/js/index.js": "/js/index.js",
     "/js/manifest.js": "/js/manifest.js",
-    "/js/vendor.js": "/js/vendor.js"
+    "/js/vendor.js": "/js/vendor.js",
+    "/css/index.css": "/css/index.css"
 }

@@ -1,10 +1,37 @@
 $(window).scroll(function() {
-    if ($(this).scrollTop() < 500) { //use `this`, not `document`
-        $('footer').hide();
-    }else{
-        $('footer').show();
-    }
+    // console.log($(this).scrollTop());
+    updateBackground();
+    updateHeader();
 });
+
+function updateBackground(){
+    if($(this).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(this).scrollTop() < ($('#career').offset().top - $('#nav').outerHeight())){
+        $('.fullscreen-bg').hide();
+        $('.homeText').hide();
+        $('.poly-background canvas').show();
+        $('footer').hide();
+    }else if($(this).scrollTop() >= ($('#career').offset().top - $('#nav').outerHeight())){
+        $('.fullscreen-bg').hide();
+        $('.homeText').hide();
+        $('.poly-background canvas').hide();
+        $('footer').show();
+    }else{
+        $('.fullscreen-bg').show();
+        $('.homeText').show();
+        $('.poly-background canvas').hide();
+        $('footer').hide();
+    }
+}
+
+function updateHeader(){
+    if($(this).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(this).scrollTop() < ($('#about').offset().top + $('#about').outerHeight() + $('.row-overlap').outerHeight()/2)){
+        $('#nav').addClass('navbar-white');
+    }else if($(this).scrollTop() >= ($('#career').offset().top - $('#nav').outerHeight()) && $(this).scrollTop() < ($('#career').offset().top + $('#career').outerHeight())){
+        $('#nav').addClass('navbar-white');
+    }else{
+        $('#nav').removeClass('navbar-white');
+    }
+}
 
 //made by vipul mirajkar thevipulm.appspot.com
 var TxtType = function(el, toRotate, period) {
@@ -50,14 +77,19 @@ TxtType.prototype.tick = function() {
 
 $(document).ready(function() {
     var pattern = Trianglify({
-        width: $('.page-content').width(),
-        height: $('.page-content').height(),
+        width: $(window).width(),
+        height: $(window).height(),
         cell_size: 300,
         x_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B'],
         y_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B']
     });
-    $('.page-content').append(pattern.canvas());
+
+    $('.poly-background').append(pattern.canvas());
     $('.page-content').css('background-color', 'transparent');
+
+    updateBackground();
+    updateHeader();
+
     $('body').scrollspy();
 
     var elements = document.getElementsByClassName('typewrite');
