@@ -24,9 +24,7 @@ function updateBackground(){
 }
 
 function updateHeader(){
-    if($(this).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(this).scrollTop() < ($('#about').offset().top + $('#about').outerHeight() + $('.row-overlap').outerHeight()/2)){
-        $('#nav').addClass('navbar-white');
-    }else if($(this).scrollTop() >= ($('#career').offset().top - $('#nav').outerHeight()) && $(this).scrollTop() < ($('#career').offset().top + $('#career').outerHeight())){
+    if($(this).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight())){
         $('#nav').addClass('navbar-white');
     }else{
         $('#nav').removeClass('navbar-white');
@@ -148,4 +146,31 @@ $(window).ready(function(){
             });
         }
     });
+});
+
+var $carousel = $('#carouselExampleIndicators');
+$carousel.carousel();
+var handled=false;//global variable
+
+$carousel.bind('slide.bs.carousel', function (e) {
+    var current=$(e.target).find('.item.active');
+    var indx=$(current).index();
+    if((indx+2)>$('.carousel-indicators li').length)
+        indx=-1
+    if(!handled)
+    {
+        $('.carousel-indicators li').removeClass('active')
+        $('.carousel-indicators li:nth-child('+(indx+2)+')').addClass('active');
+    }
+    else
+    {
+        handled=!handled;//if handled=true make it back to false to work normally.
+    }
+});
+
+$(".carousel-indicators li").on('click',function(){
+    //Click event for indicators
+    $(this).addClass('active').siblings().removeClass('active');
+    //remove siblings active class and add it to current clicked item
+    handled=true; //set global variable to true to identify whether indicator changing was handled or not.
 });

@@ -7,15 +7,15 @@
         <ul class="navbar-nav">
             @if(active_class(Active::checkRoute('frontend.index')))
                 <li class="nav-item ml-auto"><a href="#home" class="nav-link">@lang('navs.frontend.index')</a></li>
+                <li class="nav-item ml-auto"><a href="#about" class="nav-link">@lang('navs.frontend.about')</a></li>
                 <li class="nav-item ml-auto"><a href="#projects" class="nav-link">@lang('navs.frontend.projects')</a></li>
                 <li class="nav-item ml-auto"><a href="#career" class="nav-link">@lang('navs.frontend.jobs')</a></li>
-                <li class="nav-item ml-auto"><a href="#about" class="nav-link">@lang('navs.frontend.about')</a></li>
                 <li class="nav-item ml-auto"><a href="#contact" class="nav-link">@lang('navs.frontend.contact')</a></li>
             @else
                 <li class="nav-item ml-auto"><a href="{{route('frontend.index')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.index')) }}">@lang('navs.frontend.index')</a></li>
+                <li class="nav-item ml-auto"><a href="{{route('frontend.about')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.about')) }}">@lang('navs.frontend.about')</a></li>
                 <li class="nav-item ml-auto"><a href="{{route('frontend.projects.index')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.projects.*')) }}">@lang('navs.frontend.projects')</a></li>
                 <li class="nav-item ml-auto"><a href="{{route('frontend.jobs.index')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.jobs.*')) }}">@lang('navs.frontend.jobs')</a></li>
-                <li class="nav-item ml-auto"><a href="{{route('frontend.about')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.about')) }}">@lang('navs.frontend.about')</a></li>
                 <li class="nav-item ml-auto"><a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">@lang('navs.frontend.contact')</a></li>
             @endif
         </ul>

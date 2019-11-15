@@ -37,7 +37,8 @@ body{
 }
 
 .navbar-white{
-    background-color: $bg-color;
+    //background-color: $bg-color;
+    background: rgba(0,0,0,.8);
 }
 
 .navbar-dark .navbar-toggler:focus{

@@ -28,6 +28,11 @@
     <div class="poly-background"></div>
     <div class="row filler-section" id="home"></div>
     <div class="page-content row justify-content-center">
+        <div class="scroll-downs">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+        </div>
         <div class="inner-page-content col-12 p-0">
             <div id="about" class="content-sections row text-center align-content-center w-100 p-0 m-0">
                 <div class="col-10 m-auto">
@@ -77,41 +82,29 @@
                     </div>
                 </div>
             </div>
-            <div id="projects" class="content-sections row text-center w-100 p-0 m-0">
-                <div class="col-10 m-auto">
+            <div id="projects" class="content-sections row text-center w-100 p-0 mr-0 ml-0">
+                <ol class="carousel-indicators mb-5">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="col-12 col-sm-10 m-auto">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        {{--                        <ol class="carousel-indicators">--}}
-                        {{--                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-                        {{--                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-                        {{--                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-                        {{--                        </ol>--}}
                         <div class="carousel-inner">
                             @foreach($projects as $project)
                                 @if($project->images()->first())
                                     <div class="project carousel-item {{$loop->index == 0 ? 'active' : ''}}">
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 m-auto {{$loop->index %2 ? 'order-1' : 'order-0'}} order-md-0">
-                                                <div class="mb-5 m-auto project-bg" data-image="{{asset('storage/'.$project->images()->first()->url)}}"  style="background-color: #{{$project->images()->first()->color}};"></div>
+                                        <div class="row p-5">
+                                            <div class="project-image-div col-12 col-md-6 p-0 mb-5 m-md-auto order-0 {{$loop->index %2 ? 'order-md-1' : 'order-md-0'}}">
+                                                <div class="project-bg m-auto" data-image="{{asset('storage/'.$project->images()->first()->url)}}"  style="background-color: #{{$project->images()->first()->color}};"></div>
                                             </div>
-                                            <div class="col-12 col-sm-6 m-auto {{$loop->index %2 ? 'order-0' : 'order-1'}} order-md-1">
+                                            <div class="col-12 col-md-6 m-md-auto order-1 {{$loop->index %2 ? 'order-md-0' : 'order-md-1'}}">
                                                 <h3 class="mb-0">{{$project->title}}</h3>
                                                 <p class="mt-0"><small>{{$project->started_at}}</small></p>
                                                 <p>{{$project->short_description}}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    {{--                                    <a href="{{route('frontend.projects.show', $project)}}">--}}
-                                    {{--                                        <div class="project" data-image="{{asset('storage/'.$project->images()->first()->url)}}" style="background-color: #{{$project->images()->first()->color}};">--}}
-                                    {{--                                            <div class="project-overlay d-flex align-items-center justify-content-center">--}}
-                                    {{--                                                <div class="row">--}}
-                                    {{--                                                    <div class="col">--}}
-                                    {{--                                                        <h2>{{$project->title}}</h2>--}}
-                                    {{--                                                        <h4 class="project-date">{{date_format(date_create($project->started_at), 'Y')}}</h4>--}}
-                                    {{--                                                    </div>--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </a>--}}
                                 @endif
                             @endforeach
                         </div>
