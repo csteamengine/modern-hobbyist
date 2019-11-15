@@ -96,20 +96,21 @@ $(document).ready(function() {
 });
 
 $(window).ready(function(){
-
     if ($(this).scrollTop() < 500) { //use `this`, not `document`
         $('footer').hide();
     }else{
         $('footer').show();
     }
 
-    $('.project').each(function(){
+    $('.project-bg').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
+
         if(image.length != 0){
             var img = $('<img />').attr({
                 'src': image,
             }).on('load', function() {
+                // imageElement.attr('src', image);
                 imageElement.css('background', 'url("'+image+'") center center');
                 imageElement.css('background-size', 'cover');
             });
