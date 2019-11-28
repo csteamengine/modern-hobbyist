@@ -24,6 +24,7 @@ return [
         'about' => 'About',
         'projects' => 'Projects',
         'jobs' => 'Career',
+        'services' => 'Services',
         'login' => 'Login',
         'macros' => 'Macros',
         'register' => 'Register',

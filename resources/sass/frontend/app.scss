@@ -36,11 +36,6 @@ body{
     z-index: 5;
 }
 
-.navbar-white{
-    //background-color: $bg-color;
-    background: rgba(0,0,0,.8);
-}
-
 .navbar-dark .navbar-toggler:focus{
     border: 1px solid $focus-border-color !important;
     outline: $focus-border-color !important;

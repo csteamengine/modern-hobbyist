@@ -1,33 +1,25 @@
+import "particles.js";
 $(window).scroll(function() {
     // console.log($(this).scrollTop());
     updateBackground();
-    updateHeader();
 });
 
 function updateBackground(){
-    if($(this).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(this).scrollTop() < ($('#career').offset().top - $('#nav').outerHeight())){
+    if($(window).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(window).scrollTop() < ($('#services').offset().top - $('#nav').outerHeight())){
         $('.fullscreen-bg').hide();
         $('.homeText').hide();
-        $('.poly-background canvas').show();
+        $('#project-particles').show();
         $('footer').hide();
-    }else if($(this).scrollTop() >= ($('#career').offset().top - $('#nav').outerHeight())){
+    }else if($(window).scrollTop() >= ($('#services').offset().top - $('#nav').outerHeight())){
         $('.fullscreen-bg').hide();
         $('.homeText').hide();
-        $('.poly-background canvas').hide();
+        $('#project-particles').hide();
         $('footer').show();
     }else{
         $('.fullscreen-bg').show();
         $('.homeText').show();
-        $('.poly-background canvas').hide();
+        $('#project-particles').hide();
         $('footer').hide();
-    }
-}
-
-function updateHeader(){
-    if($(this).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight())){
-        $('#nav').addClass('navbar-white');
-    }else{
-        $('#nav').removeClass('navbar-white');
     }
 }
 
@@ -74,19 +66,19 @@ TxtType.prototype.tick = function() {
 };
 
 $(document).ready(function() {
-    var pattern = Trianglify({
-        width: $(window).width(),
-        height: $(window).height(),
-        cell_size: 300,
-        x_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B'],
-        y_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B']
-    });
-
-    $('.poly-background').append(pattern.canvas());
+    console.log("hello");
+    // var pattern = Trianglify({
+    //     width: $(window).width(),
+    //     height: $(window).height(),
+    //     cell_size: 300,
+    //     x_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B'],
+    //     y_colors: ['#2B2B2B','#303335', '#3B3F41','#303335','#3B3F41','#303335','#2B2B2B']
+    // });
+    //
+    // $('.poly-background').append(pattern.canvas());
     $('.page-content').css('background-color', 'transparent');
 
     updateBackground();
-    updateHeader();
 
     $('body').scrollspy();
 
@@ -126,13 +118,13 @@ $(document).ready(function() {
 });
 
 $(window).ready(function(){
-    if ($(this).scrollTop() < 500) { //use `this`, not `document`
-        $('footer').hide();
-    }else{
-        $('footer').show();
-    }
+    console.log("window");
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    particlesJS.load('project-particles', 'js/particlesjs-config.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
 
-    $('.project-bg').each(function(){
+    $('.project-image').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
 
@@ -140,7 +132,20 @@ $(window).ready(function(){
             var img = $('<img />').attr({
                 'src': image,
             }).on('load', function() {
-                // imageElement.attr('src', image);
+                imageElement.attr('src', image);
+                // imageElement.css('background', 'url("'+image+'") center center');
+                // imageElement.css('background-size', 'cover');
+            });
+        }
+    });
+    $('.project-bg-image').each(function(){
+        var imageElement = $(this);
+        var image = $(this).data('image');
+
+        if(image.length != 0){
+            var img = $('<img />').attr({
+                'src': image,
+            }).on('load', function() {
                 imageElement.css('background', 'url("'+image+'") center center');
                 imageElement.css('background-size', 'cover');
             });
@@ -153,8 +158,9 @@ $carousel.carousel();
 var handled=false;//global variable
 
 $carousel.bind('slide.bs.carousel', function (e) {
-    var current=$(e.target).find('.item.active');
+    var current=$(e.target).find('.carousel-item.active');
     var indx=$(current).index();
+
     if((indx+2)>$('.carousel-indicators li').length)
         indx=-1
     if(!handled)

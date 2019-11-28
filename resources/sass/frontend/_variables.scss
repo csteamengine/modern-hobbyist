@@ -4,12 +4,15 @@
 
 $font-family-sans-serif: 'Inconsolata', monospace;
 
+$bg-blue: #003366;
 $bg-color: #2B2B2B;
-$bg-secondary-color: #3B3F41;
-$bg-off-white: #F7F7F7;
-$font-color: #BABABA;
-$font-primary-color: #6D9CBE;
-$font-hover-color: #A5C261;
-$font-focus-color: #F4F4F4;
-$focus-border-color: #E8BF6A;
+$bg-secondary-color: #31b3cd;
+$bg-gray-color: #3B3F41;
+$bg-off-white: #fef9f5;
+$font-color: #FFCC00;
+$font-secondary-color: $bg-secondary-color;
+$font-primary-color: $bg-color;
+$font-hover-color: #efa71d;
+$font-focus-color: $font-hover-color;
+$focus-border-color: #fef9f5;
 $focus-outline-color: none;

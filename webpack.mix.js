@@ -35,6 +35,7 @@ mix.setPublicPath('public')
         'popper.js',
         'axios',
         'sweetalert2',
+        'particles.js',
         'lodash'
     ])
     .sourceMaps();
