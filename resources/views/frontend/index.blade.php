@@ -18,14 +18,14 @@
             <div class="col mt-auto mb-auto text-center ml-0 mr-0 p-0">
                 <h1>Hello, I'm</h1>
                 <h1>
-            <span class="typewrite" data-period="2500" data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
+            <span class="typewrite" data-period="2500"
+                  data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
             <span class="wrap"></span>
         </span>
                 </h1>
             </div>
         </div>
     </div>
-{{--    <div id="poly-background" class="poly-background"></div>--}}
     <div id="project-particles"></div>
     <div class="row filler-section" id="home"></div>
     <div class="page-content row justify-content-center">
@@ -93,7 +93,9 @@
                             @if($project->images()->first())
                                 <div class="col mb-5">
                                     <div class="project-bg row m-auto">
-                                        <div class="project-bg-image" data-image="{{asset('storage/'.$project->images()->first()->url)}}" style="background-color: #{{$project->images()->first()->color}}"></div>
+                                        <div class="project-bg-image"
+                                             data-image="{{asset('storage/'.$project->images()->first()->url)}}"
+                                             style="background-color: #{{$project->images()->first()->color}}"></div>
                                         <div class="project-text col m-auto">
                                             <h3 class="project-title">{{$project->title}}</h3>
                                             <h5 class="project-description">{{$project->short_description}}</h5>
@@ -108,82 +110,92 @@
                     </div>
                 </div>
             </div>
-{{--            <div id="projects" class="content-sections row text-center w-100 p-0 mr-0 ml-0">--}}
-{{--                <ol class="carousel-indicators mb-5">--}}
-{{--                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-{{--                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-{{--                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-{{--                </ol>--}}
-{{--                <div class="col-12 col-sm-10 m-auto">--}}
-{{--                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">--}}
-{{--                        <div class="carousel-inner">--}}
-{{--                            @foreach($projects as $project)--}}
-{{--                                @if($project->images()->first())--}}
-{{--                                    <div class="project carousel-item {{$loop->index == 0 ? 'active' : ''}}">--}}
-{{--                                        <div class="row p-5">--}}
-{{--                                            <div class="col-12 col-md-6">--}}
-{{--                                                <img class="project-image w-100" data-image="{{asset('storage/'.$project->images()->first()->url)}}">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-12 col-md-6 m-md-auto order-1 {{$loop->index %2 ? 'order-md-0' : 'order-md-1'}}">--}}
-{{--                                                <h3 class="mb-0">{{$project->title}}</h3>--}}
-{{--                                                <p class="mt-0"><small>{{$project->started_at}}</small></p>--}}
-{{--                                                <p>{{$project->short_description}}</p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                @endif--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div id="projects" class="content-sections row text-center w-100 p-0 mr-0 ml-0">--}}
+            {{--                <ol class="carousel-indicators mb-5">--}}
+            {{--                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
+            {{--                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
+            {{--                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
+            {{--                </ol>--}}
+            {{--                <div class="col-12 col-sm-10 m-auto">--}}
+            {{--                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">--}}
+            {{--                        <div class="carousel-inner">--}}
+            {{--                            @foreach($projects as $project)--}}
+            {{--                                @if($project->images()->first())--}}
+            {{--                                    <div class="project carousel-item {{$loop->index == 0 ? 'active' : ''}}">--}}
+            {{--                                        <div class="row p-5">--}}
+            {{--                                            <div class="col-12 col-md-6">--}}
+            {{--                                                <img class="project-image w-100" data-image="{{asset('storage/'.$project->images()->first()->url)}}">--}}
+            {{--                                            </div>--}}
+            {{--                                            <div class="col-12 col-md-6 m-md-auto order-1 {{$loop->index %2 ? 'order-md-0' : 'order-md-1'}}">--}}
+            {{--                                                <h3 class="mb-0">{{$project->title}}</h3>--}}
+            {{--                                                <p class="mt-0"><small>{{$project->started_at}}</small></p>--}}
+            {{--                                                <p>{{$project->short_description}}</p>--}}
+            {{--                                            </div>--}}
+            {{--                                        </div>--}}
+            {{--                                    </div>--}}
+            {{--                                @endif--}}
+            {{--                            @endforeach--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
             <div id="services" class="content-sections row text-center w-100 p-0 m-0">
-                <div class="col-10 m-auto">
-                    <h1 class="m-auto">Services</h1>
-                </div>
-                <div class="col-10 m-auto">
-                    <div class="row">
-                        <div class="service col-12 col-md-6 col-xl-3">
-                            <div class="single-service">
-                                <i class="fas fa-envelope fa-3x"></i>
-                                <h3>Service 1</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    s Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus
-                                </p>
-                            </div>
+                <div class="col-md-10 m-auto">
+                    @foreach($jobs as $job)
+                        <!-- timeline item 1 -->
+                        <div class="row no-gutters my-5">
+                            @if($loop->index % 2)
+                                <div class="ml-auto d-none d-md-block col-2">
+                                    <div class="row m-auto h-100">
+                                        <div class="vertical-line {{$loop->index == 0 ? "vertical-line-first" : ""}} {{$loop->last ? "vertical-line-last" : ""}}"></div>
+                                        <span class="m-auto">
+                                            <i class="fa fa-circle m-auto"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card col-12 col-md-5" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 m-auto">
+                                                <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
+                                            </div>
+                                            <div class="col-12 col-md-6 m-auto">
+                                                <h1 class="card-title">{{$job->title}}</h1>
+                                                <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
+                                                <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
+                                                <p class="card-text">{{$job->short_description}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card col-12 col-md-5" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 m-auto">
+                                                <h1 class="card-title">{{$job->title}}</h1>
+                                                <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
+                                                <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
+                                                <p class="card-text">{{$job->short_description}}</p>
+                                            </div>
+                                            <div class="col-12 col-md-6 m-auto">
+                                                <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-block col-2">
+                                    <div class="row m-auto h-100">
+                                        <div class="vertical-line {{$loop->index == 0 ? "vertical-line-first" : ""}} {{$loop->last ? "vertical-line-last" : ""}}"></div>
+                                        <span class="m-auto">
+                                            <i class="fa fa-circle m-auto"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
-                        <div class="service col-12 col-md-6 col-xl-3">
-                            <div class="single-service">
-                                <i class="fas fa-envelope fa-3x"></i>
-                                <h3>Service 1</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    s Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus
-                                </p>
-                            </div>
-                        </div>
-                        <div class="service col-12 col-md-6 col-xl-3">
-                            <div class="single-service">
-                                <i class="fas fa-envelope fa-3x"></i>
-                                <h3>Service 1</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    s Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus
-                                </p>
-                            </div>
-                        </div>
-                        <div class="service col-12 col-md-6 col-xl-3">
-                            <div class="single-service">
-                                <i class="fas fa-envelope fa-3x"></i>
-                                <h3>Service 1</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    s Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                        <!--/row-->
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use App\Models\Project;
 
 /**
@@ -16,6 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $projects = Project::all()->take(10);
-        return view('frontend.index')->withProjects($projects);
+        $jobs = Job::all()->take(3);
+        return view('frontend.index')->withProjects($projects)->withJobs($jobs);
     }
 }

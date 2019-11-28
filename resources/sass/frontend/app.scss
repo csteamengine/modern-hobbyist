@@ -28,6 +28,10 @@ body{
     //padding: 0;
 }
 
+#nav{
+    font-size:      1.2em;
+}
+
 .container-fluid *{
     pointer-events: auto;
 }
@@ -71,7 +75,7 @@ footer{
     bottom: 0;
     left: 0;
     z-index: -2;
-    background-color: $bg-color;
+    background-color: transparent;
     display: none;
 }
 

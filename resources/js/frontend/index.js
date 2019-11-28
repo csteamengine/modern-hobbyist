@@ -1,6 +1,5 @@
 import "particles.js";
 $(window).scroll(function() {
-    // console.log($(this).scrollTop());
     updateBackground();
 });
 
@@ -8,17 +7,14 @@ function updateBackground(){
     if($(window).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(window).scrollTop() < ($('#services').offset().top - $('#nav').outerHeight())){
         $('.fullscreen-bg').hide();
         $('.homeText').hide();
-        $('#project-particles').show();
         $('footer').hide();
     }else if($(window).scrollTop() >= ($('#services').offset().top - $('#nav').outerHeight())){
         $('.fullscreen-bg').hide();
         $('.homeText').hide();
-        $('#project-particles').hide();
         $('footer').show();
     }else{
         $('.fullscreen-bg').show();
         $('.homeText').show();
-        $('#project-particles').hide();
         $('footer').hide();
     }
 }
@@ -66,7 +62,6 @@ TxtType.prototype.tick = function() {
 };
 
 $(document).ready(function() {
-    console.log("hello");
     // var pattern = Trianglify({
     //     width: $(window).width(),
     //     height: $(window).height(),
@@ -118,10 +113,9 @@ $(document).ready(function() {
 });
 
 $(window).ready(function(){
-    console.log("window");
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
     particlesJS.load('project-particles', 'js/particlesjs-config.json', function() {
-        console.log('callback - particles.js config loaded');
+        // console.log('callback - particles.js config loaded');
     });
 
     $('.project-image').each(function(){
