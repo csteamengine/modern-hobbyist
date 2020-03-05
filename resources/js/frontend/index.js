@@ -4,11 +4,11 @@ $(window).scroll(function() {
 });
 
 function updateBackground(){
-    if($(window).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(window).scrollTop() < ($('#services').offset().top - $('#nav').outerHeight())){
+    if($(window).scrollTop() >= ($('#about').offset().top - $('#nav').outerHeight()) && $(window).scrollTop() < ($('#career').offset().top - $('#nav').outerHeight())){
         $('.fullscreen-bg').hide();
         $('.homeText').hide();
         $('footer').hide();
-    }else if($(window).scrollTop() >= ($('#services').offset().top - $('#nav').outerHeight())){
+    }else if($(window).scrollTop() >= ($('#career').offset().top - $('#nav').outerHeight())){
         $('.fullscreen-bg').hide();
         $('.homeText').hide();
         $('footer').show();
@@ -143,6 +143,21 @@ $(window).ready(function(){
                 imageElement.css('background', 'url("'+image+'") center center');
                 imageElement.css('background-size', 'cover');
             });
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: 'https://www.googleapis.com/youtube/v3/channels',
+        data: {
+            key: 'AIzaSyDYpzf9iciqWH0sENBiMqYACQ2xnMo5bDY',
+            part: 'statistics',
+            id: 'UCjgA1ehfjkZ4WMa5Cw9f1LA'
+        },
+        success: function(data){
+            $('#youtubeVideoCount').html(data.items[0].statistics.videoCount);
+        },
+        error: function(response){
+            console.log("Request Failed");
         }
     });
 });

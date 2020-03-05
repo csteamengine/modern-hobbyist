@@ -9,7 +9,7 @@
                 <li class="nav-item ml-auto"><a href="#home" class="nav-link">@lang('navs.frontend.index')</a></li>
                 <li class="nav-item ml-auto"><a href="#about" class="nav-link">@lang('navs.frontend.about')</a></li>
                 <li class="nav-item ml-auto"><a href="#projects" class="nav-link">@lang('navs.frontend.projects')</a></li>
-                <li class="nav-item ml-auto"><a href="#services" class="nav-link">@lang('navs.frontend.services')</a></li>
+                <li class="nav-item ml-auto"><a href="#career" class="nav-link">@lang('navs.frontend.career')</a></li>
                 <li class="nav-item ml-auto"><a href="#contact" class="nav-link">@lang('navs.frontend.contact')</a></li>
             @else
                 <li class="nav-item ml-auto"><a href="{{route('frontend.index')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.index')) }}">@lang('navs.frontend.index')</a></li>

@@ -36,47 +36,55 @@
         </div>
         <div class="inner-page-content col-12 p-0">
             <div id="about" class="content-sections row text-center align-content-center w-100 p-0 m-0">
-                <div class="col-10 m-auto">
+                <div class="col-10 mb-5 ml-auto mr-auto mt-auto m-lg-auto">
                     <div class="row">
-                        <div class="col-12 col-sm-5 m-auto">
-                            <img src="{{asset('storage/avtar-01.jpg')}}" class="about-image img-fluid">
+                        <div class="col-12 col-lg-5 mb-3 m-lg-auto">
+                            <img src="{{asset('storage/charlie.jpeg')}}" class="about-image img-fluid">
                         </div>
-                        <div class="col-12 col-sm-7 m-auto text-left">
-                            <h2>I'm Charlie Steenhagen</h2>
-                            <h4 class="text-muted">Software Engineer, Web Developer, Maker</h4>
-                            <p>
+                        <div class="col-12 col-lg-6 mt-3 mb-5 m-lg-auto text-left">
+                            <h1><span class="text-secondary">I'm </span>Charlie Steenhagen</h1>
+                            <h3 class="text-secondary">Software Engineer, Web Developer, Maker</h3>
+                            <p class="text-secondary">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus.
                             </p>
+                            <button class="btn btn-lg btn-outline-primary">
+                                More About Me
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="btn btn-lg btn-outline-primary">
+                                Download Resume
+                                <i class="fas fa-download"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row row-overlap w-100 p-0 m-0">
+            <div class="row row-overlap w-100 p-0 m-0 d-none d-sm-block">
                 <div class="row-overlap-child col-10 m-auto align-items-center">
                     <div class="row m-auto h-100">
                         <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
                             <div class="row h-100">
-                                <h2 class="col-12 mt-auto">375</h2>
-                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                                <h2 class="col-12 mt-auto">{{$projects->count()}}</h2>
+                                <p class="col-12 text-muted mb-auto">Completed Projects</p>
+                            </div>
+                        </div>
+                        <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
+                            <div class="row h-100">
+                                <h2 class="col-12 mt-auto" id="youtubeVideoCount">&#8734;</h2>
+                                <p class="col-12 text-muted mb-auto">YouTube Videos</p>
                             </div>
                         </div>
                         <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
                             <div class="row h-100">
                                 <h2 class="col-12 mt-auto">375</h2>
-                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                                <p class="col-12 text-muted mb-auto">Cups of Coffee</p>
                             </div>
                         </div>
                         <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
                             <div class="row h-100">
-                                <h2 class="col-12 mt-auto">375</h2>
-                                <p class="col-12 text-muted mb-auto">Test Categories</p>
-                            </div>
-                        </div>
-                        <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
-                            <div class="row h-100">
-                                <h2 class="col-12 mt-auto">375</h2>
-                                <p class="col-12 text-muted mb-auto">Test Categories</p>
+                                <h2 class="col-12 mt-auto">&#8734;</h2>
+                                <p class="col-12 text-muted mb-auto">Things Learned</p>
                             </div>
                         </div>
 
@@ -84,11 +92,11 @@
                 </div>
             </div>
             <div id="projects" class="content-sections row text-center w-100 p-0 mr-0 ml-0 justify-content-center">
-                <div class="col mt-5 position-relative h-100">
-                    <div class="row justify-content-center m-5">
-                        <h1>Projects</h1>
-                    </div>
-                    <div class="row justify-content-center m-auto">
+                <div class="col mt-5 position-relative">
+{{--                    <div class="row justify-content-center m-5">--}}
+{{--                        <h1>Projects</h1>--}}
+{{--                    </div>--}}
+                    <div class="row justify-content-center mt-5">
                         @foreach($projects as $project)
                             @if($project->images()->first())
                                 <div class="col mb-5">
@@ -108,38 +116,12 @@
                             @endif
                         @endforeach
                     </div>
+                    <div class="row m-5">
+                        <button class="btn btn-lg btn-outline-primary m-auto">View All Projects</button>
+                    </div>
                 </div>
             </div>
-            {{--            <div id="projects" class="content-sections row text-center w-100 p-0 mr-0 ml-0">--}}
-            {{--                <ol class="carousel-indicators mb-5">--}}
-            {{--                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-            {{--                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-            {{--                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-            {{--                </ol>--}}
-            {{--                <div class="col-12 col-sm-10 m-auto">--}}
-            {{--                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">--}}
-            {{--                        <div class="carousel-inner">--}}
-            {{--                            @foreach($projects as $project)--}}
-            {{--                                @if($project->images()->first())--}}
-            {{--                                    <div class="project carousel-item {{$loop->index == 0 ? 'active' : ''}}">--}}
-            {{--                                        <div class="row p-5">--}}
-            {{--                                            <div class="col-12 col-md-6">--}}
-            {{--                                                <img class="project-image w-100" data-image="{{asset('storage/'.$project->images()->first()->url)}}">--}}
-            {{--                                            </div>--}}
-            {{--                                            <div class="col-12 col-md-6 m-md-auto order-1 {{$loop->index %2 ? 'order-md-0' : 'order-md-1'}}">--}}
-            {{--                                                <h3 class="mb-0">{{$project->title}}</h3>--}}
-            {{--                                                <p class="mt-0"><small>{{$project->started_at}}</small></p>--}}
-            {{--                                                <p>{{$project->short_description}}</p>--}}
-            {{--                                            </div>--}}
-            {{--                                        </div>--}}
-            {{--                                    </div>--}}
-            {{--                                @endif--}}
-            {{--                            @endforeach--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-            <div id="services" class="content-sections row text-center w-100 p-0 m-0">
+            <div id="career" class="content-sections row text-center w-100 p-0 m-0">
                 <div class="col-md-10 m-auto">
                     @foreach($jobs as $job)
                         <!-- timeline item 1 -->
@@ -153,7 +135,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="card col-12 col-md-5" style="width: 18rem;">
+                                <div class="job card col-12 col-md-5">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 col-md-6 m-auto">
@@ -169,7 +151,7 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="card col-12 col-md-5" style="width: 18rem;">
+                                <div class="job card col-12 col-md-5">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 col-md-6 m-auto">
@@ -197,7 +179,11 @@
                         <!--/row-->
                     @endforeach
                 </div>
+                <div class="col-12 mb-5">
+                    <button class="btn btn-lg btn-outline-primary m-auto">Download Resume</button>
+                </div>
             </div>
+            <div class="row" id="contact"></div>
         </div>
     </div>
 

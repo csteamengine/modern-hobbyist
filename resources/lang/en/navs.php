@@ -23,7 +23,7 @@ return [
         'index' => 'Home',
         'about' => 'About',
         'projects' => 'Projects',
-        'jobs' => 'Career',
+        'career' => 'Career',
         'services' => 'Services',
         'login' => 'Login',
         'macros' => 'Macros',
