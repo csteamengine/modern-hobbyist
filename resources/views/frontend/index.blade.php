@@ -71,7 +71,7 @@
                         </div>
                         <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
                             <div class="row h-100">
-                                <h2 class="col-12 mt-auto" id="youtubeVideoCount">&#8734;</h2>
+                                <h2 class="col-12 mt-auto" id="youtubeVideoCount">{{$videoCount}}</h2>
                                 <p class="col-12 text-muted mb-auto">YouTube Videos</p>
                             </div>
                         </div>
@@ -201,5 +201,4 @@
 @push('after-scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
     {{script('js/index.js')}}
-    {{script('js/particles.js')}}
 @endpush

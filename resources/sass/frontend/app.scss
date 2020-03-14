@@ -24,6 +24,14 @@ body{
 
 }
 
+.sm-icons{
+    color: $font-color;
+}
+
+.sm-icons:hover{
+    color: $font-hover-color;
+}
+
 #project-particles{
     position: fixed;
     height: 100%;

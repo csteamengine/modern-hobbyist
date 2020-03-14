@@ -139,21 +139,6 @@ $(window).ready(function(){
             });
         }
     });
-    $.ajax({
-        type: 'GET',
-        url: 'https://www.googleapis.com/youtube/v3/channels',
-        data: {
-            key: '',
-            part: 'statistics',
-            id: ''
-        },
-        success: function(data){
-            $('#youtubeVideoCount').html(data.items[0].statistics.videoCount);
-        },
-        error: function(response){
-            console.log("Request Failed");
-        }
-    });
 });
 
 var $carousel = $('#carouselExampleIndicators');

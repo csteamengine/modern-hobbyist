@@ -75,10 +75,21 @@
             <div class="row mt-5">
                 <div class="col-sm-6 m-auto text-center p-0">
                     <div class="row m-auto">
-                        <div class="col-3 col-sm-6 m-auto">First</div>
-                        <div class="col-3 col-sm-6 m-auto">Second</div>
-                        <div class="col-3 col-sm-6 m-auto">Third</div>
-                        <div class="col-3 col-sm-6 m-auto">Fourth</div>
+                        <div class="col-4">
+                            <a href="{{env('YOUTUBE_URL')}}">
+                                <i class="fab fa-4x fa-youtube sm-icons"></i>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="{{env('INSTAGRAM_URL')}}">
+                                <i class="fab fa-4x fa-instagram sm-icons"></i>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="{{env('GITHUB_URL')}}">
+                                <i class="fab fa-4x fa-github sm-icons"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
