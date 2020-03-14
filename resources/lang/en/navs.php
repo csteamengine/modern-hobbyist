@@ -15,6 +15,14 @@ return [
     'general' => [
         'home' => 'Home',
         'logout' => 'Logout',
+        'projects' => [
+            'index' => 'Projects',
+            'show' => 'Project'
+        ],
+        'career' => [
+            'index' => 'Career',
+            'show' => 'Job'
+        ]
     ],
 
     'frontend' => [

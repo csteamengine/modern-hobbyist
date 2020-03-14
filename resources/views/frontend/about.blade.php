@@ -1,13 +1,13 @@
 @extends('frontend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('navs.general.projects.index'))
+@section('title', app_name() . ' | ' . __('navs.general.about'))
 
 @push('before-styles')
 {{--    {{ style(mix('css/index.css')) }}--}}
 @endpush
 
 @section('content')
-    <h1>Projects</h1>
+    <h1>About</h1>
 @endsection
 
 @push('after-scripts')

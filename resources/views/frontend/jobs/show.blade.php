@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('navs.general.home'))
+@section('title', app_name() . ' | ' . __('navs.general.career.show'))
 
 @push('before-styles')
     {{--    {{ style(mix('css/index.css')) }}--}}
