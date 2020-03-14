@@ -76,17 +76,17 @@
                 <div class="col-sm-6 m-auto text-center p-0">
                     <div class="row m-auto">
                         <div class="col-4">
-                            <a href="{{env('YOUTUBE_URL')}}">
+                            <a href="{{env('YOUTUBE_URL')}}" target="_blank">
                                 <i class="fab fa-4x fa-youtube sm-icons"></i>
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="{{env('INSTAGRAM_URL')}}">
+                            <a href="{{env('INSTAGRAM_URL')}}" target="_blank">
                                 <i class="fab fa-4x fa-instagram sm-icons"></i>
                             </a>
                         </div>
                         <div class="col-4">
-                            <a href="{{env('GITHUB_URL')}}">
+                            <a href="{{env('GITHUB_URL')}}" target="_blank">
                                 <i class="fab fa-4x fa-github sm-icons"></i>
                             </a>
                         </div>
