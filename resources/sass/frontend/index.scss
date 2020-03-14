@@ -184,15 +184,6 @@
     width: 100%;
 }
 
-#project-particles{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top:0;
-    z-index: -5;
-}
-
 .row-overlap{
     position: relative;
     transform:translateY(-50%);
@@ -278,6 +269,7 @@
     -webkit-transition: all .5s;
     -o-transition: all .5s;
     -moz-transition: all .5s;
+    color: white;
 }
 .project-description{
     margin-top: 10px;

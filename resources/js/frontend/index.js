@@ -1,4 +1,3 @@
-import "particles.js";
 $(window).scroll(function() {
     updateBackground();
 });
@@ -113,11 +112,6 @@ $(document).ready(function() {
 });
 
 $(window).ready(function(){
-    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('project-particles', 'js/particlesjs-config.json', function() {
-        // console.log('callback - particles.js config loaded');
-    });
-
     $('.project-image').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
@@ -149,9 +143,9 @@ $(window).ready(function(){
         type: 'GET',
         url: 'https://www.googleapis.com/youtube/v3/channels',
         data: {
-            key: 'AIzaSyDYpzf9iciqWH0sENBiMqYACQ2xnMo5bDY',
+            key: '',
             part: 'statistics',
-            id: 'UCjgA1ehfjkZ4WMa5Cw9f1LA'
+            id: ''
         },
         success: function(data){
             $('#youtubeVideoCount').html(data.items[0].statistics.videoCount);

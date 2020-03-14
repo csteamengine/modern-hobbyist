@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div id="project-particles"></div>
+
     <div class="row filler-section" id="home"></div>
     <div class="page-content row justify-content-center">
         <div class="scroll-downs">
@@ -83,7 +83,9 @@
                         </div>
                         <div class="row-overlap-child-counter col-6 col-sm-3 text-center m-auto">
                             <div class="row h-100">
-                                <h2 class="col-12 mt-auto">&#8734;</h2>
+                                <h2 class="col-12 mt-auto">
+                                    <i class="fas fa-infinity"></i>
+                                </h2>
                                 <p class="col-12 text-muted mb-auto">Things Learned</p>
                             </div>
                         </div>
@@ -103,21 +105,28 @@
                                     <div class="project-bg row m-auto">
                                         <div class="project-bg-image"
                                              data-image="{{asset('storage/'.$project->images()->first()->url)}}"
-                                             style="background-color: #{{$project->images()->first()->color}}"></div>
-                                        <div class="project-text col m-auto">
-                                            <h3 class="project-title">{{$project->title}}</h3>
-                                            <h5 class="project-description">{{$project->short_description}}</h5>
+                                             style="background-color: #{{$project->images()->first()->color}}">
                                         </div>
-                                        <a href="#" class="text-decoration-none">
-                                            <div class="project-overlay"></div>
+                                        <a href="{{route('frontend.projects.show', $project)}}">
+                                            <div class="project-overlay">
+                                                <div class="project-text row m-auto h-100">
+                                                    <div class="col m-auto">
+                                                        <h3 class="project-title" v-cloak>{{$project->title}}</h3>
+                                                        <h5 class="project-description">{{$project->short_description}}</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </a>
+
                                     </div>
                                 </div>
                             @endif
                         @endforeach
                     </div>
                     <div class="row m-5">
-                        <button class="btn btn-lg btn-outline-primary m-auto">View All Projects</button>
+                        <a class="m-auto" href="{{route('frontend.projects.index')}}">
+                            <button class="btn btn-lg btn-outline-primary m-auto">View All Projects</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -192,4 +201,5 @@
 @push('after-scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
     {{script('js/index.js')}}
+    {{script('js/particles.js')}}
 @endpush

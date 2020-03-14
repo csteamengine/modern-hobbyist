@@ -8,6 +8,7 @@
 import '../bootstrap';
 import '../plugins';
 import Vue from 'vue';
+import "particles.js";
 
 window.Vue = Vue;
 
@@ -32,4 +33,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+});
+
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+particlesJS.load('project-particles', '/js/particlesjs-config.json', function() {
+    // console.log('callback - particles.js config loaded');
 });

@@ -21,12 +21,18 @@ body{
 }
 
 .container-fluid{
-    ////position: absolute;
-    //top: 0;
-    //pointer-events:none;
-    //margin: 0;
-    //padding: 0;
+
 }
+
+#project-particles{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top:0;
+    z-index: -5;
+}
+
 
 #nav{
     font-size:      1.2em;
