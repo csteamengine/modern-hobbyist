@@ -5,6 +5,8 @@
     "/js/backend/projects/projects.js": "/js/backend/projects/projects.js",
     "/js/frontend.js": "/js/frontend.js",
     "/css/frontend.css": "/css/frontend.css",
+    "/css/frontend/projects/project.css": "/css/frontend/projects/project.css",
+    "/css/frontend/projects/index.css": "/css/frontend/projects/index.css",
     "/css/index.css": "/css/index.css",
     "/css/backend.css": "/css/backend.css",
     "/css/backend/project.css": "/css/backend/project.css",

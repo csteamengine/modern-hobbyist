@@ -3,47 +3,71 @@
 @section('title', app_name() . ' | ' . __('navs.general.projects.show'))
 
 @push('before-styles')
-{{--        {{ style(mix('css/particles.css')) }}--}}
+        {{ style(mix('css/frontend/projects/project.css')) }}
 @endpush
 
 @section('content')
-    <div class="row" style="margin-top: 200px;">
+    <div class="row mb-5" style="margin-top: 200px;">
         <div class="col text-center">
             <h1>{{$project->title}}</h1>
         </div>
     </div>
     <div class="row">
 {{--        Carousel--}}
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="..." alt="First slide">
+        <div class="col-10 col-md-8 col-lg-6 m-auto">
+            <div id="projectImagesCarousel" class="carousel slide m-auto" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($project->images()->get() as $image)
+                        <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
+                            <img class="d-block" src="{{Storage::url($image->url)}}" alt="{{$image->color}}">
+                        </div>
+                    @endforeach
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Third slide">
-                </div>
+                <a class="carousel-control-prev" href="#projectImagesCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#projectImagesCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5 text-center">
+        <div class="col-1">
+            <a href="{{env('YOUTUBE_URL')}}" target="_blank">
+                <i class="fab fa-3x fa-youtube sm-icons"></i>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+        </div>
+        <div class="col-1">
+            <a href="{{env('INSTAGRAM_URL')}}" target="_blank">
+                <i class="fab fa-3x fa-instagram sm-icons"></i>
+            </a>
+        </div>
+        <div class="col-1">
+            <a href="{{env('GITHUB_URL')}}" target="_blank">
+                <i class="fab fa-3x fa-github sm-icons"></i>
             </a>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row mt-5 mb-5">
+        <div class="col-10 m-auto">
+            <hr class="color-divider">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-10 m-auto">
 {{--            Page Content (from backend editor)--}}
+            {!! $project->page_content !!}
         </div>
     </div>
 @endsection
 
 @push('after-scripts')
+    <script>
+        $('.carousel').carousel()
+    </script>
     {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>--}}
     {{--    {{script('js/index.js')}}--}}
 @endpush

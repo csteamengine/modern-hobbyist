@@ -1,0 +1,24 @@
+@import '../variables';
+
+$carousel-height: 500px;
+.carousel{
+    height: $carousel-height;
+    .carousel-item{
+        img{
+            height: $carousel-height;
+            margin: auto;
+        }
+    }
+}
+
+.sm-icons{
+    color: $font-color;
+}
+
+.sm-icons:hover{
+    color: $font-hover-color;
+}
+
+.color-divider{
+    border-top: 1px solid rgba(212, 167, 0, .5);
+}
