@@ -91,10 +91,8 @@ class ProjectController extends Controller
     }
 
     /**
-     * @param ManageProjectRequest    $request
-     * @param RoleRepository       $roleRepository
-     * @param PermissionRepository $permissionRepository
-     * @param Project                 $project
+     * @param ManageProjectRequest $request
+     * @param Project $project
      *
      * @return mixed
      */

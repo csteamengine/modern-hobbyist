@@ -146,7 +146,8 @@ return [
                 'page_content' => 'Page Content',
                 'started_at' => 'Started At',
                 'finished_at' => 'Finished At',
-                'project_url' => 'Project URL',
+                'youtube_url' => 'Youtube URL',
+                'github_url' => 'GitHub URL',
                 'images' => 'Images'
             ]
         ]

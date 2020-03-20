@@ -19,7 +19,8 @@ class CreateProjectsTable extends Migration
             $table->string('short_description', 500)->nullable();
             $table->text('description')->nullable();
             $table->longText('page_content')->nullable();
-            $table->string('project_url')->nullable();
+            $table->string('github_url')->nullable();
+            $table->string('youtube_url')->nullable();
             $table->boolean('is_active')->default(true);
             $table->date('started_at')->nullable();
             $table->date('finished_at')->nullable();

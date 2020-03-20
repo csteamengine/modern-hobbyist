@@ -44,15 +44,27 @@
                 </div><!--form-group-->
                 <div class="form-group row">
                     <div class="col-md-12">
-                        {{ html()->label(__('labels.backend.projects.forms.project_url'))
+                        {{ html()->label(__('labels.backend.projects.forms.youtube_url'))
                             ->class('form-control-label')
-                            ->for('project_url') }}
+                            ->for('youtube_url') }}
 
-                        {{ html()->text('project_url')
+                        {{ html()->text('youtube_url')
                             ->class('form-control')
-                            ->placeholder(__('labels.backend.projects.forms.project_url'))
+                            ->placeholder(__('labels.backend.projects.forms.youtube_url'))
                             ->attribute('maxlength', 500)
-                            ->required()
+                            ->autofocus() }}
+                    </div><!--col-->
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        {{ html()->label(__('labels.backend.projects.forms.github_url'))
+                            ->class('form-control-label')
+                            ->for('github_url') }}
+
+                        {{ html()->text('github_url')
+                            ->class('form-control')
+                            ->placeholder(__('labels.backend.projects.forms.github_url'))
+                            ->attribute('maxlength', 500)
                             ->autofocus() }}
                     </div><!--col-->
                 </div>
