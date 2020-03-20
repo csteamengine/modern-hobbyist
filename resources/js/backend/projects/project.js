@@ -1,5 +1,8 @@
+import "bootstrap";
+import "summernote";
+
 $(document).ready(function() {
-    $fileInput = $('#images').on('change', function(){
+    var $fileInput = $('#images').on('change', function(){
         readImage();
     });
 
@@ -23,6 +26,12 @@ $(document).ready(function() {
         $("#preview-images-zone").children('.preview-image').remove();
         $("#preview-images-zone").hide();
         $('#newImagesLabel').hide();
+    });
+
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 300,
+        });
     });
 });
 

@@ -19,6 +19,7 @@ mix.setPublicPath('public')
     .sass('resources/sass/frontend/index.scss', 'css/index.css')
     .sass('resources/sass/backend/app.scss', 'css/backend.css')
     .sass('resources/sass/backend/projects/project.scss', 'css/backend/project.css')
+    .copy('node_modules/summernote/dist/summernote.css', 'public/css/backend/summernote.css')
     .js('resources/js/frontend/app.js', 'js/frontend.js')
     .js('resources/js/frontend/index.js', 'js/index.js')
     .js('resources/js/backend/jobs/jobs.js', 'js/backend/jobs/jobs.js')
@@ -38,7 +39,8 @@ mix.setPublicPath('public')
         'axios',
         'sweetalert2',
         'particles.js',
-        'lodash'
+        'lodash',
+        'summernote'
     ])
     .sourceMaps();
 

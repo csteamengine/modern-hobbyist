@@ -4,7 +4,13 @@
 
 @push('after-styles')
     {!! style('/css/backend/project.css') !!}
+    <link href="summernote.css" rel="stylesheet">
 @endpush
+
+@push('before-scripts')
+    <script src="summernote.js"></script>
+@endpush
+
 
 @section('content')
     @include('backend.projects.includes.project_form', ['project' => new App\Models\project, 'action' => 'create', 'actionText' => 'create', 'method' => 'POST', 'route' => route('admin.projects.store')])

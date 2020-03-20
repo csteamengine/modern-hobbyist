@@ -4,6 +4,12 @@
 
 @push('after-styles')
     {!! style('/css/backend/project.css') !!}
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+@endpush
+
+@push('before-scripts')
+    <script src="/js/vendor.js"></script>
 @endpush
 
 @section('content')
