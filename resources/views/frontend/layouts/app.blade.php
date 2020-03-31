@@ -27,6 +27,7 @@
             @include('frontend.includes.nav')
 
             <div class="container-fluid">
+                @include('includes.partials.messages')
                 <div id="project-particles"></div>
                 @yield('content')
             </div><!-- container -->
