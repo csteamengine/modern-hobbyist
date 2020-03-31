@@ -61,12 +61,26 @@
     display: none;
     z-index: 100;
 }
+
+.preview-images-zone > .preview-image > .image-url {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
 .preview-image:hover > .image-zone {
     cursor: move;
     opacity: .5;
 }
 .preview-image:hover > .tools-edit-image,
-.preview-image:hover > .image-cancel {
+.preview-image:hover > .image-cancel,
+.preview-image:hover > .image-url{
     display: block;
 }
 .ui-sortable-helper {

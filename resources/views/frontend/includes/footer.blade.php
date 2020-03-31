@@ -12,7 +12,7 @@
                                     ->for('name')
                                     ->class(['col-form-label']) }}
 
-                                {{ html()->text('name', optional(auth()->user())->name)
+                                {{ html()->text('name')
                                     ->class(['form-control'])
                                     ->placeholder(__('validation.attributes.frontend.name'))
                                     ->attribute('maxlength', 191)
@@ -28,7 +28,7 @@
                                     ->for('email')
                                     ->class(['col-form-label']) }}
 
-                                {{ html()->email('email', optional(auth()->user())->email)
+                                {{ html()->email('email')
                                     ->class(['form-control'])
                                     ->placeholder(__('validation.attributes.frontend.email'))
                                     ->attribute('maxlength', 191)

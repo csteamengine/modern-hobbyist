@@ -48,10 +48,10 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus.
                             </p>
-                            <button class="btn btn-lg btn-outline-primary">
+                            <a class="btn btn-lg btn-outline-primary" href="{{route('frontend.about')}}">
                                 More About Me
                                 <i class="fas fa-arrow-right"></i>
-                            </button>
+                            </a>
                             <button class="btn btn-lg btn-outline-primary">
                                 Download Resume
                                 <i class="fas fa-download"></i>
@@ -189,7 +189,7 @@
                     @endforeach
                 </div>
                 <div class="col-12 mb-5">
-                    <button class="btn btn-lg btn-outline-primary m-auto">Download Resume</button>
+                    <a href="{{route('frontend.jobs.index')}}" class="btn btn-lg btn-outline-primary m-auto">Keep Digging</a>
                 </div>
             </div>
             <div class="row" id="contact"></div>

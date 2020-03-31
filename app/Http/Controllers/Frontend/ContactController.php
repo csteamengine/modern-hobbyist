@@ -27,7 +27,7 @@ class ContactController extends Controller
      */
     public function send(SendContactRequest $request)
     {
-        Mail::send(new SendContact($request));
+        Mail::to(config('mail.to.address'))->send(new SendContact($request));
 
         return redirect()->back()->withFlashSuccess(__('alerts.frontend.contact.sent'));
     }

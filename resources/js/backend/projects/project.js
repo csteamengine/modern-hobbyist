@@ -21,6 +21,18 @@ $(document).ready(function() {
         // }
     });
 
+    $('.image-url').on('click', function(){
+        /* Get the text field */
+        var imageURL = $(this).data('url');
+
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(imageURL).select();
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    });
+
     $('#clearImages').on('click', function(){
         $fileInput.val('');
         $("#preview-images-zone").children('.preview-image').remove();
