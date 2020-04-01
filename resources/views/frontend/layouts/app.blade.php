@@ -11,6 +11,7 @@
         <title>@yield('title', app_name())</title>
         <meta name="description" content="@yield('meta_description', 'Charlie Steenhagen Development')">
         <meta name="author" content="@yield('meta_author', 'Charlie Steenhagen')">
+        <link rel="icon" href="{{asset('storage/ModHobFaviconFinal.png')}}" type="image/png" sizes="16x16">
         @yield('meta')
 
         {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
