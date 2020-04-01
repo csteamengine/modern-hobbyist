@@ -145,35 +145,39 @@
                                     </div>
                                 </div>
                                 <div class="job card col-12 col-md-5">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 m-auto">
-                                                <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
-                                            </div>
-                                            <div class="col-12 col-md-6 m-auto">
-                                                <h1 class="card-title">{{$job->title}}</h1>
-                                                <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
-                                                <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
-                                                <p class="card-text">{{$job->short_description}}</p>
+                                    <a href="{{route('frontend.jobs.show', $job)}}">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 m-auto">
+                                                    <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
+                                                </div>
+                                                <div class="col-12 col-md-6 m-auto">
+                                                    <h1 class="card-title">{{$job->title}}</h1>
+                                                    <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
+                                                    <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
+                                                    <p class="card-text">{{$job->short_description}}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @else
                                 <div class="job card col-12 col-md-5">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 m-auto">
-                                                <h1 class="card-title">{{$job->title}}</h1>
-                                                <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
-                                                <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
-                                                <p class="card-text">{{$job->short_description}}</p>
-                                            </div>
-                                            <div class="col-12 col-md-6 m-auto">
-                                                <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
+                                    <a href="{{route('frontend.jobs.show', $job)}}">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 m-auto">
+                                                    <h1 class="card-title">{{$job->title}}</h1>
+                                                    <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
+                                                    <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
+                                                    <p class="card-text">{{$job->short_description}}</p>
+                                                </div>
+                                                <div class="col-12 col-md-6 m-auto">
+                                                    <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="d-none d-md-block col-2">
                                     <div class="row m-auto h-100">
