@@ -24,7 +24,7 @@
     <div class="page-title col text-center m-auto">
         <div class="row">
             <div class="col">
-                <img class="img rounded-circle m-auto" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/83308978_1068139800203072_7224162110295506944_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=hQQSxFKQR7MAX93mUfd&oh=f073a53c8cc38e75b2402bf521ee0f41&oe=5EACD5FC">
+                <img class="img rounded-circle m-auto" src="{{asset('storage/ModernHobbyistInstagramLogo.png')}}">
             </div>
         </div>
         <div class="row">
