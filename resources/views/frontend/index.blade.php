@@ -19,7 +19,7 @@
                 <h1>Hello, I'm</h1>
                 <h1>
             <span class="typewrite" data-period="2500"
-                  data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " Charlie Steenhagen."]'>
+                  data-type='[" an Engineer...", " a Web Developer...", " a Maker...", " a Modern Hobbyist."]'>
             <span class="wrap"></span>
         </span>
                 </h1>
