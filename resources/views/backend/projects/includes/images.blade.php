@@ -32,7 +32,7 @@
                         {{--                    <a href="javascript:void(0)" data-no="1" class="fas fa-edit fa-xs text-success"></a>--}}
                         {{--                </div>--}}
                         <div class="image-zone">
-                            <img id="pro-img-{{$image->id}}" src="{{asset('storage/'.$image->url)}}">
+                            <img id="pro-img-{{$image->id}}" src="{{asset('storage/'.$image->small_url)}}">
                         </div>
                     </div>
                 @endforeach

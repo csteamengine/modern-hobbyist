@@ -39,12 +39,14 @@ class ProjectsTableSeeder extends Seeder
         ]);
 
         $firstImage = Image::create([
-            'url' => 'images/projects/0ff0oBXX1lT3FXWdLTpCFmaHoKW0p1WCHCILkkYr.jpeg',
+            'url' => env('APP_URL').'/storage/images/projects/0ff0oBXX1lT3FXWdLTpCFmaHoKW0p1WCHCILkkYr.jpeg',
+            'small_url' => 'images/projects/0ff0oBXX1lT3FXWdLTpCFmaHoKW0p1WCHCILkkYr.jpeg',
             'color' => '000000',
         ]);
 
         $secondImage = Image::create([
-            'url' => 'images/projects/0HSr8Xf1UKf7T3xgx1YRYHFwEDe1cTFYdfrbTPYb.jpeg',
+            'url' => env('APP_URL').'/storage/images/projects/0HSr8Xf1UKf7T3xgx1YRYHFwEDe1cTFYdfrbTPYb.jpeg',
+            'small_url' => 'images/projects/0HSr8Xf1UKf7T3xgx1YRYHFwEDe1cTFYdfrbTPYb.jpeg',
             'color' => '000000',
         ]);
 

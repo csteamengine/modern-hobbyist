@@ -19,7 +19,7 @@
                 <div class="carousel-inner">
                     @foreach($project->images()->get() as $image)
                         <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
-                            <img class="d-block" src="{{Storage::url($image->url)}}" alt="{{$image->color}}">
+                            <img class="d-block" src="{{Storage::url($image->small_url)}}" alt="{{$image->color}}">
                         </div>
                     @endforeach
                 </div>
@@ -55,7 +55,7 @@
             <hr class="color-divider">
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5 mb-5">
         <div class="col-10 m-auto">
 {{--            Page Content (from backend editor)--}}
             {!! $project->page_content !!}

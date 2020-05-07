@@ -5,11 +5,11 @@
 @push('after-styles')
     {!! style('/css/backend/project.css') !!}
     <!-- include summernote css/js-->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+    {!! style('/css/backend/summernote.css') !!}
 @endpush
 
 @push('before-scripts')
-    <script src="/js/vendor.js"></script>
+{{--    <script src="/js/vendor.js"></script>--}}
 @endpush
 
 @section('content')
@@ -17,6 +17,6 @@
 @endsection
 
 @push('after-scripts')
+    {!! script('/js/vendor.js') !!}
     {!! script(mix('js/backend/projects/project.js')) !!}
-    {!! script('https://code.jquery.com/ui/1.12.1/jquery-ui.js') !!}
 @endpush

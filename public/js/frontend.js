@@ -12790,13 +12790,13 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/js/frontend/app.js */"./resources/js/frontend/app.js");
-__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/sass/frontend/app.scss */"./resources/sass/frontend/app.scss");
-__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/sass/frontend/projects/project.scss */"./resources/sass/frontend/projects/project.scss");
-__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/sass/frontend/projects/index.scss */"./resources/sass/frontend/projects/index.scss");
-__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/sass/frontend/index.scss */"./resources/sass/frontend/index.scss");
-__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/sass/backend/app.scss */"./resources/sass/backend/app.scss");
-module.exports = __webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/sass/backend/projects/project.scss */"./resources/sass/backend/projects/project.scss");
+__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/js/frontend/app.js */"./resources/js/frontend/app.js");
+__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/sass/frontend/app.scss */"./resources/sass/frontend/app.scss");
+__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/sass/frontend/projects/project.scss */"./resources/sass/frontend/projects/project.scss");
+__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/sass/frontend/projects/index.scss */"./resources/sass/frontend/projects/index.scss");
+__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/sass/frontend/index.scss */"./resources/sass/frontend/index.scss");
+__webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/sass/backend/app.scss */"./resources/sass/backend/app.scss");
+module.exports = __webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/sass/backend/projects/project.scss */"./resources/sass/backend/projects/project.scss");
 
 
 /***/ })

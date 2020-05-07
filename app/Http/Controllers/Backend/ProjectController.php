@@ -183,7 +183,8 @@ class ProjectController extends Controller
                 $upload = $file->store('images/projects');
                 if($upload){
                     $image = Image::create([
-                        'url' => $upload,
+                        'url' => env('APP_URL').'/storage/'.$upload,
+                        'small_url' => $upload,
                         'color' => $palette[sizeof($palette)-1]
                     ]);
 

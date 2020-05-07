@@ -83,7 +83,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/gregorysteenhagen/Desktop/Projects/steamengine/resources/js/backend/projects/projects.js */"./resources/js/backend/projects/projects.js");
+module.exports = __webpack_require__(/*! /Users/gregorysteenhagen/Desktop/ModernHobbyist/modern-hobbyist/resources/js/backend/projects/projects.js */"./resources/js/backend/projects/projects.js");
 
 
 /***/ })

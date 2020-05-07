@@ -4,11 +4,11 @@
 
 @push('after-styles')
     {!! style('/css/backend/project.css') !!}
-    <link href="summernote.css" rel="stylesheet">
+    {!! style('/css/backend/summernote.css') !!}
 @endpush
 
 @push('before-scripts')
-    <script src="summernote.js"></script>
+{{--    <script src="/js/vendor.js"></script>--}}
 @endpush
 
 
@@ -18,5 +18,4 @@
 
 @push('after-scripts')
     {!! script(mix('js/backend/projects/project.js')) !!}
-    {!! script('https://code.jquery.com/ui/1.12.1/jquery-ui.js') !!}
 @endpush

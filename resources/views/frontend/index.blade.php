@@ -104,7 +104,7 @@
                                 <div class="col mb-5">
                                     <div class="project-bg row m-auto">
                                         <div class="project-bg-image"
-                                             data-image="{{asset('storage/'.$project->images()->first()->url)}}"
+                                             data-image="{{asset('storage/'.$project->images()->first()->small_url)}}"
                                              style="background-color: #{{$project->images()->first()->color}}">
                                         </div>
                                         <a href="{{route('frontend.projects.show', $project)}}">
@@ -125,7 +125,7 @@
                     </div>
                     <div class="row m-5">
                         <a class="m-auto" href="{{route('frontend.projects.index')}}">
-                            <button class="btn btn-lg btn-outline-primary m-auto">View All Projects</button>
+                            <button class="btn btn-lg btn-outline-primary m-auto" >See More!</button>
                         </a>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                     @endforeach
                 </div>
                 <div class="col-12 mb-5">
-                    <a href="{{route('frontend.jobs.index')}}" class="btn btn-lg btn-outline-primary m-auto">Keep Digging</a>
+                    <a href="{{route('frontend.jobs.index')}}" class="btn btn-lg btn-outline-primary m-auto" data-toggle="tooltip" data-placement="bottom" title="Nosy Little Bugger">Keep Digging</a>
                 </div>
             </div>
             <div class="row" id="contact"></div>
