@@ -50,6 +50,14 @@ return [
             'history' => 'History',
             'system' => 'System',
         ],
+        'jobs' => [
+            'edit' => 'Edit Job',
+            'create' => 'Create Job'
+        ],
+        'projects' => [
+            'edit' => 'Edit Project',
+            'create' => 'Create Project'
+        ]
     ],
 
     'language-picker' => [

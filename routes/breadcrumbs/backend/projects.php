@@ -16,5 +16,5 @@ Breadcrumbs::for('admin.projects.show', function ($trail, $id) {
 
 Breadcrumbs::for('admin.projects.edit', function ($trail, $id) {
     $trail->parent('admin.projects.index');
-    $trail->push(__('menus.backend.jos.edit'), route('admin.projects.edit', $id));
+    $trail->push(__('menus.backend.projects.edit'), route('admin.projects.edit', $id));
 });

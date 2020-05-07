@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title', app_name())</title>
-        <meta name="description" content="@yield('meta_description', 'Charlie Steenhagen Development')">
+        <meta name="description" content="@yield('meta_description', 'Modern Hobbyist')">
         <meta name="author" content="@yield('meta_author', 'Charlie Steenhagen')">
         <link rel="icon" href="{{asset('storage/ModHobFaviconFinal.png')}}" type="image/png" sizes="16x16">
         @yield('meta')

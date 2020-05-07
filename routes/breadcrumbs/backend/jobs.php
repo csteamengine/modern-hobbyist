@@ -16,5 +16,5 @@ Breadcrumbs::for('admin.jobs.show', function ($trail, $id) {
 
 Breadcrumbs::for('admin.jobs.edit', function ($trail, $id) {
     $trail->parent('admin.jobs.index');
-    $trail->push(__('menus.backend.jos.edit'), route('admin.jobs.edit', $id));
+    $trail->push(__('menus.backend.jobs.edit'), route('admin.jobs.edit', $id));
 });
