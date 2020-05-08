@@ -21,13 +21,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = Project::all()->take(10);
+        $projects = Project::all()->take(4);
         $jobs = Job::all()->take(3);
 
         $statistics = new stdClass;
         $statistics->videoCount = 0;
 
-        //TODO find a way to test this API call without exposing the API key in GitHub
         if(!App::environment('testing')) {
             $client = new Client();
             $res = $client->get('https://www.googleapis.com/youtube/v3/channels?key=' . env('YOUTUBE_API_KEY') . '&part=statistics&id=' . env('YOUTUBE_CHANNEL_ID'));

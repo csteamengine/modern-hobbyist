@@ -38,7 +38,7 @@
             <div id="about" class="content-sections row text-center align-content-center w-100 p-0 m-0">
                 <div class="col-10 mb-5 ml-auto mr-auto mt-auto m-lg-auto">
                     <div class="row">
-                        <div class="col-12 col-lg-5 mb-3 m-lg-auto">
+                        <div class="col-12 col-lg-5 mb-3 mt-5 m-lg-auto">
                             <img src="{{asset('storage/charlie.jpeg')}}" class="about-image img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 mt-3 mb-5 m-lg-auto text-left">
@@ -95,9 +95,9 @@
             </div>
             <div id="projects" class="content-sections row text-center w-100 p-0 mr-0 ml-0 justify-content-center">
                 <div class="col mt-5 position-relative">
-{{--                    <div class="row justify-content-center m-5">--}}
-{{--                        <h1>Projects</h1>--}}
-{{--                    </div>--}}
+                    <div class="row justify-content-center m-5">
+                        <h1>Projects</h1>
+                    </div>
                     <div class="row justify-content-center mt-5">
                         @foreach($projects as $project)
                             @if($project->images()->first())

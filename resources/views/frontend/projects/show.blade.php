@@ -36,14 +36,14 @@
     </div>
     <div class="row justify-content-center mt-5 text-center">
         @if($project->youtube_url)
-            <div class="col-1">
+            <div class="col-xs col-md-1">
                 <a href="{{$project->youtube_url}}" target="_blank">
                     <i class="fab fa-3x fa-youtube sm-icons"></i>
                 </a>
             </div>
         @endif
         @if($project->github_url)
-            <div class="col-1">
+            <div class="col-xs col-md-1">
                 <a href="{{$project->github_url}}" target="_blank">
                     <i class="fab fa-3x fa-github sm-icons"></i>
                 </a>

@@ -18,8 +18,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $projects = Project::orderBy('created_at', 'desc')->get();
         //Shows all projects (or at least a range and searchable)
-        return view('frontend.projects.index');
+        return view('frontend.projects.index')->withProjects($projects);
     }
 
     /**

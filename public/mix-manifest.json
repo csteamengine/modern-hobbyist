@@ -12,5 +12,6 @@
     "/css/backend/project.css": "/css/backend/project.css",
     "/js/index.js": "/js/index.js",
     "/js/manifest.js": "/js/manifest.js",
+    "/js/projects.js": "/js/projects.js",
     "/js/vendor.js": "/js/vendor.js"
 }

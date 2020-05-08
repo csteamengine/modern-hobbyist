@@ -1,0 +1,133 @@
+@import '../variables';
+
+#projects{
+    position: relative;
+    padding: 150px 0 150px 0;
+}
+
+.projects{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.row-overlap{
+    position: relative;
+    transform:translateY(-50%);
+    z-index: 4;
+    .row-overlap-child{
+        border-radius: 5px;
+        background-color: $bg-off-white;
+        box-shadow: 0px 1px 27px -3px rgba(0,0,0,0.2);
+    }
+
+    .row-overlap-child-counter{
+        height: 150px;
+    }
+}
+
+.project{
+    overflow: visible;
+}
+
+.project-image-div{
+    overflow: visible;
+}
+
+.project-image{
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.project-bg{
+    width: 300px;
+    height: 170px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    transition: all .25s;
+    -webkit-transition: all .25s;
+    -o-transition: all .25s;
+    -moz-transition: all .25s;
+}
+
+.project-bg-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+}
+
+.project-text{
+    background: transparent;
+    opacity: 0;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+    -o-transition: all .25s;
+    -moz-transition: all .25s;
+    z-index: 3;
+}
+
+.project-overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all .25s;
+    -webkit-transition: all .25s;
+    -o-transition: all .25s;
+    -moz-transition: all .25s;
+}
+
+.project-title{
+    margin-bottom: 10px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    color: white;
+}
+.project-description{
+    margin-top: 10px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    color: $bg-gray-light;
+}
+
+.project-bg:hover{
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    .project-bg-image{
+        width: 110%;
+        height: 110%;
+        top: -5%;
+        left: -5%;
+    }
+
+    .project-text{
+        opacity: 1;
+    }
+
+    .project-overlay{
+        background-color: rgba(0,0,0,.5);
+    }
+
+    .project-title{
+        margin-bottom: 0;
+    }
+    .project-description{
+        margin-top: 0;
+    }
+}

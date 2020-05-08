@@ -9,6 +9,7 @@ class Image extends Model
     //
     protected $fillable = [
         'url',
+        'small_url',
         'color'
     ];
 }

@@ -1,12 +1,42 @@
 @import '../variables';
 
 $carousel-height: 500px;
+$mobile-carousel-height: 200px;
+$medium-carousel-height: 300px;
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+
 .carousel{
     height: $carousel-height;
     .carousel-item{
         img{
             height: $carousel-height;
             margin: auto;
+        }
+    }
+}
+
+@media screen and (max-width: $break-medium) {
+    .carousel{
+        height: $medium-carousel-height;
+        .carousel-item{
+            img{
+                height: $medium-carousel-height;
+                margin: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $break-small) {
+    .carousel{
+        height: $mobile-carousel-height;
+        .carousel-item{
+            img{
+                height: $mobile-carousel-height;
+                margin: auto;
+            }
         }
     }
 }

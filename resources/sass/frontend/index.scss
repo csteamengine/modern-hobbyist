@@ -139,13 +139,6 @@ a:hover{
     }
 }
 
-
-
-#projects{
-    position: relative;
-    padding: 150px 0 150px 0;
-}
-
 #career{
     background-color: $bg-off-white;
     box-shadow: 0px 3px 15px rgba(0,0,0,.7), 0px -3px 15px rgba(0,0,0,.7);
@@ -185,6 +178,11 @@ a:hover{
 }
 
 .content-sections:last-child{
+}
+
+#projects{
+    position: relative;
+    padding: 150px 0 150px 0;
 }
 
 .projects{

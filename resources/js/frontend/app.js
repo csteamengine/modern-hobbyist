@@ -14,3 +14,15 @@ import "particles.js";
 particlesJS.load('project-particles', '/js/particlesjs-config.json', function() {
     // console.log('callback - particles.js config loaded');
 });
+
+$(function() {
+    $('.navbar-toggler').on('click', function() {
+        $('body').toggleClass('menu-open');
+    })
+})
+
+$(".nav-item").on("click", function(){
+    console.log("Hello");
+    $('.navbar-collapse').collapse('hide');
+    $('body').toggleClass('menu-open');
+});
