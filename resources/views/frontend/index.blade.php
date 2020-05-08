@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.index')
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
@@ -112,7 +112,7 @@
                                                 <div class="project-text row m-auto h-100">
                                                     <div class="col m-auto">
                                                         <h3 class="project-title" v-cloak>{{$project->title}}</h3>
-                                                        <h5 class="project-description">{{$project->short_description}}</h5>
+                                                        <h5 class="project-description">{{date_format($project->created_at, 'm-d-Y')}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,7 +136,7 @@
                         <!-- timeline item 1 -->
                         <div class="row no-gutters my-5">
                             @if($loop->index % 2)
-                                <div class="ml-auto d-none d-md-block col-2">
+                                <div class="ml-auto d-none d-lg-block col-2">
                                     <div class="row m-auto h-100">
                                         <div class="vertical-line {{$loop->index == 0 ? "vertical-line-first" : ""}} {{$loop->last ? "vertical-line-last" : ""}}"></div>
                                         <span class="m-auto">
@@ -144,7 +144,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="job card col-12 col-md-5">
+                                <div class="job card col-12 col-lg-5">
                                     <a href="{{route('frontend.jobs.show', $job)}}">
                                         <div class="card-body">
                                             <div class="row">
@@ -162,7 +162,7 @@
                                     </a>
                                 </div>
                             @else
-                                <div class="job card col-12 col-md-5">
+                                <div class="job card col-12 col-lg-5">
                                     <a href="{{route('frontend.jobs.show', $job)}}">
                                         <div class="card-body">
                                             <div class="row">
@@ -179,7 +179,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="d-none d-md-block col-2">
+                                <div class="d-none d-lg-block col-2">
                                     <div class="row m-auto h-100">
                                         <div class="vertical-line {{$loop->index == 0 ? "vertical-line-first" : ""}} {{$loop->last ? "vertical-line-last" : ""}}"></div>
                                         <span class="m-auto">

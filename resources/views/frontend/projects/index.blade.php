@@ -28,7 +28,7 @@
                                         <div class="project-text row m-auto h-100">
                                             <div class="col m-auto">
                                                 <h3 class="project-title" v-cloak>{{$project->title}}</h3>
-                                                <h5 class="project-description">{{$project->short_description}}</h5>
+                                                <h5 class="project-description">{{date_format($project->created_at, 'm-d-Y')}}</h5>
                                             </div>
                                         </div>
                                     </div>

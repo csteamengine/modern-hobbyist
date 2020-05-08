@@ -32,6 +32,8 @@
                 <div id="project-particles"></div>
                 @yield('content')
             </div><!-- container -->
+
+            @include('frontend.includes.footer')
         </div><!-- #app -->
 
         <!-- Scripts -->
