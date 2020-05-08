@@ -1,0 +1,99 @@
+@import "../variables";
+
+.preview-images-zone {
+    width: 100%;
+    border: 1px solid $border-color;
+    background: $form-input-background;
+    min-height: 180px;
+    height: auto;
+    //display: flex;
+    position: relative;
+    overflow: auto;
+}
+
+#preview-images-zone{
+    display:none;
+}
+#newImagesLabel{
+    display: none;
+}
+
+#preview-images-zone-existing > .preview-image:first-child {
+    height: 185px;
+    width: 185px;
+    position: relative;
+    margin-right: 5px;
+}
+.preview-images-zone > .preview-image {
+    height: 90px;
+    width: 90px;
+    position: relative;
+    margin-right: 5px;
+    float: left;
+    margin-bottom: 5px;
+}
+.preview-images-zone > .preview-image > .image-zone {
+    width: 100%;
+    height: 100%;
+}
+.preview-images-zone > .preview-image > .image-zone > img {
+    width: 100%;
+    height: 100%;
+}
+.preview-images-zone > .preview-image > .tools-edit-image {
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    display: none;
+}
+.preview-images-zone > .preview-image > .image-cancel {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
+.preview-images-zone > .preview-image > .image-url {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
+.preview-image:hover > .image-zone {
+    cursor: move;
+    opacity: .5;
+}
+.preview-image:hover > .tools-edit-image,
+.preview-image:hover > .image-cancel,
+.preview-image:hover > .image-url{
+    display: block;
+}
+.ui-sortable-helper {
+    width: 90px !important;
+    height: 90px !important;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+#clearImages{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

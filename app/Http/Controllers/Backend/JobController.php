@@ -7,8 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Job\ManageJobRequest;
 use App\Http\Requests\Backend\Job\StoreJobRequest;
 use App\Http\Requests\Backend\Job\UpdateJobRequest;
+use App\Models\Image;
 use App\Models\Job;
 use App\Repositories\Backend\JobRepository;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\View\View;
+use PHPColorExtractor\PHPColorExtractor;
 
 
 /**
@@ -32,7 +37,7 @@ class JobController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function index()
     {
@@ -56,7 +61,18 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        $this->jobRepository->create($request->all());
+
+
+        $storeSuccess = $this->jobRepository->create($request->all());
+        $imagesSuccess = $this->updateImages($request, $storeSuccess);
+
+        if(!$storeSuccess){
+            return redirect()->back()->withFlashWarning('Failed to create the project');
+        }
+
+        if(!$imagesSuccess){
+            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+        }
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.created'));
     }
@@ -74,10 +90,8 @@ class JobController extends Controller
     }
 
     /**
-     * @param ManageJobRequest    $request
-     * @param RoleRepository       $roleRepository
-     * @param PermissionRepository $permissionRepository
-     * @param Job                 $job
+     * @param ManageJobRequest $request
+     * @param Job $job
      *
      * @return mixed
      */
@@ -97,7 +111,16 @@ class JobController extends Controller
      */
     public function update(UpdateJobRequest $request, Job $job)
     {
-        $this->jobRepository->update($job, $request->all());
+        $updateSuccess = $this->jobRepository->update($job, $request->all());
+        $imagesSuccess = $this->updateImages($request, $job);
+
+        if(!$updateSuccess){
+            return redirect()->back()->withFlashWarning('Failed to update the project');
+        }
+
+        if(!$imagesSuccess){
+            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+        }
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.updated'));
     }
@@ -116,5 +139,70 @@ class JobController extends Controller
         event(new JobDeleted($job));
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.deleted'));
+    }
+
+    public function updateImages(FormRequest $request, Job $job){
+        $existing_images = $job->images()->get();
+        $success = true;
+        //remove deleted images
+        if($request->has('existing_images')){
+            $input = $request['existing_images'];
+            foreach($existing_images as $currImage){
+                if(!in_array($currImage->id, $input)){
+                    $job->images()->detach($currImage);
+                }
+            }
+
+            $count = 0;
+            foreach($input as $id){
+                $image = $job->images()->where('images.id', $id)->get();
+                $job->images()->updateExistingPivot($image, ['order' => $count]);
+                $count++;
+            }
+
+        }else if($existing_images){
+            //We have existing images, but none came through in the form request
+            foreach($existing_images as $currImage){
+                $job->images()->detach($currImage);
+            }
+        }
+
+        //Add new images
+        if($request->hasfile('images'))
+        {
+            $this->validate($request, [
+                'images' => 'required',
+                'images[].*' => 'image|mimes:jpg,png,tif,gif'
+            ]);
+            foreach($request->file('images') as $file)
+            {
+                $extractor = new PHPColorExtractor();
+                $extractor->setImage($file->getPathname())->setTotalColors(5)->setGranularity(10);
+                $palette = $extractor->extractPalette();
+                $upload = $file->store('images/projects');
+                if($upload){
+                    $image = Image::create([
+                        'url' => env('APP_URL').'/storage/'.$upload,
+                        'small_url' => $upload,
+                        'color' => $palette[sizeof($palette)-1]
+                    ]);
+
+                    if(!$image){
+                        $success = false;
+                    }
+
+                    $job_image = $job->images()->save($image, ['order' => $existing_images->count()]);
+
+                    if(!$job_image){
+                        $success = false;
+                    }
+                }
+            }
+        }
+
+        if(!$success){
+            return false;
+        }
+        return true;
     }
 }

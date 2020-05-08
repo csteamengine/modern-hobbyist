@@ -1,4 +1,4 @@
-{{ html()->modelForm($job, $method, $route)->class('form-horizontal')->open() }}
+{{ html()->modelForm($job, $method, $route)->class('form-horizontal')->acceptsFiles()->open() }}
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -133,6 +133,7 @@
                             }}
                     </div><!--col-->
                 </div><!--form-group-->
+                @include('backend.jobs.includes.images')
             </div><!--col-->
         </div><!--row-->
     </div><!--card-body-->

@@ -1,0 +1,46 @@
+@import '../variables';
+
+.job-image{
+    height: 150px;
+}
+.vertical-line{
+    width: 0;
+    border: 1px solid $font-color;
+    position: absolute;
+    height: 150%;
+    left: 50%;
+    top: 0;
+    margin-left: -1px;
+}
+.vertical-line-first{
+    height: 100%;
+    top: 50%;
+}
+.vertical-line-last{
+    height: 100%;
+    bottom: 50%;
+    top: -50%
+}
+
+.job{
+    background-color: $bg-off-white;
+    border-radius: 5px;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+    transition: all .25s;
+    -moz-transition: all .25s;
+    -o-transition: all .25s;
+    -webkit-transition: all .25s;
+    .card-body{
+        cursor: pointer;
+    }
+}
+
+.job:hover{
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.modal-body-image{
+    height: 200px;
+}

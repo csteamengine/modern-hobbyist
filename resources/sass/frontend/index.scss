@@ -4,25 +4,6 @@
 @import "~bootstrap/scss/mixins/_breakpoints";
 @import 'variables';
 
-* button{
-    transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    -webkit-transition: all .5s;
-}
-* button:hover{
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-}
-
-a *{
-    color: $font-color;
-    text-decoration: none;
-}
-
-a:hover{
-    text-decoration: none !important;
-}
-
 .fullscreen-bg {
     position: fixed;
     display: none;
@@ -172,6 +153,16 @@ a:hover{
     }
 }
 
+.vertical-line{
+    width: 0;
+    border: 1px solid $font-color;
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    margin-left: -1px;
+}
+
 .content-sections{
     min-height: 100vh;
     z-index: 3;
@@ -310,16 +301,6 @@ a:hover{
     .project-description{
         margin-top: 0;
     }
-}
-
-.vertical-line{
-    width: 0;
-    border: 1px solid $font-color;
-    position: absolute;
-    height: 100%;
-    left: 50%;
-    top: 0;
-    margin-left: -1px;
 }
 
 @include media-breakpoint-up(sm){

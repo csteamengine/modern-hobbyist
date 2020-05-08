@@ -1,5 +1,6 @@
 {
     "/js/backend.js": "/js/backend.js",
+    "/js/backend/jobs/job.js": "/js/backend/jobs/job.js",
     "/js/backend/jobs/jobs.js": "/js/backend/jobs/jobs.js",
     "/js/backend/projects/project.js": "/js/backend/projects/project.js",
     "/js/backend/projects/projects.js": "/js/backend/projects/projects.js",
@@ -7,10 +8,13 @@
     "/css/frontend.css": "/css/frontend.css",
     "/css/frontend/projects/project.css": "/css/frontend/projects/project.css",
     "/css/frontend/projects/index.css": "/css/frontend/projects/index.css",
+    "/css/frontend/jobs/index.css": "/css/frontend/jobs/index.css",
     "/css/index.css": "/css/index.css",
     "/css/backend.css": "/css/backend.css",
     "/css/backend/project.css": "/css/backend/project.css",
+    "/css/backend/job.css": "/css/backend/job.css",
     "/js/index.js": "/js/index.js",
+    "/js/jobs.js": "/js/jobs.js",
     "/js/manifest.js": "/js/manifest.js",
     "/js/projects.js": "/js/projects.js",
     "/js/vendor.js": "/js/vendor.js"
