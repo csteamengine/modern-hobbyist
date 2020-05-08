@@ -32,7 +32,7 @@ class JobController extends Controller
     public function show(Job $job)
     {
         //Shows all the info on a single project.
-        return view('frontend.jobs.show')->with(['job' => $job]);
+        return redirect()->route('frontend.jobs.index')->withFlashWarning("Ooops, looks like that page doesn't exist");
     }
 
 }

@@ -4,6 +4,7 @@
 
 @push('before-styles')
     {{ style(mix('css/frontend/jobs/index.css')) }}
+    {{ style(mix('css/frontend/jobs/jobModal.css')) }}
 @endpush
 
 @section('content')
@@ -14,7 +15,7 @@
         <div class="col-md-10 m-auto">
             <div class="row">
                 <div class="col">
-                @foreach($jobs as $job)
+                    @foreach($jobs as $job)
                     <!-- timeline item 1 -->
                         <div class="row no-gutters my-5">
                             @if($loop->index % 2)
@@ -45,44 +46,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="jobHighlightModal" tabindex="-1" role="dialog" aria-labelledby="jobHighlightModal" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-0">
-                        <div class="col m-auto text-center">
-                            <img class="m-auto modal-body-image" src="" title="Job Image">
-                        </div>
-                    </div>
-                    <div class="row mt-0 mb-3">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col text-center modal-body-company"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <small class="text-secondary modal-body-date "></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col modal-body-content text-center"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary m-auto" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend.jobs.jobmodal')
     <div class="row mt-5 mb-5">
         <div class="col m-auto text-center">
             <button class="btn btn-outline-primary">Download Resume</button>
@@ -93,4 +57,5 @@
 @push('after-scripts')
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>--}}
     {{script('js/jobs.js')}}
+    {{script('js/jobModal.js')}}
 @endpush

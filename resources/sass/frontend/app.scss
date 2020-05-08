@@ -54,6 +54,18 @@ body.menu-open:after {
 
 }
 
+.modal-content{
+    background-color: $bg-color !important;
+}
+
+.modal-header{
+    border-bottom: 1px solid $font-color;
+}
+
+.modal-footer{
+    border-top: 1px solid $font-color;
+}
+
 .sm-icons{
     color: $font-color;
 }

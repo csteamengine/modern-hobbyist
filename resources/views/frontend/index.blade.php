@@ -4,6 +4,7 @@
 
 @push('before-styles')
     {{ style(mix('css/index.css')) }}
+    {{ style(mix('css/frontend/jobs/jobModal.css')) }}
 @endpush
 
 @section('content')
@@ -133,7 +134,7 @@
             <div id="career" class="content-sections row text-center w-100 p-0 m-0">
                 <div class="col-md-10 m-auto">
                     @foreach($jobs as $job)
-                        <!-- timeline item 1 -->
+                    <!-- timeline item 1 -->
                         <div class="row no-gutters my-5">
                             @if($loop->index % 2)
                                 <div class="ml-auto d-none d-lg-block col-2">
@@ -144,41 +145,9 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="job card col-12 col-lg-5">
-                                    <a href="{{route('frontend.jobs.show', $job)}}">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6 m-auto">
-                                                    <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
-                                                </div>
-                                                <div class="col-12 col-md-6 m-auto">
-                                                    <h1 class="card-title">{{$job->title}}</h1>
-                                                    <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
-                                                    <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
-                                                    <p class="card-text">{{$job->short_description}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                @include('frontend.jobs.jobcard', ['order'=>'even'])
                             @else
-                                <div class="job card col-12 col-lg-5">
-                                    <a href="{{route('frontend.jobs.show', $job)}}">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6 m-auto">
-                                                    <h1 class="card-title">{{$job->title}}</h1>
-                                                    <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
-                                                    <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
-                                                    <p class="card-text">{{$job->short_description}}</p>
-                                                </div>
-                                                <div class="col-12 col-md-6 m-auto">
-                                                    <img src="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png" class="job-image">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                @include('frontend.jobs.jobcard', ['order' => 'odd'])
                                 <div class="d-none d-lg-block col-2">
                                     <div class="row m-auto h-100">
                                         <div class="vertical-line {{$loop->index == 0 ? "vertical-line-first" : ""}} {{$loop->last ? "vertical-line-last" : ""}}"></div>
@@ -191,6 +160,7 @@
                         </div>
                         <!--/row-->
                     @endforeach
+                    @include('frontend.jobs.jobmodal')
                 </div>
                 <div class="col-12 mb-5">
                     <a href="{{route('frontend.jobs.index')}}" class="btn btn-lg btn-outline-primary m-auto" data-toggle="tooltip" data-placement="bottom" title="Nosy Little Bugger">Keep Digging</a>
@@ -205,4 +175,5 @@
 @push('after-scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
     {{script('js/index.js')}}
+    {{script('js/jobModal.js')}}
 @endpush

@@ -1,5 +1,5 @@
  @if($errors->any())
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger w-50 ml-auto mr-auto mt-5 alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -9,7 +9,7 @@
         @endforeach
     </div>
 @elseif(session()->get('flash_success'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success w-50 ml-auto mr-auto mt-5 alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -21,7 +21,7 @@
         @endif
     </div>
 @elseif(session()->get('flash_warning'))
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning w-50 ml-auto mr-auto mt-5 alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -33,7 +33,7 @@
         @endif
     </div>
 @elseif(session()->get('flash_info'))
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info w-50 ml-auto mr-auto mt-5 alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -45,7 +45,7 @@
         @endif
     </div>
 @elseif(session()->get('flash_danger'))
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger w-50 ml-auto mr-auto mt-5 alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -57,7 +57,7 @@
         @endif
     </div>
 @elseif(session()->get('flash_message'))
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info w-50 ml-auto mr-auto mt-5 alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
