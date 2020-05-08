@@ -21,8 +21,10 @@ $(function() {
     })
 })
 
-$(".nav-item").on("click", function(){
-    console.log("Hello");
-    $('.navbar-collapse').collapse('hide');
-    $('body').toggleClass('menu-open');
+
+$(".nav-link").on("click", function(){
+    if($('#navbarSupportedContent').hasClass('show')){
+        $('.navbar-collapse').collapse('hide');
+        $('body').toggleClass('menu-open');
+    }
 });
