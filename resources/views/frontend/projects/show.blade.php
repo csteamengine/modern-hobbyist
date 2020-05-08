@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="row mb-5" style="margin-top: 200px;">
+    <div class="row mb-5" style="margin-top: 100px;">
         <div class="col text-center">
             <h1>{{$project->title}}</h1>
         </div>
