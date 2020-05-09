@@ -19,7 +19,11 @@
                     <h2>Charlie Steenhagen</h2>
                 </div>
             </div>
-            {!! $active_profile->about_page_content !!}
+            <div class="row">
+                <div class="col-12 col-sm-10 m-auto">
+                    {!! $active_profile->about_page_content !!}
+                </div>
+            </div>
             <div class="row mt-5">
                 <div class="col m-auto text-center">
                     <h2>A Look Into My Life</h2>
