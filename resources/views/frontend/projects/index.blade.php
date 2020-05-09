@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row mt-5">
-        <div class="col-12 m-auto text-center">
+        <div class="col-12 ml-auto mr-auto text-center mt-5">
             <h1 class="m-auto">Projects</h1>
         </div>
     </div>

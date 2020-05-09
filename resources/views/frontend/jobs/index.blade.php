@@ -8,8 +8,8 @@
 @endpush
 
 @section('content')
-    <div id="career" class="row text-center w-100 p-0 m-0 mt-5">
-        <div class="col-12 text-center m-auto">
+    <div id="career" class="row text-center w-100 p-0 mt-5">
+        <div class="col-12 text-center mt-5 ml-auto mr-auto">
             <h1>Career</h1>
         </div>
         <div class="col-md-10 m-auto">

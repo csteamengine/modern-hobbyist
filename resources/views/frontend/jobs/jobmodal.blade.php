@@ -23,11 +23,15 @@
                         </div>
                         <div class="row">
                             <div class="col text-center">
-                                <small class="text-secondary modal-body-date "></small>
+                                <small class="text-secondary modal-body-date"></small>
                             </div>
                         </div>
                         <div class="row text-center mb-3">
-                            <div class="m-auto col fas fa-globe"></div>
+                            <div class="m-auto col">
+                                <a href="#" class="modal-body-url" target="_blank">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -36,9 +40,9 @@
                     <div class="col modal-body-content text-center"></div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary m-auto" data-dismiss="modal">Close</button>
-            </div>
+{{--            <div class="modal-footer">--}}
+{{--                <button type="button" class="btn btn-outline-primary m-auto" data-dismiss="modal">Close</button>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>
