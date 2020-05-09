@@ -147,5 +147,6 @@ class ProfilesTableSeeder extends Seeder
             'image_id' => $secondImage->id,
             'is_active' => true,
         ]);
+
     }
 }
