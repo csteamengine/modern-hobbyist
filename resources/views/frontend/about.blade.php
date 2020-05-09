@@ -11,7 +11,7 @@
         <div class="col mt-5">
             <div class="row">
                 <div class="col-4 m-auto about-image">
-                    <img src="{{asset('storage/charlie.jpeg')}}" class="img-fluid">
+                    <img src="{{asset('storage/'.$active_profile->about_image()->small_url)}}" class="img-fluid">
                 </div>
             </div>
             <div class="row mt-5">
@@ -19,41 +19,7 @@
                     <h2>Charlie Steenhagen</h2>
                 </div>
             </div>
-            <div class="row mt-3 mb-5">
-                <div class="col-10 m-auto">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida tristique euismod.
-                        Proin vel convallis dui. Maecenas vitae ultrices lectus. Donec nulla felis, euismod vitae hendrerit
-                        vel, aliquam eu metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hac habitasse
-                        platea dictumst. Nunc gravida sapien enim, eget finibus est pharetra quis. In non elementum nisi.
-                        Phasellus feugiat, magna nec consequat vestibulum, massa neque dictum ante, id venenatis dolor
-                        diam sed nisi. Duis ante neque, tristique vel orci id, ultrices convallis est. Aliquam non placerat
-                        urna, ut vehicula elit. In porta leo massa, sed vulputate lacus ornare in. Praesent metus dui,
-                        iaculis quis vehicula non, placerat sit amet ligula.
-                    </p>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col m-auto text-center">
-                    <h2>Modern Hobbyist</h2>
-                </div>
-            </div>
-            <div class="row mt-5 mb-5">
-                <div class="col-12 col-sm-10 m-auto">
-                    <div class="row">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida tristique euismod.
-                            Proin vel convallis dui. Maecenas vitae ultrices lectus. Donec nulla felis, euismod vitae hendrerit
-                            vel, aliquam eu metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hac habitasse
-                            platea dictumst. Nunc gravida sapien enim, eget finibus est pharetra quis. In non elementum nisi.
-                            Phasellus feugiat, magna nec consequat vestibulum, massa neque dictum ante, id venenatis dolor
-                            diam sed nisi. Duis ante neque, tristique vel orci id, ultrices convallis est. Aliquam non placerat
-                            urna, ut vehicula elit. In porta leo massa, sed vulputate lacus ornare in. Praesent metus dui,
-                            iaculis quis vehicula non, placerat sit amet ligula.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {!! $active_profile->about_page_content !!}
             <div class="row mt-5">
                 <div class="col m-auto text-center">
                     <h2>A Look Into My Life</h2>
@@ -62,42 +28,11 @@
             <div class="row mt-5 mb-5">
                 <div class="col-12 col-sm-10 m-auto">
                     <div class="row mb-5">
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/charlie.jpeg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/man.jpg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/ModernHobbyistFavicon.png')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/charlie.jpeg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/man.jpg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/ModernHobbyistFavicon.png')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/charlie.jpeg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/man.jpg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/ModernHobbyistFavicon.png')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/charlie.jpeg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/man.jpg')}}">
-                        </div>
-                        <div class="col-4 col-lg-3 m-auto">
-                            <img class="w-100 m-3" src="{{asset('/storage/ModernHobbyistFavicon.png')}}">
-                        </div>
+                        @foreach($active_profile->images()->get() as $image)
+                            <div class="col-4 col-lg-3 m-auto">
+                                <img class="w-100 m-3" src="{{asset('/storage/'.$image->small_url)}}">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

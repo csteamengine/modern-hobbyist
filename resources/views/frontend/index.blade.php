@@ -11,7 +11,7 @@
     <div class="fullscreen-bg">
         <div class="overlay"></div>
         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="{{asset('storage/CAD-final-short.mp4')}}" type="video/mp4">
+            <source src="{{asset('storage/'.$active_profile->background_video_file)}}" type="video/mp4">
         </video>
     </div>
     <div class="homeText">
@@ -40,7 +40,7 @@
                 <div class="col-10 mb-5 ml-auto mr-auto mt-auto m-lg-auto">
                     <div class="row">
                         <div class="col-12 col-lg-5 mb-3 mt-5 m-lg-auto">
-                            <img src="{{asset('storage/charlie.jpeg')}}" class="about-image img-fluid">
+                            <img src="{{asset('storage/'.$active_profile->about_image()->small_url)}}" class="about-image img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 mt-3 mb-5 m-lg-auto text-left">
                             <h1><span class="text-secondary">I'm </span>Charlie Steenhagen</h1>
