@@ -35,7 +35,7 @@
                 <a class="nav-link {{
                     active_class(Active::checkUriPattern('admin/profiles*'))
                 }}" href="{{ route('admin.profiles.index') }}">
-                    <i class="nav-icon fas fa-user-tie"></i>
+                    <i class="nav-icon fas fa-sliders-h"></i>
                     @lang('menus.backend.sidebar.profiles')
                 </a>
             </li>
