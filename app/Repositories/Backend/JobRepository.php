@@ -69,7 +69,7 @@ class JobRepository extends BaseRepository
             $job = parent::create([
                 'title' => $data['title'],
                 'company' => $data['company'],
-                'company_url' => $data['company_url'],
+                'company_url' => friendly_url($data['company_url']),
                 'short_description' => $data['short_description'],
                 'description' => $data['description'],
 //                'page_content' => $data['page_content'],
@@ -104,7 +104,7 @@ class JobRepository extends BaseRepository
             if ($job->update([
                 'title' => $data['title'],
                 'company' => $data['company'],
-                'company_url' => $data['company_url'],
+                'company_url' => friendly_url($data['company_url']),
                 'short_description' => $data['short_description'],
                 'description' => $data['description'],
 //                'page_content' => $data['page_content'],
