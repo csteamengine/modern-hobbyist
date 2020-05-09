@@ -48,8 +48,7 @@
                             <h1><span class="text-secondary">I'm </span>Charlie Steenhagen</h1>
                             <h3 class="text-secondary">Software Engineer, Web Developer, Maker</h3>
                             <p class="text-secondary">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus.
+                                {{$active_profile->short_about_description}}
                             </p>
                             <a class="m-auto" href="{{route('frontend.about')}}">
                                 <button class="btn btn-lg btn-outline-primary m-auto" >
