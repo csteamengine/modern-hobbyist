@@ -10,6 +10,7 @@ use App\Http\Requests\Backend\Profile\UpdateProfileRequest;
 use App\Models\Image;
 use App\Models\Profile;
 use App\Repositories\Backend\ProfileRepository;
+use Artisan;
 use DB;
 use Exception;
 use Illuminate\Contracts\View\Factory;
@@ -117,14 +118,7 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
-        //TODO upload resume file
-        //TODO upload background video
-
         $updateSuccess = $this->profileRepository->update($profile, $request->all());
-
-        if(!$updateSuccess){
-            return redirect()->back()->withFlashWarning('Failed to update the profile');
-        }
 
         //Upload about image
         $about_image_success = $this->upload_image($request, $profile);
@@ -137,20 +131,47 @@ class ProfileController extends Controller
 
         $imagesSuccess = update_images($request, $updateSuccess, $this);
 
+
+
+        //Determine if everything updated correctly
+        if(!$updateSuccess){
+            return redirect()->back()->withFlashWarning('Failed to update the profile');
+        }
+
+        //Check if this is the last active profile.
+        $active_test = Profile::where('is_active', true);
+        if($active_test->count() == 0){
+            $profile->is_active = true;
+            $profile->save();
+            return redirect()->back()->withFlashWarning('Could not deactivate profile. One profile must be active.');
+        }
+
+        //Determine if about image uploaded correctly
         if(!$about_image_success){
             return redirect()->back()->withFlashWarning('Failed to upload the about image.');
         }
 
+        //Determine if background video uploaded correctly
         if(!$background_video_success){
             return redirect()->back()->withFlashWarning('Failed to upload the background video');
         }
 
+        //Determine if new Resume uploaded successfully
         if(!$resume_success){
             return redirect()->back()->withFlashWarning('Failed to upload the resume');
         }
 
+        //Determine if all about page images uploaded successfully
         if(!$imagesSuccess){
             return redirect()->back()->withFlashWarning('Failed to upload some of the profile images.');
+        }
+
+        //Make artisan calls if necessary
+        if($profile->is_active && $profile->maintenance_mode_active){
+            //System helper function I created
+            maintenance_mode();
+        }else{
+            live_mode();
         }
 
         return redirect()->back()->withFlashSuccess(__('alerts.backend.profiles.updated'));

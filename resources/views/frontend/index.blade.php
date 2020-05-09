@@ -10,9 +10,11 @@
 @section('content')
     <div class="fullscreen-bg">
         <div class="overlay"></div>
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="{{asset('storage/'.$active_profile->background_video_file)}}" type="video/mp4">
-        </video>
+        @if($active_profile->background_video_active)
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="{{asset('storage/'.$active_profile->background_video_file)}}" type="video/mp4">
+            </video>
+        @endif
     </div>
     <div class="homeText">
         <div class="row p-0 m-0">
@@ -49,14 +51,20 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Vivamus turpis mi, elementum at cursus et, hendrerit ac lectus.
                             </p>
-                            <a class="btn btn-lg btn-outline-primary" href="{{route('frontend.about')}}">
-                                More About Me
-                                <i class="fas fa-arrow-right"></i>
+                            <a class="m-auto" href="{{route('frontend.about')}}">
+                                <button class="btn btn-lg btn-outline-primary m-auto" >
+                                    More About Me
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
                             </a>
-                            <button class="btn btn-lg btn-outline-primary">
-                                Download Resume
-                                <i class="fas fa-download"></i>
-                            </button>
+                            @if($active_profile->resume_download_active)
+                                <a href="{{asset('storage/'.$active_profile->resume_file)}}" download>
+                                    <button class="btn btn-lg btn-outline-primary">
+                                        Download Resume
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

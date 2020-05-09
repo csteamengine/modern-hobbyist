@@ -49,7 +49,14 @@
     @include('frontend.jobs.jobmodal')
     <div class="row mt-5 mb-5">
         <div class="col m-auto text-center">
-            <button class="btn btn-outline-primary">Download Resume</button>
+            @if($active_profile->resume_download_active)
+                <a href="{{asset('storage/'.$active_profile->resume_file)}}" download>
+                    <button class="btn btn-lg btn-outline-primary">
+                        Download Resume
+                        <i class="fas fa-download"></i>
+                    </button>
+                </a>
+            @endif
         </div>
     </div>
 @endsection

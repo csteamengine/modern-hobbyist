@@ -123,3 +123,13 @@ if (! function_exists('update_images')) {
         return true;
     }
 }
+
+if (! function_exists('friendly_url'))
+{
+    function friendly_url($url){
+        if(strpos($url,'http://') === false && strpos($url,'https://') === false){
+            return "https://".$url;
+        }
+        return $url;
+    }
+}
