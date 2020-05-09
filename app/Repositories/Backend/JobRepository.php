@@ -107,7 +107,6 @@ class JobRepository extends BaseRepository
                 'company_url' => friendly_url($data['company_url']),
                 'short_description' => $data['short_description'],
                 'description' => $data['description'],
-//                'page_content' => $data['page_content'],
                 'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
                 'started_at' => $data['started_at'],
                 'finished_at' => $data['finished_at'],
