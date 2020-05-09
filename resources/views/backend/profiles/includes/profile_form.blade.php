@@ -12,8 +12,86 @@
 
         <hr>
 
+{{--        'image_id' => 1,--}}
+
         <div class="row mt-4">
             <div class="col">
+                <div class="form-group row">
+                    <div class="col-12 col-md-6 m-auto">
+                        <div class="row">
+                            <img src="{{asset('storage/'.$profile->about_image()->small_url)}}"
+                                 class="img-fluid about-image-preview"
+                                 id="about-image-preview"
+                                 alt="About Image Preview"
+                                 onclick="$('#about_image_file').trigger('click');"
+                            >
+                        </div>
+                        <div class="row mt-2">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="about_image_file" name="about_image_id">
+                                <label class="custom-file-label" for="about_image_id">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-6 col-sm-3">
+                        {{ html()->label(__('labels.backend.profiles.forms.maintenance_mode_active'))
+                            ->class('form-control-label')
+                            ->for('maintenance_mode_active') }}
+                        <br>
+                        <label class="switch switch-success m-0 pb-0 pt-1">
+                            {{html()->checkbox('maintenance_mode_active', $checked = $profile->maintenance_mode_active)
+                                ->id("maintenance_mode_active_".$profile->id)
+                                ->class('form-control switch-input')
+                                ->attribute('maxlength', 250)
+                               }}
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div><!--col-->
+                    <div class="col-6 col-sm-3">
+                        {{ html()->label(__('labels.backend.profiles.forms.contact_form_active'))
+                            ->class('form-control-label')
+                            ->for('contact_form_active') }}
+                        <br>
+                        <label class="switch switch-success m-0 pb-0 pt-1">
+                            {{html()->checkbox('contact_form_active', $checked = $profile->contact_form_active)
+                                ->id("contact_form_active_".$profile->id)
+                                ->class('form-control switch-input')
+                                ->attribute('maxlength', 250)
+                               }}
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div><!--col-->
+                    <div class="col-6 col-sm-3">
+                        {{ html()->label(__('labels.backend.profiles.forms.resume_download_active'))
+                            ->class('form-control-label')
+                            ->for('resume_download_active') }}
+                        <br>
+                        <label class="switch switch-success m-0 pb-0 pt-1">
+                            {{html()->checkbox('resume_download_active', $checked = $profile->resume_download_active)
+                                ->id("resume_download_active_".$profile->id)
+                                ->class('form-control switch-input')
+                                ->attribute('maxlength', 250)
+                               }}
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div><!--col-->
+                    <div class="col-6 col-sm-3">
+                        {{ html()->label(__('labels.backend.profiles.forms.background_video_active'))
+                            ->class('form-control-label')
+                            ->for('background_video_active') }}
+                        <br>
+                        <label class="switch switch-success m-0 pb-0 pt-1">
+                            {{html()->checkbox('background_video_active', $checked = $profile->background_video_active)
+                                ->id("background_video_active_".$profile->id)
+                                ->class('form-control switch-input')
+                                ->attribute('maxlength', 250)
+                               }}
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div><!--col-->
+                </div><!--form-group-->
                 <div class="form-group row">
                     <div class="col-md-1">
                         {{ html()->label(__('labels.backend.profiles.forms.is_active'))
@@ -43,6 +121,61 @@
                     </div><!--col-->
                 </div><!--form-group-->
                 <div class="form-group row">
+                    <div class="col-6">
+                        {{ html()->label(__('labels.backend.profiles.forms.name'))
+                            ->class('form-control-label')
+                            ->for('name') }}
+
+                        {{ html()->text('name')
+                            ->class('form-control')
+                            ->placeholder(__('labels.backend.profiles.forms.name'))
+                            ->attribute('maxlength', 191)
+                            ->required() }}
+                    </div>
+                    <div class="col-6">
+                        {{ html()->label(__('labels.backend.profiles.forms.about_title'))
+                            ->class('form-control-label')
+                            ->for('about_title') }}
+
+                        {{ html()->text('about_title')
+                            ->class('form-control')
+                            ->placeholder(__('labels.backend.profiles.forms.about_title'))
+                            ->attribute('maxlength', 191)
+                             }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-6">
+                        {{ html()->label(__('labels.backend.profiles.forms.contact_email'))
+                            ->class('form-control-label')
+                            ->for('contact_email') }}
+
+                        {{ html()->text('contact_email')
+                            ->class('form-control')
+                            ->placeholder(__('labels.backend.profiles.forms.contact_email'))
+                            ->attribute('maxlength', 191)
+                            ->required() }}
+                    </div>
+                    <div class="col-3">
+                        {{ html()->label(__('labels.backend.profiles.forms.resume_file'))
+                            ->class('form-control-label')
+                            ->for('resume_file') }}
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="resume_file" name="resume_file">
+                            <label class="custom-file-label" for="resume_file">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        {{ html()->label(__('labels.backend.profiles.forms.background_video_file'))
+                            ->class('form-control-label')
+                            ->for('background_video_file') }}
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="background_video_file" name="background_video_file">
+                            <label class="custom-file-label" for="background_video_file">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-md-12">
                         {{ html()->label(__('labels.backend.profiles.forms.youtube_url'))
                             ->class('form-control-label')
@@ -69,66 +202,43 @@
                     </div><!--col-->
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-6">
-                        {{ html()->label(__('labels.backend.profiles.forms.started_at'))
+                    <div class="col-md-12">
+                        {{ html()->label(__('labels.backend.profiles.forms.instagram_url'))
                             ->class('form-control-label')
-                            ->for('started_at') }}
+                            ->for('instagram_url') }}
 
-                        {{ html()->date('started_at')
+                        {{ html()->text('instagram_url')
                             ->class('form-control')
-                            ->attribute('rows', 10)
-                            ->placeholder(__('labels.backend.profiles.forms.started_at'))
-                            }}
+                            ->placeholder(__('labels.backend.profiles.forms.instagram_url'))
+                            ->attribute('maxlength', 500)
+                            ->autofocus() }}
                     </div><!--col-->
-                    <div class="col-md-6">
-                        {{ html()->label(__('labels.backend.profiles.forms.finished_at'))
-                            ->class('form-control-label')
-                            ->for('finished_at') }}
-
-                        {{ html()->date('finished_at')
-                            ->class('form-control')
-                            ->attribute('rows', 10)
-                            ->placeholder(__('labels.backend.profiles.forms.finished_at'))
-                            }}
-                    </div><!--col-->
-                </div><!--form-group-->
+                </div>
                 <div class="form-group row">
                     <div class="col-md-12">
-                        {{ html()->label(__('labels.backend.profiles.forms.short_description'))
+                        {{ html()->label(__('labels.backend.profiles.forms.short_about_description'))
                             ->class('form-control-label')
-                            ->for('short_description') }}
+                            ->for('short_about_escription') }}
 
-                        {{ html()->text('short_description')
+                        {{ html()->textarea('short_about_description')
                             ->class('form-control')
-                            ->placeholder(__('labels.backend.profiles.forms.short_description'))
+                            ->placeholder(__('labels.backend.profiles.forms.short_about_description'))
                             ->attribute('maxlength', 250)
+                            ->attribute('row', 5)
                             }}
                     </div><!--col-->
                 </div><!--form-group-->
                 <div class="form-group row">
                     <div class="col-md-12">
-                        {{ html()->label(__('labels.backend.profiles.forms.description'))
+                        {{ html()->label(__('labels.backend.profiles.forms.about_page_content'))
                             ->class('form-control-label')
-                            ->for('long_description') }}
+                            ->for('about_page_content') }}
 
-                        {{ html()->textarea('description')
-                            ->class('form-control')
-                            ->attribute('rows', 10)
-                            ->placeholder(__('labels.backend.profiles.forms.description'))
-                            }}
-                    </div><!--col-->
-                </div><!--form-group-->
-                <div class="form-group row">
-                    <div class="col-md-12">
-                        {{ html()->label(__('labels.backend.profiles.forms.page_content'))
-                            ->class('form-control-label')
-                            ->for('page_content') }}
-
-                        {{ html()->textarea('page_content')
+                        {{ html()->textarea('about_page_content')
                             ->class('form-control')
                             ->id('summernote')
-                            ->value($profile->page_content)
-                            ->placeholder(__('labels.backend.profiles.forms.page_content'))
+                            ->value($profile->about_page_content)
+                            ->placeholder(__('labels.backend.profiles.forms.about_page_content'))
                             }}
                     </div><!--col-->
                 </div><!--form-group-->

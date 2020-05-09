@@ -16,12 +16,21 @@ class Profile extends Model
     //TODO Set remaining fillable Items
     protected $fillable = [
         'title',
-        'company',
-        'short_description',
-        'page_content',
+        'name',
+        'about_title',
+        'short_about_description',
+        'about_page_content',
         'is_active',
-        'started_at',
-        'finished_at',
+        'maintenance_mode_active',
+        'contact_form_active',
+        'contact_email',
+        'resume_download_active',
+        'background_video_active',
+        'resume_file',
+        'background_video_file',
+        'youtube_url',
+        'github_url',
+        'instagram_url',
     ];
 
     public function delete() {

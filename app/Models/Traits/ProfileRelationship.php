@@ -17,4 +17,9 @@ trait ProfileRelationship
     {
         return $this->belongsToMany(Image::class, 'profile_images')->orderBy('order');
     }
+
+    public function about_image()
+    {
+        return $this->belongsTo(Image::class, 'image_id', 'id')->first();
+    }
 }

@@ -26,10 +26,9 @@ class UpdateProfileRequest extends FormRequest
      */
     public function rules()
     {
+        //TODO Update required fields
         return [
             'title' => ['required', 'max:191'],
-            'started_at' => ['required', 'date'],
-            'finished_at' => ['required', 'date'],
         ];
     }
 }

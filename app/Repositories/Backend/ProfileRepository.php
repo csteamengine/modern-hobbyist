@@ -68,11 +68,22 @@ class ProfileRepository extends BaseRepository
         return DB::transaction(function () use ($data) {
             $profile = parent::create([
                 'title' => $data['title'],
-                'short_description' => $data['short_description'],
-                'page_content' => $data['page_content'],
+                'name' => $data['name'],
+                'about_title' => $data['about_title'],
+                'short_about_description' => $data['short_about_description'],
+                'about_page_content' => $data['about_page_content'],
                 'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
-                'started_at' => $data['started_at'],
-                'finished_at' => $data['finished_at'],
+                'maintenance_mode_active' => $data['maintenance_mode_active'],
+                'contact_form_active' => $data['contact_form_active'],
+                'contact_email' => $data['contact_email'],
+                'resume_download_active' => $data['resume_download_active'],
+                'background_video_active' => $data['background_video_active'],
+                'resume_file' => $data['resume_file'],
+                'background_video_file' => $data['background_video_file'],
+                'image_id' => $data['image_id'],
+                'youtube_url' => $data['youtube_url'],
+                'github_url' => $data['github_url'],
+                'instagram_url' => $data['instagram_url'],
             ]);
 
             if ($profile) {
@@ -100,11 +111,19 @@ class ProfileRepository extends BaseRepository
         return DB::transaction(function () use ($profile, $data) {
             if ($profile->update([
                 'title' => $data['title'],
-                'short_description' => $data['short_description'],
-                'page_content' => $data['page_content'],
+                'name' => $data['name'],
+                'about_title' => $data['about_title'],
+                'short_about_description' => $data['short_about_description'],
+                'about_page_content' => $data['about_page_content'],
                 'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
-                'started_at' => $data['started_at'],
-                'finished_at' => $data['finished_at'],
+                'maintenance_mode_active' => isset($data['maintenance_mode_active']) && $data['maintenance_mode_active'] === '1',
+                'contact_form_active' => isset($data['contact_form_active']) && $data['contact_form_active'] === '1',
+                'contact_email' => $data['contact_email'],
+                'resume_download_active' => isset($data['resume_download_active']) && $data['resume_download_active'] === '1',
+                'background_video_active' => isset($data['background_video_active']) && $data['background_video_active'] === '1',
+                'youtube_url' => $data['youtube_url'],
+                'github_url' => $data['github_url'],
+                'instagram_url' => $data['instagram_url'],
             ])) {
 
                 event(new ProfileUpdated($profile));

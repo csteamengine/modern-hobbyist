@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Events\Backend\Profile\ProfileDeleted;
 use App\Exceptions\GeneralException;
 use App\Http\Requests\Backend\Profile\ManageProfileRequest;
+use App\Http\Requests\Backend\Profile\StoreProfileRequest;
 use App\Http\Requests\Backend\Profile\UpdateProfileRequest;
 use App\Models\Profile;
 use App\Repositories\Backend\ProfileRepository;
@@ -62,7 +63,7 @@ class ProfileController extends Controller
      * @return Response
      * @throws Throwable
      */
-    public function store(Request $request)
+    public function store(StoreProfileRequest $request)
     {
         $storeSuccess = $this->profileRepository->create($request->all());
 
@@ -114,6 +115,10 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
+        //TODO upload about image
+        //TODO upload resume file
+        //TODO upload background video
+
         $updateSuccess = $this->profileRepository->update($profile, $request->all());
 
         if(!$updateSuccess){
@@ -138,7 +143,10 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        if($profile->delete()){
+        if(!$profile->is_active){
+
+            $profile->delete();
+
             event(new ProfileDeleted($profile));
 
             return redirect()->back()->withFlashSuccess(__('alerts.backend.profiles.deleted'));

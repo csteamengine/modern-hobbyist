@@ -160,12 +160,21 @@ return [
             'management' => 'Manage Profile',
             'forms' => [
                 'title' => 'Title',
+                'name' => 'Name',
+                'about_title' => 'About Title',
+                'short_about_description' => 'Short About Description',
+                'about_page_content' => 'About Page Content',
                 'is_active' => 'Status',
-                'short_description' => 'Short Description',
-                'page_content' => 'Page Content',
-                'started_at' => 'Started At',
-                'finished_at' => 'Finished At',
-                'images' => 'Images'
+                'maintenance_mode_active' => 'Maintenance Mode',
+                'contact_form_active' => 'Contact Submission',
+                'contact_email' => 'Contact Email',
+                'resume_download_active' => 'Resume Download',
+                'background_video_active' => 'Background Video',
+                'resume_file' => 'Resume File',
+                'background_video_file' => 'Background Video file',
+                'youtube_url' => 'YouTube URL',
+                'github_url' => 'GitHub URL',
+                'instagram_url' => 'Instagram URL',
             ]
         ]
     ],
