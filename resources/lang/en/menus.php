@@ -45,6 +45,7 @@ return [
         'sidebar' => [
             'dashboard' => 'Dashboard',
             'projects' => 'Projects',
+            'profiles' => 'Profiles',
             'jobs' => 'Jobs',
             'general' => 'General',
             'history' => 'History',
@@ -57,6 +58,10 @@ return [
         'projects' => [
             'edit' => 'Edit Project',
             'create' => 'Create Project'
+        ],
+        'profiles' => [
+            'edit' => 'Edit Profile',
+            'create' => 'Create Profile'
         ]
     ],
 

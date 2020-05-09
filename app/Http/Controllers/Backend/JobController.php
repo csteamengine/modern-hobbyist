@@ -64,14 +64,15 @@ class JobController extends Controller
 
 
         $storeSuccess = $this->jobRepository->create($request->all());
-        $imagesSuccess = $this->updateImages($request, $storeSuccess);
 
         if(!$storeSuccess){
-            return redirect()->back()->withFlashWarning('Failed to create the project');
+            return redirect()->back()->withFlashWarning('Failed to create the job');
         }
 
+        $imagesSuccess = update_images($request, $storeSuccess, $this);
+
         if(!$imagesSuccess){
-            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+            return redirect()->back()->withFlashWarning('Failed to upload some of the job images.');
         }
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.created'));
@@ -112,14 +113,15 @@ class JobController extends Controller
     public function update(UpdateJobRequest $request, Job $job)
     {
         $updateSuccess = $this->jobRepository->update($job, $request->all());
-        $imagesSuccess = $this->updateImages($request, $job);
 
         if(!$updateSuccess){
-            return redirect()->back()->withFlashWarning('Failed to update the project');
+            return redirect()->back()->withFlashWarning('Failed to update the job');
         }
 
+        $imagesSuccess = update_images($request, $updateSuccess, $this);
+
         if(!$imagesSuccess){
-            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+            return redirect()->back()->withFlashWarning('Failed to upload some of the job images.');
         }
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.updated'));
@@ -139,70 +141,5 @@ class JobController extends Controller
         event(new JobDeleted($job));
 
         return redirect()->route('admin.jobs.index')->withFlashSuccess(__('alerts.backend.jobs.deleted'));
-    }
-
-    public function updateImages(FormRequest $request, Job $job){
-        $existing_images = $job->images()->get();
-        $success = true;
-        //remove deleted images
-        if($request->has('existing_images')){
-            $input = $request['existing_images'];
-            foreach($existing_images as $currImage){
-                if(!in_array($currImage->id, $input)){
-                    $job->images()->detach($currImage);
-                }
-            }
-
-            $count = 0;
-            foreach($input as $id){
-                $image = $job->images()->where('images.id', $id)->get();
-                $job->images()->updateExistingPivot($image, ['order' => $count]);
-                $count++;
-            }
-
-        }else if($existing_images){
-            //We have existing images, but none came through in the form request
-            foreach($existing_images as $currImage){
-                $job->images()->detach($currImage);
-            }
-        }
-
-        //Add new images
-        if($request->hasfile('images'))
-        {
-            $this->validate($request, [
-                'images' => 'required',
-                'images[].*' => 'image|mimes:jpg,png,tif,gif'
-            ]);
-            foreach($request->file('images') as $file)
-            {
-                $extractor = new PHPColorExtractor();
-                $extractor->setImage($file->getPathname())->setTotalColors(5)->setGranularity(10);
-                $palette = $extractor->extractPalette();
-                $upload = $file->store('images/projects');
-                if($upload){
-                    $image = Image::create([
-                        'url' => env('APP_URL').'/storage/'.$upload,
-                        'small_url' => $upload,
-                        'color' => $palette[sizeof($palette)-1]
-                    ]);
-
-                    if(!$image){
-                        $success = false;
-                    }
-
-                    $job_image = $job->images()->save($image, ['order' => $existing_images->count()]);
-
-                    if(!$job_image){
-                        $success = false;
-                    }
-                }
-            }
-        }
-
-        if(!$success){
-            return false;
-        }
-        return true;
     }
 }

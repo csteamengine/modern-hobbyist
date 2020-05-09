@@ -150,6 +150,23 @@ return [
                 'github_url' => 'GitHub URL',
                 'images' => 'Images'
             ]
+        ],
+        'profiles' => [
+            'index' => 'Profiles',
+            'main' => 'Profiles',
+            'create' => 'Create Profile',
+            'view' => 'View Profile',
+            'edit' => 'Edit Profile',
+            'management' => 'Manage Profile',
+            'forms' => [
+                'title' => 'Title',
+                'is_active' => 'Status',
+                'short_description' => 'Short Description',
+                'page_content' => 'Page Content',
+                'started_at' => 'Started At',
+                'finished_at' => 'Finished At',
+                'images' => 'Images'
+            ]
         ]
     ],
 

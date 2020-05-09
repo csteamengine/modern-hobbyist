@@ -31,6 +31,15 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{
+                    active_class(Active::checkUriPattern('admin/profiles*'))
+                }}" href="{{ route('admin.profiles.index') }}">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    @lang('menus.backend.sidebar.profiles')
+                </a>
+            </li>
+
             <li class="nav-title">
                 @lang('menus.backend.sidebar.system')
             </li>

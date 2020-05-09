@@ -42,6 +42,14 @@ return [
             'created' => 'The project was successfully created.',
             'deleted' => 'The project was successfully deleted.',
             'updated' => 'The project was successfully updated.',
+        ],
+        'profiles' => [
+            'created' => 'The profile was successfully created.',
+            'deleted' => 'The profile was successfully deleted.',
+            'delete_failed' => 'The profile failed to delete successfully.',
+            'updated' => 'The profile was successfully updated.',
+            'activated' => 'The profile was successfully activated.',
+            'activation_failed' => 'The profile failed to activate successfully.',
         ]
     ],
 

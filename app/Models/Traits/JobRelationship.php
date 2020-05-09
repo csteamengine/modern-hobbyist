@@ -2,8 +2,6 @@
 
 namespace App\Models\Traits;
 
-use App\Models\Auth\SocialAccount;
-use App\Models\Auth\PasswordHistory;
 use App\Models\Image;
 
 /**
@@ -17,6 +15,6 @@ trait JobRelationship
      */
     public function images()
     {
-        return $this->belongsToMany(Image::class, 'job_images');
+        return $this->belongsToMany(Image::class, 'job_images')->orderBy('order');
     }
 }

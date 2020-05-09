@@ -22,6 +22,7 @@ mix.setPublicPath('public')
     .sass('resources/sass/backend/app.scss', 'css/backend.css')
     .sass('resources/sass/backend/projects/project.scss', 'css/backend/project.css')
     .sass('resources/sass/backend/jobs/job.scss', 'css/backend/job.css')
+    .sass('resources/sass/backend/profiles/profile.scss', 'css/backend/profile.css')
     .js('resources/js/frontend/app.js', 'js/frontend.js')
     .js('resources/js/frontend/index.js', 'js/index.js')
     .js('resources/js/frontend/projects.js', 'js/projects.js')
@@ -31,6 +32,8 @@ mix.setPublicPath('public')
     .js('resources/js/backend/jobs/job.js', 'js/backend/jobs/job.js')
     .js('resources/js/backend/projects/projects.js', 'js/backend/projects/projects.js')
     .js('resources/js/backend/projects/project.js', 'js/backend/projects/project.js')
+    .js('resources/js/backend/profiles/profiles.js', 'js/backend/profiles/profiles.js')
+    .js('resources/js/backend/profiles/profile.js', 'js/backend/profiles/profile.js')
     .js([
         'resources/js/backend/before.js',
         'resources/js/backend/app.js',
