@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\Job;
+use App\Models\Profile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 use PHPColorExtractor\PHPColorExtractor;
@@ -131,5 +132,12 @@ if (! function_exists('friendly_url'))
             return "https://".$url;
         }
         return $url;
+    }
+}
+
+if (! function_exists('get_active_profile'))
+{
+    function get_active_profile(){
+        return Profile::where('is_active', true)->first();
     }
 }
