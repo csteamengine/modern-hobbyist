@@ -216,7 +216,7 @@ class ProfileController extends Controller
         if($request->hasfile('background_video_file'))
         {
             $this->validate($request, [
-                'background_video_file' => 'required | mimes:mp4,mov,ogg,qt | max:20000'
+                'background_video_file' => 'required | mimes:mp4,mov,ogg,qt'
             ]);
 
             $file = $request->file('background_video_file');
