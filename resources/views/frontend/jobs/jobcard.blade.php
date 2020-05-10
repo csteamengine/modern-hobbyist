@@ -14,7 +14,7 @@
             <div class="col-12 col-md-6 m-auto {{$order == 'even' ? 'order-md-12' : 'order-md-1'}} ">
                 <h1 class="card-title">{{$job->title}}</h1>
                 <h4 class="card-subtitle mb-2 text-muted">{{$job->company}}</h4>
-                <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
+                <h6 class="card-subtitle mb-2 text-secondary">{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{$job->finished_at == "" ? "Present" : date_format(date_create($job->finished_at), 'm-d-Y')}}</h6>
                 <p class="card-text">{{$job->short_description}}</p>
             </div>
         </div>
