@@ -10,12 +10,12 @@
     <div class="row mt-5">
         <div class="col mt-5">
             <div class="row">
-                <div class="col-4 m-auto about-image">
+                <div class="col-10 col-sm-8 col-md-6 col-lg-4 m-auto about-image">
                     <img src="{{asset('storage/'.$active_profile->about_image()->small_url)}}" class="img-fluid">
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-4 m-auto text-center">
+                <div class="col-10 col-sm-8 col-md-6 col-lg-4 m-auto text-center">
                     <h2>Charlie Steenhagen</h2>
                 </div>
             </div>

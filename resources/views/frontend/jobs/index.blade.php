@@ -8,13 +8,13 @@
 @endpush
 
 @section('content')
-    <div id="career" class="row text-center w-100 p-0 mt-5">
+    <div id="career" class="row text-center w-100 p-0 mt-5 ml-auto mr-auto">
         <div class="col-12 text-center mt-5 ml-auto mr-auto">
             <h1>Career</h1>
         </div>
         <div class="col-md-10 m-auto">
             <div class="row">
-                <div class="col">
+                <div class="col m-auto">
                     @foreach($jobs as $job)
                     <!-- timeline item 1 -->
                         <div class="row no-gutters my-5">
