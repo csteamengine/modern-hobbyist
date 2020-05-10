@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.2-node-browsers
+      - image: circleci/php:7.3-node-browsers
     working_directory: ~/laravel-boilerplate
     steps:
       - checkout
@@ -11,8 +11,6 @@ jobs:
       - run: sudo docker-php-ext-install zip
       - run: sudo apt-get install -y libpng-dev
       - run: sudo docker-php-ext-install gd
-      - run: cp .env.example .env
-      - run: php artisan key:generate
       - run: sudo composer self-update
       - restore_cache:
           keys:
@@ -34,4 +32,6 @@ jobs:
             - node_modules
       - run: yarn test
       - run: yarn run production
+      - run: cp .env.example .env
+      - run: php artisan key:generate
       - run: ./vendor/bin/phpunit
