@@ -16,6 +16,7 @@ class ChangeUserPasswordTest extends TestCase
     /** @test */
     public function the_password_can_be_validated()
     {
+        $this->seed();
         $this->loginAsAdmin();
         $user = factory(User::class)->create();
 

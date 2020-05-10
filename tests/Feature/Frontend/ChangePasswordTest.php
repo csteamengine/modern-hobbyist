@@ -14,6 +14,7 @@ class ChangePasswordTest extends TestCase
     /** @test */
     public function the_password_can_be_validated()
     {
+        $this->seed();
         $user = factory(User::class)->create(['password' => '1234']);
 
         $response = $this->actingAs($user)

@@ -55,6 +55,7 @@ class PasswordExpirationTest extends TestCase
     /** @test */
     public function the_password_can_be_validated()
     {
+        $this->seed();
         config(['access.users.password_history' => false]);
         config(['access.users.password_expires_days' => 30]);
 
