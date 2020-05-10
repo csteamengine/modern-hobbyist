@@ -17,7 +17,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::orderBy('created_at', 'desc')->get();
+        $jobs = Job::orderBy('started_at', 'desc')->get();
 
         //Shows all projects (or at least a range and searchable)
         return view('frontend.jobs.index')->withJobs($jobs);

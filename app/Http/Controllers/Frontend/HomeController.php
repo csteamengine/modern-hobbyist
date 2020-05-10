@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function index()
     {
         $projects = Project::all()->take(4);
-        $jobs = Job::all()->take(3);
+        $jobs = Job::orderBy('started_at', 'desc')->take(3)->get();
 
         $statistics = new stdClass;
         $statistics->videoCount = 0;
