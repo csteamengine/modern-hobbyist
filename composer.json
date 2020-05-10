@@ -71,9 +71,7 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan ide-helper:generate -M",
-            "@php artisan ide-helper:meta -M",
-            "@php artisan package:discover --ansi -M"
+            "@php artisan package:discover --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
