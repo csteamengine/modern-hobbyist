@@ -33,8 +33,8 @@
                 <div class="col-12 col-sm-10 m-auto">
                     <div class="row mb-5">
                         @foreach($active_profile->images()->get() as $image)
-                            <div class="col-4 col-lg-3 m-auto">
-                                <img class="w-100 m-3" src="{{asset('/storage/'.$image->small_url)}}">
+                            <div class="col-6 col-md-4 col-lg-3 m-auto">
+                                <img class="w-100" src="{{asset('/storage/'.$image->small_url)}}">
                             </div>
                         @endforeach
                     </div>
