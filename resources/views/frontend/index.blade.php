@@ -12,7 +12,7 @@
         <div class="overlay"></div>
         @if($active_profile->background_video_active)
             <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="{{asset('storage/'.$active_profile->background_video_file)}}" type="video/mp4">
+                <source src="{{Storage::url($active_profile->background_video_file)}}" type="video/mp4">
             </video>
         @endif
     </div>
@@ -42,7 +42,7 @@
                 <div class="col-10 mb-5 ml-auto mr-auto mt-auto m-lg-auto">
                     <div class="row">
                         <div class="col-12 col-lg-5 mb-3 mt-5 m-lg-auto">
-                            <img src="{{asset('storage/'.$active_profile->about_image()->small_url)}}" class="about-image img-fluid">
+                            <img src="{{Storage::url($active_profile->about_image()->small_url)}}" class="about-image img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 mt-3 mb-5 m-lg-auto text-left">
                             <h1><span class="text-secondary">I'm </span>Charlie Steenhagen</h1>
@@ -57,7 +57,7 @@
                                 </button>
                             </a>
                             @if($active_profile->resume_download_active)
-                                <a href="{{asset('storage/'.$active_profile->resume_file)}}" download>
+                                <a href="{{Storage::url($active_profile->resume_file)}}" download>
                                     <button class="btn btn-lg btn-outline-primary">
                                         Download Resume
                                         <i class="fas fa-download"></i>
@@ -112,7 +112,7 @@
                                 <div class="col mb-5">
                                     <div class="project-bg row m-auto">
                                         <div class="project-bg-image"
-                                             data-image="{{asset('storage/'.$project->images()->first()->small_url)}}"
+                                             data-image="{{Storage::url($project->images()->first()->small_url)}}"
                                              style="background-color: #{{$project->images()->first()->color}}">
                                         </div>
                                         <a href="{{route('frontend.projects.show', $project)}}">

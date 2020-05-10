@@ -5,11 +5,11 @@
          data-url="{{$job->company_url}}"
          data-description="{{$job->description}}"
          data-tenure="{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}"
-         data-image="https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png"
+         data-image="{{$job->images()->first() ? Storage::url($job->images()->first()->small_url) : ""}}"
     >
         <div class="row">
             <div class="col-12 col-md-6 m-auto {{$order == 'even' ? 'order-md-1' : 'order-md-12'}}">
-                <img src="{{$job->images()->first() ? asset($job->images()->first()->url) : 'https://cdn.freebiesupply.com/logos/large/2x/john-deere-6-logo-png-transparent.png'}}" class="job-image">
+                <img src="{{$job->images()->first() ? Storage::url($job->images()->first()->small_url) : ""}}" class="job-image">
             </div>
             <div class="col-12 col-md-6 m-auto {{$order == 'even' ? 'order-md-12' : 'order-md-1'}} ">
                 <h1 class="card-title">{{$job->title}}</h1>
