@@ -11,6 +11,8 @@ jobs:
       - run: sudo docker-php-ext-install zip
       - run: sudo apt-get install -y libpng-dev
       - run: sudo docker-php-ext-install gd
+      - run: cp .env.example .env
+      - run: php artisan key:generate
       - run: sudo composer self-update
       - restore_cache:
           keys:
@@ -32,6 +34,4 @@ jobs:
             - node_modules
       - run: yarn test
       - run: yarn run production
-      - run: cp .env.example .env
-      - run: php artisan key:generate
       - run: ./vendor/bin/phpunit
