@@ -10,7 +10,7 @@ $('#jobHighlightModal').on('show.bs.modal', function (event) {
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this);
     modal.find('.modal-title').text(jobTitle);
-    modal.find('.modal-body-content').text(description);
+    modal.find('.modal-body-content').html(description);
     modal.find('.modal-body-image').attr('src',image);
     modal.find('.modal-body-date').text(tenure);
     modal.find('.modal-body-company').html(company);
