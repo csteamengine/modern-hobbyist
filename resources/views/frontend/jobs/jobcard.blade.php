@@ -4,7 +4,7 @@
          data-company="{{$job->company}}"
          data-url="{{$job->company_url}}"
          data-description="{{$job->description}}"
-         data-tenure="{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{date_format(date_create($job->finished_at), 'm-d-Y')}}"
+         data-tenure="{{date_format(date_create($job->started_at), 'm-d-Y')}} - {{$job->finished_at == "" ? "Present" : date_format(date_create($job->finished_at), 'm-d-Y')}}"
          data-image="{{$job->images()->first() ? Storage::url($job->images()->first()->small_url) : ""}}"
     >
         <div class="row">
