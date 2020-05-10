@@ -32,7 +32,7 @@ class StoreJobRequest extends FormRequest
             'company' => ['required', 'max:191'],
             'company_url' => ['required', 'max:191'],
             'started_at' => ['required', 'date'],
-            'finished_at' => ['required', 'date'],
+            'finished_at' => ['date', 'nullable'],
         ];
     }
 }
