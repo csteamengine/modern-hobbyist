@@ -16,7 +16,7 @@
             </div>
             <div class="row mt-5">
                 <div class="col-10 col-sm-8 col-md-6 col-lg-4 m-auto text-center">
-                    <h2>Charlie Steenhagen</h2>
+                    <h2>{{$active_profile->name}}</h2>
                 </div>
             </div>
             <div class="row">
