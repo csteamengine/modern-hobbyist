@@ -16,7 +16,9 @@ jobs:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
             - composer-v1-
-      - run: composer install -n --prefer-dist --no-scripts
+      - run: cp .env.example .env
+      - run: php artisan key:generate
+      - run: composer install -n --prefer-dist
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
@@ -32,6 +34,4 @@ jobs:
             - node_modules
       - run: yarn test
       - run: yarn run production
-      - run: cp .env.example .env
-      - run: php artisan key:generate
       - run: ./vendor/bin/phpunit
