@@ -16,7 +16,7 @@
                    autoplay="autoplay"
                    muted="muted"
                    loop="loop">
-                <data-src src="{{asset('storage'.$active_profile->background_video_file)}}" type="video/mp4"></data-src>
+                <data-src src="{{asset('storage/'.$active_profile->background_video_file)}}" type="video/mp4"></data-src>
             </video>
         @endif
     </div>
