@@ -1,3 +1,6 @@
+import "jquery-lazy";
+import "jquery-lazy/jquery.lazy.plugins";
+
 $(window).scroll(function() {
     updateBackground();
 });
@@ -121,8 +124,6 @@ $(window).ready(function(){
                 'src': image,
             }).on('load', function() {
                 imageElement.attr('src', image);
-                // imageElement.css('background', 'url("'+image+'") center center');
-                // imageElement.css('background-size', 'cover');
             });
         }
     });
@@ -138,6 +139,13 @@ $(window).ready(function(){
                 imageElement.css('background-size', 'cover');
             });
         }
+    });
+
+
+    $(function() {
+        $('.lazy').Lazy({
+
+        });
     });
 });
 

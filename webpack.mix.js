@@ -51,7 +51,9 @@ mix.setPublicPath('public')
         'particles.js',
         'lodash',
         'codemirror',
-        'summernote'
+        'summernote',
+        'jquery-lazy',
+        'jquery-lazy/jquery.lazy.plugins',
     ])
     .sourceMaps();
 

@@ -11,8 +11,12 @@
     <div class="fullscreen-bg">
         <div class="overlay"></div>
         @if($active_profile->background_video_active)
-            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="{{asset('storage/'.$active_profile->background_video_file)}}" type="video/mp4">
+            <video class="lazy"
+                   playsinline="playsinline"
+                   autoplay="autoplay"
+                   muted="muted"
+                   loop="loop">
+                <data-src src="{{asset('storage'.$active_profile->background_video_file)}}" type="video/mp4"></data-src>
             </video>
         @endif
     </div>
@@ -180,7 +184,6 @@
 @endsection
 
 @push('after-scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>
     {{script('js/index.js')}}
     {{script('js/jobModal.js')}}
 @endpush
