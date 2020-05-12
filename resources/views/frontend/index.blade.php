@@ -112,7 +112,7 @@
                                 <div class="col mb-5">
                                     <div class="project-bg row m-auto">
                                         <div class="project-bg-image"
-                                             data-image="{{asset('storage'.$project->images()->first()->small_url)}}"
+                                             data-image="{{asset('storage/'.$project->images()->first()->small_url)}}"
                                              style="background-color: #{{$project->images()->first()->color}}">
                                         </div>
                                         <a href="{{route('frontend.projects.show', $project)}}">
