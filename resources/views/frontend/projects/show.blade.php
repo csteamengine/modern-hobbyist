@@ -19,7 +19,7 @@
                 <div class="carousel-inner">
                     @foreach($project->images()->get() as $image)
                         <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
-                            <img class="d-block" src="{{Storage::url($image->small_url)}}" alt="{{$image->color}}">
+                            <img class="d-block" src="{{asset('storage/'.$image->small_url)}}" alt="{{$image->color}}">
                         </div>
                     @endforeach
                 </div>
