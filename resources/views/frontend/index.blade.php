@@ -133,6 +133,9 @@
                                     </div>
                                 </div>
                             @endif
+                            @if ($loop->index >= 4)
+                                @break
+                            @endif
                         @endforeach
                     </div>
                     <div class="row m-5">

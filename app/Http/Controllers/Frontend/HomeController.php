@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = Project::all()->take(4);
+        $projects = Project::all();
         $jobs = Job::orderBy('started_at', 'desc')->take(3)->get();
 
         $statistics = new stdClass;
