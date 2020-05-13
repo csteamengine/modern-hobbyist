@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                             @endif
-                            @if ($loop->index >= 4)
+                            @if ($loop->index >= 3)
                                 @break
                             @endif
                         @endforeach
