@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use App\Models\Project;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 use stdClass;
@@ -25,14 +27,18 @@ class HomeController extends Controller
         $jobs = Job::orderBy('started_at', 'desc')->take(3)->get();
 
         $statistics = new stdClass;
-        $statistics->videoCount = 0;
 
         if(!App::environment('testing')) {
-            $client = new Client();
-            $res = $client->get('https://www.googleapis.com/youtube/v3/channels?key=' . env('YOUTUBE_API_KEY') . '&part=statistics&id=' . env('YOUTUBE_CHANNEL_ID'));
+            try {
+                $client = new Client();
+                $res = $client->get('https://www.googleapis.com/youtube/v3/channels?key=' . env('YOUTUBE_API_KEY') . '&part=statistics&id=' . env('YOUTUBE_CHANNEL_ID'));
 
-            if ($res->getStatusCode() == 200) {
                 $statistics = json_decode($res->getBody()->getContents())->items[0]->statistics;
+
+            } catch (RequestException $e) {
+                $statistics->videoCount = 0;
+            } catch (\Exception $e) {
+                $statistics->videoCount = 0;
             }
         }
 
