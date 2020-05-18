@@ -28,7 +28,8 @@
                         <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Date</th>
+                            <th>Dates</th>
+                            <th>Date Created</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -37,6 +38,7 @@
                             <tr>
                                 <td class="align-middle">{{$project->title}}</td>
                                 <td class="align-middle">{{$project->started_at}} - {{$project->finished_at}}</td>
+                                <td class="align-middle">{{date_format($project->created_at, 'm-d-Y')}}</td>
                                 <td class="align-middle">
                                     @include('backend.projects.includes.actions')
                                 </td>
