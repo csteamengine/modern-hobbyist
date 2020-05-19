@@ -74,8 +74,12 @@ class ProjectController extends Controller
             return redirect()->back()->withFlashWarning('Failed to create the project');
         }
 
-        $imagesSuccess = update_images($request, $storeSuccess, $this);
+//        $imagesSuccess = update_images($request, $storeSuccess, $this);
 
+        $imagesSuccess = $storeSuccess->addMultipleMediaFromRequest(['images']);
+        dump($imagesSuccess);
+        dump($storeSuccess->getMedia());
+        exit;
         if(!$imagesSuccess){
             return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
         }
@@ -103,6 +107,9 @@ class ProjectController extends Controller
      */
     public function edit(ManageProjectRequest $request, Project $project)
     {
+        dump($project->getMedia());
+        exit;
+
         return view('backend.projects.edit')
             ->withProject($project);
     }
@@ -123,11 +130,11 @@ class ProjectController extends Controller
             return redirect()->back()->withFlashWarning('Failed to update the project');
         }
 
-        $imagesSuccess = update_images($request, $updateSuccess, $this);
-
-        if(!$imagesSuccess){
-            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
-        }
+//        $imagesSuccess = update_images($request, $updateSuccess, $this);
+//
+//        if(!$imagesSuccess){
+//            return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
+//        }
 
         return redirect()->back()->withFlashSuccess(__('alerts.backend.projects.updated'));
     }

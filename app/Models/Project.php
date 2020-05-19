@@ -5,11 +5,14 @@ namespace App\Models;
 use App\Models\Traits\ProjectRelationship;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Project extends Model
+class Project extends Model implements HasMedia
 {
     use SoftDeletes,
-        ProjectRelationship;
+        ProjectRelationship,
+        InteractsWithMedia;
     //
     protected $fillable = [
         'title',

@@ -18,7 +18,7 @@
         </div>
         <div class="images-zone">
             <div class="preview-images-zone form-control col" id="preview-images-zone-existing">
-                @foreach($project->images()->get() as $image)
+                @foreach($project->getMedia() as $image)
                     <div class="preview-image preview-show-{{$image->id}}">
                         <input type="hidden" name="existing_images[]" value="{{$image->id}}"/>
                         <div class="image-url" data-url="{{$image->url}}" data-id="{{$image->id}}" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
