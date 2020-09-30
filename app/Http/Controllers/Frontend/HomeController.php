@@ -34,12 +34,13 @@ class HomeController extends Controller
                 $res = $client->get('https://www.googleapis.com/youtube/v3/channels?key=' . env('YOUTUBE_API_KEY') . '&part=statistics&id=' . env('YOUTUBE_CHANNEL_ID'));
 
                 $statistics = json_decode($res->getBody()->getContents())->items[0]->statistics;
-
             } catch (RequestException $e) {
                 $statistics->videoCount = 0;
             } catch (\Exception $e) {
                 $statistics->videoCount = 0;
             }
+        }else{
+            $statistics->videoCount = 0;
         }
 
         return view('frontend.index')->withProjects($projects)->withJobs($jobs)->with(['videoCount' => $statistics->videoCount]);
