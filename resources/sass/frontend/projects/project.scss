@@ -52,3 +52,10 @@ $break-large: 1200px;
 .color-divider{
     border-top: 1px solid rgba(212, 167, 0, .5);
 }
+
+pre{
+    background-color: rgba(0,0,0,.2);
+    border-radius: 5px;
+    padding: 10px;
+    color: $font-hover-color !important;
+}

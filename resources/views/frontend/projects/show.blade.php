@@ -56,7 +56,7 @@
         </div>
     </div>
     <div class="row mt-5 mb-5">
-        <div class="col-10 m-auto">
+        <div class="col-10 m-auto project-html">
 {{--            Page Content (from backend editor)--}}
             {!! $project->page_content !!}
         </div>
@@ -68,5 +68,5 @@
         $('.carousel').carousel()
     </script>
     {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/2.0.0/trianglify.min.js"></script>--}}
-    {{--    {{script('js/index.js')}}--}}
+        {{script('js/project.js')}}
 @endpush

@@ -21,6 +21,7 @@
     "/js/jobModal.js": "/js/jobModal.js",
     "/js/jobs.js": "/js/jobs.js",
     "/js/manifest.js": "/js/manifest.js",
+    "/js/project.js": "/js/project.js",
     "/js/projects.js": "/js/projects.js",
     "/js/vendor.js": "/js/vendor.js"
 }
