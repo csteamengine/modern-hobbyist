@@ -127,7 +127,8 @@ $(window).ready(function(){
             });
         }
     });
-    $('.project-bg-image').each(function(){
+
+    $('.about-image').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
 
@@ -141,7 +142,7 @@ $(window).ready(function(){
         }
     });
 
-    $('.about-image').each(function(){
+    $('.project-bg-image').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
 
