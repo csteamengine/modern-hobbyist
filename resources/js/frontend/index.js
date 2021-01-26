@@ -114,21 +114,9 @@ $(document).ready(function() {
 
 });
 
+var iterate = false;
 $(window).ready(function(){
-    $('.project-image').each(function(){
-        var imageElement = $(this);
-        var image = $(this).data('image');
-
-        if(image.length != 0){
-            var img = $('<img />').attr({
-                'src': image,
-            }).on('load', function() {
-                imageElement.attr('src', image);
-            });
-        }
-    });
-
-    $('.about-image').each(function(){
+    iterate = $('.about-image').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
 
@@ -142,6 +130,26 @@ $(window).ready(function(){
         }
     });
 
+    //Want it to load my about image first
+    $.when(iterate).then(function(){
+        loadOtherImages();
+    });
+
+});
+
+function loadOtherImages(){
+    $('.project-image').each(function(){
+        var imageElement = $(this);
+        var image = $(this).data('image');
+
+        if(image.length != 0){
+            var img = $('<img />').attr({
+                'src': image,
+            }).on('load', function() {
+                imageElement.attr('src', image);
+            });
+        }
+    });
     $('.project-bg-image').each(function(){
         var imageElement = $(this);
         var image = $(this).data('image');
@@ -156,13 +164,12 @@ $(window).ready(function(){
         }
     });
 
-
     $(function() {
         $('.lazy').Lazy({
 
         });
     });
-});
+}
 
 var $carousel = $('#carouselExampleIndicators');
 $carousel.carousel();
