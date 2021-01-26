@@ -10,7 +10,7 @@
     <div class="row mt-5">
         <div class="col mt-5">
             <div class="row" id="about">
-                <div class="col-10 col-sm-8 col-md-6 col-lg-4 m-auto">
+                <div class="col-10  m-auto">
                     <div class="row">
                         <div class="about-image-container col-12 col-lg-5 mb-3 mt-5 m-lg-auto">
                             <div class="about-image"
