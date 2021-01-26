@@ -11,6 +11,11 @@
         <title>@yield('title', app_name())</title>
         <meta name="description" content="@yield('meta_description', 'Modern Hobbyist')">
         <meta name="author" content="@yield('meta_author', 'Charlie Steenhagen')">
+        <meta property="og:image" content="{{asset('storage/'.$active_profile->about_image()->small_url)}}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{env('APP_URL')}}" />
+        <meta property="og:title" content="{{app_name()}}" />
+        <meta property="og:description" content="@yield('meta_description', 'Modern Hobbyist')" />
         <link rel="icon" href="{{asset('storage/ModHobFaviconFinal.png')}}" type="image/png" sizes="16x16">
         @yield('meta')
 
