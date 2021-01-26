@@ -15,6 +15,7 @@ return [
     'general' => [
         'home' => 'Home',
         'logout' => 'Logout',
+        'about' => 'About Me',
         'projects' => [
             'index' => 'Projects',
             'show' => 'Project'
