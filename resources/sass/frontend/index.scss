@@ -104,19 +104,46 @@
     background-color: $bg-off-white;
     box-shadow: 0px 3px 15px black;
 
-    .about-image{
+    .about-image-container{
+        position: relative;
         box-shadow: 2px 2px 27px rgba(0,0,0,.5);
         border-radius: 5px;
         transition: all .5s;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
         -moz-transition: all .5s;
         -o-transition: all .5s;
         -webkit-transition: all .5s;
     }
 
-    .about-image:hover{
+    .about-image-container:after{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .about-image{
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        transition: all .5s;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+        -moz-transition: all .5s;
+    }
+
+    .about-image-container:hover{
         box-shadow: 10px 10px 27px rgba(0,0,0,.5);
-        margin-top: -5px;
-        margin-bottom: 5px;
+        .about-image{
+            width: 110%;
+            height: 110%;
+            top: -5%;
+            left: -5%;
+        }
     }
 }
 

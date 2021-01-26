@@ -45,8 +45,11 @@
             <div id="about" class="content-sections row text-center align-content-center w-100 p-0 m-0">
                 <div class="col-10 mb-5 ml-auto mr-auto mt-auto m-lg-auto">
                     <div class="row">
-                        <div class="col-12 col-lg-5 mb-3 mt-5 m-lg-auto">
-                            <img src="{{asset('storage/'.$active_profile->about_image()->small_url)}}" class="about-image img-fluid">
+                        <div class="about-image-container col-12 col-lg-5 mb-3 mt-5 m-lg-auto">
+                            <div class="about-image"
+                                 data-image="{{asset('storage/'.$active_profile->about_image()->small_url)}}"
+                                 style="background-color: #{{$active_profile->about_image()->color}};">
+                            </div>
                         </div>
                         <div class="col-12 col-lg-6 mt-3 mb-5 m-lg-auto text-left">
                             <h1><span class="text-secondary">I'm </span>Charlie Steenhagen</h1>

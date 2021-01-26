@@ -141,6 +141,20 @@ $(window).ready(function(){
         }
     });
 
+    $('.about-image').each(function(){
+        var imageElement = $(this);
+        var image = $(this).data('image');
+
+        if(image.length != 0){
+            var img = $('<img />').attr({
+                'src': image,
+            }).on('load', function() {
+                imageElement.css('background', 'url("'+image+'") center center');
+                imageElement.css('background-size', 'cover');
+            });
+        }
+    });
+
 
     $(function() {
         $('.lazy').Lazy({

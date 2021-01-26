@@ -190,14 +190,13 @@ class ProfileController extends Controller
             $extractor->setImage($file->getPathname())->setTotalColors(5)->setGranularity(10);
             $palette = $extractor->extractPalette();
             $upload = $file->store('images/about');
+
             if($upload){
                 $image = Image::create([
                     'url' => env('APP_URL').'/storage/'.$upload,
                     'small_url' => $upload,
                     'color' => $palette[sizeof($palette)-1]
                 ]);
-
-
 
                 if($image){
                     $profile->image_id = $image->id;
