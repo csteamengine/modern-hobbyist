@@ -1,4 +1,5 @@
 {
+    "/js/about.js": "/js/about.js",
     "/js/backend.js": "/js/backend.js",
     "/js/backend/jobs/job.js": "/js/backend/jobs/job.js",
     "/js/backend/jobs/jobs.js": "/js/backend/jobs/jobs.js",
@@ -13,6 +14,7 @@
     "/css/frontend/jobs/index.css": "/css/frontend/jobs/index.css",
     "/css/frontend/jobs/jobModal.css": "/css/frontend/jobs/jobModal.css",
     "/css/index.css": "/css/index.css",
+    "/css/about.css": "/css/about.css",
     "/css/backend.css": "/css/backend.css",
     "/css/backend/project.css": "/css/backend/project.css",
     "/css/backend/job.css": "/css/backend/job.css",
