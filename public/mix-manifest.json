@@ -5,6 +5,7 @@
     "/js/backend/jobs/jobs.js": "/js/backend/jobs/jobs.js",
     "/js/backend/links/link.js": "/js/backend/links/link.js",
     "/js/backend/links/links.js": "/js/backend/links/links.js",
+    "/js/backend/links/show.js": "/js/backend/links/show.js",
     "/js/backend/profiles/profile.js": "/js/backend/profiles/profile.js",
     "/js/backend/profiles/profiles.js": "/js/backend/profiles/profiles.js",
     "/js/backend/projects/project.js": "/js/backend/projects/project.js",

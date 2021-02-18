@@ -97,7 +97,8 @@ class LinkController extends Controller
     public function show(ManageLinkRequest $request, Link $link): View
     {
         return view('backend.links.show')
-            ->withLink($link);
+            ->withLink($link)
+            ->withVisits($link->visits());
     }
 
     /**

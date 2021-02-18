@@ -37,6 +37,7 @@ mix.setPublicPath('public')
     .js('resources/js/backend/jobs/job.js', 'js/backend/jobs/job.js')
     .js('resources/js/backend/links/links.js', 'js/backend/links/links.js')
     .js('resources/js/backend/links/link.js', 'js/backend/links/link.js')
+    .js('resources/js/backend/links/show.js', 'js/backend/links/show.js')
     .js('resources/js/backend/projects/projects.js', 'js/backend/projects/projects.js')
     .js('resources/js/backend/projects/project.js', 'js/backend/projects/project.js')
     .js('resources/js/backend/profiles/profiles.js', 'js/backend/profiles/profiles.js')
@@ -50,6 +51,7 @@ mix.setPublicPath('public')
         /* Extract packages from node_modules, only those used by front and
         backend, to vendor.js */
         'jquery',
+        'chart.js',
         'jquery-ui',
         'bootstrap',
         'popper.js',

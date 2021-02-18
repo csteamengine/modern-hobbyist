@@ -14,7 +14,7 @@ class VisitsTableSeeder extends Seeder
         $firstLink = Link::create([
             'title' => 'Link 1',
             'url' => 'https://www.modhobbyist.com',
-            'description' => "This is a test link",
+            'description' => 'This is a test link',
             'start_date' => '2021-01-20 13:20:14',
             'image_id' => 1,
             'priority' => 1,
@@ -23,26 +23,134 @@ class VisitsTableSeeder extends Seeder
         $secondLink = Link::create([
             'title' => 'Link 2',
             'url' => 'https://www.modhobbyist.com',
-            'description' => "This is a test link",
+            'description' => 'This is a test link',
             'start_date' => '2021-01-20 13:20:14',
             'image_id' => 1,
             'priority' => 2,
         ]);
 
-        $firstVisit = LinkVisit::create([
-            'link_id' => $firstLink->id,
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-20 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-15 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-12 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-12 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-12 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-12 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-01-12 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
+        ]);
+        LinkVisit::create([
+            'link_id' => 1,
+            'created_at' => '2021-02-16 13:20:14',
         ]);
 
-        $secondVisit = LinkVisit::create([
-            'link_id' => $firstLink->id,
-        ]);
-
-        $thirdVisit = LinkVisit::create([
-            'link_id' => $secondLink->id,
-        ]);
-
-        $fourthVisit = LinkVisit::create([
-            'link_id' => $secondLink->id,
-        ]);
+        $links = factory(Link::class, 3)->create();
+        $linkVisits = factory(LinkVisit::class, 15)->create();
     }
 }

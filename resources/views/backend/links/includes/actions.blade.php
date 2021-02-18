@@ -1,4 +1,8 @@
 <div class="btn-group btn-group-sm" role="group" aria-label="@lang('labels.backend.boxes.actions')">
+    <a href="{{ route('admin.links.show', $link) }}" class="btn btn-outline-success" data-toggle="tooltip"
+       data-placement="top" title="Analytics">
+        <i class="fas fa-chart-line"></i>
+    </a>
     <a href="{{ route('admin.links.edit', $link) }}" class="btn btn-outline-success" data-toggle="tooltip"
        data-placement="top" title="Edit">
         <i class="fas fa-edit"></i>
