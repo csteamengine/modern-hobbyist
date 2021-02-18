@@ -50,7 +50,15 @@ return [
             'updated' => 'The profile was successfully updated.',
             'activated' => 'The profile was successfully activated.',
             'activation_failed' => 'The profile failed to activate successfully.',
-        ]
+        ],
+        'links' => [
+            'created' => 'The link was successfully created.',
+            'deleted' => 'The link was successfully deleted.',
+            'delete_failed' => 'Could not delete the link.',
+            'updated' => 'The link was successfully updated.',
+            'activated' => 'The link was successfully toggled.',
+            'activation_failed' => 'The link failed to activate successfully.',
+        ],
     ],
 
     'frontend' => [

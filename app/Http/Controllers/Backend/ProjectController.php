@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Events\Backend\Project\ProjectDeleted;
+use Throwable;
+use App\Models\Project;
+use Illuminate\View\View;
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\Project\ManageProjectRequest;
-use App\Http\Requests\Backend\Project\StoreProjectRequest;
-use App\Http\Requests\Backend\Project\UpdateProjectRequest;
-use App\Models\Image;
-use App\Models\Project;
-use App\Repositories\Backend\ProjectRepository;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\View\View;
-use PHPColorExtractor\PHPColorExtractor;
-use Throwable;
-
+use App\Events\Backend\Project\ProjectDeleted;
+use App\Repositories\Backend\ProjectRepository;
+use App\Http\Requests\Backend\Project\StoreProjectRequest;
+use App\Http\Requests\Backend\Project\ManageProjectRequest;
+use App\Http\Requests\Backend\Project\UpdateProjectRequest;
 
 /**
  * Class ProjectController.
@@ -70,13 +65,13 @@ class ProjectController extends Controller
     {
         $storeSuccess = $this->projectRepository->create($request->all());
 
-        if(!$storeSuccess){
+        if (! $storeSuccess) {
             return redirect()->back()->withFlashWarning('Failed to create the project');
         }
 
         $imagesSuccess = update_images($request, $storeSuccess, $this);
 
-        if(!$imagesSuccess){
+        if (! $imagesSuccess) {
             return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
         }
 
@@ -119,13 +114,13 @@ class ProjectController extends Controller
     {
         $updateSuccess = $this->projectRepository->update($project, $request->all());
 
-        if(!$updateSuccess){
+        if (! $updateSuccess) {
             return redirect()->back()->withFlashWarning('Failed to update the project');
         }
 
         $imagesSuccess = update_images($request, $updateSuccess, $this);
 
-        if(!$imagesSuccess){
+        if (! $imagesSuccess) {
             return redirect()->back()->withFlashWarning('Failed to upload some of the project images.');
         }
 

@@ -19,11 +19,12 @@
                 <div class="form-group row">
                     <div class="col-12 col-md-6 m-auto">
                         <div class="row">
-                            <img src="{{asset('storage/'.$profile->about_image()->small_url)}}"
+                            <img src="{{$profile->about_image() ? asset('storage/'.$profile->about_image()->small_url) : ""}}"
                                  class="img-fluid about-image-preview"
                                  id="about-image-preview"
                                  alt="About Image Preview"
                                  onclick="$('#about_image_file').trigger('click');"
+                                {{!$profile->about_image() ? "hidden" : ""}}
                             >
                         </div>
                         <div class="row mt-2">

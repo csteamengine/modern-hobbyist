@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\LanguageController;
 
-if(env('APP_STATUS') == "parked"){
-    Route::get('{any}', function() {
+if (env('APP_STATUS') == 'parked') {
+    Route::get('{any}', function () {
         return view('frontend.coming_soon');
     })->where('any', '.*');
 }

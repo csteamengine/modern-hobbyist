@@ -128,8 +128,8 @@ return [
                 'started_at' => 'Started At',
                 'finished_at' => 'Finished At',
                 'company' => 'Company',
-                'company_url' => 'Company URL'
-            ]
+                'company_url' => 'Company URL',
+            ],
         ],
         'projects' => [
             'index' => 'Projects',
@@ -148,8 +148,8 @@ return [
                 'finished_at' => 'Finished At',
                 'youtube_url' => 'Youtube URL',
                 'github_url' => 'GitHub URL',
-                'images' => 'Images'
-            ]
+                'images' => 'Images',
+            ],
         ],
         'profiles' => [
             'index' => 'Profiles',
@@ -175,8 +175,27 @@ return [
                 'youtube_url' => 'YouTube URL',
                 'github_url' => 'GitHub URL',
                 'instagram_url' => 'Instagram URL',
-            ]
-        ]
+            ],
+        ],
+        'links' => [
+            'index' => 'Links',
+            'main' => 'Links',
+            'create' => 'Create Link',
+            'view' => 'View Link',
+            'edit' => 'Edit Link',
+            'management' => 'Manage Links',
+            'forms' => [
+                'title' => 'Title',
+                'is_active' => 'Status',
+                'description' => 'Description',
+                'start_date' => 'Start Date',
+                'end_date' => 'End Date',
+                'start_time' => 'Start Time',
+                'end_time' => 'End Time',
+                'url' => 'Redirect URL',
+                'image' => 'Image',
+            ],
+        ],
     ],
 
     'frontend' => [

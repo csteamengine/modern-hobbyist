@@ -110,6 +110,7 @@ $('#about_image_file').on('change', function(){
             $('#about-image-preview').attr('src', e.target.result);
         };
         reader.readAsDataURL($(this)[0].files[0]);
+        $('#about-image-preview').attr('hidden', false);
     }
 
 });

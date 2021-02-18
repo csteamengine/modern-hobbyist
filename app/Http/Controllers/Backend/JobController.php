@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Events\Backend\Job\JobDeleted;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\Job\ManageJobRequest;
-use App\Http\Requests\Backend\Job\StoreJobRequest;
-use App\Http\Requests\Backend\Job\UpdateJobRequest;
-use App\Models\Image;
 use App\Models\Job;
-use App\Repositories\Backend\JobRepository;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\View\View;
-use PHPColorExtractor\PHPColorExtractor;
-
+use App\Http\Controllers\Controller;
+use App\Events\Backend\Job\JobDeleted;
+use Illuminate\Contracts\View\Factory;
+use App\Repositories\Backend\JobRepository;
+use App\Http\Requests\Backend\Job\StoreJobRequest;
+use App\Http\Requests\Backend\Job\ManageJobRequest;
+use App\Http\Requests\Backend\Job\UpdateJobRequest;
 
 /**
  * Class JobController.
@@ -61,17 +57,15 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-
-
         $storeSuccess = $this->jobRepository->create($request->all());
 
-        if(!$storeSuccess){
+        if (! $storeSuccess) {
             return redirect()->back()->withFlashWarning('Failed to create the job');
         }
 
         $imagesSuccess = update_images($request, $storeSuccess, $this);
 
-        if(!$imagesSuccess){
+        if (! $imagesSuccess) {
             return redirect()->back()->withFlashWarning('Failed to upload some of the job images.');
         }
 
@@ -114,13 +108,13 @@ class JobController extends Controller
     {
         $updateSuccess = $this->jobRepository->update($job, $request->all());
 
-        if(!$updateSuccess){
+        if (! $updateSuccess) {
             return redirect()->back()->withFlashWarning('Failed to update the job');
         }
 
         $imagesSuccess = update_images($request, $updateSuccess, $this);
 
-        if(!$imagesSuccess){
+        if (! $imagesSuccess) {
             return redirect()->back()->withFlashWarning('Failed to upload some of the job images.');
         }
 

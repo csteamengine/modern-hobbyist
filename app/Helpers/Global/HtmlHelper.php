@@ -12,6 +12,7 @@ if (! function_exists('style')) {
      */
     function style($url, $attributes = [], $secure = null)
     {
+
         return resolve(HtmlHelper::class)->style($url, $attributes, $secure);
     }
 }

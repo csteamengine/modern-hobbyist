@@ -47,22 +47,27 @@ return [
             'projects' => 'Projects',
             'profiles' => 'Profiles',
             'jobs' => 'Jobs',
+            'links' => 'Links',
             'general' => 'General',
             'history' => 'History',
             'system' => 'System',
         ],
         'jobs' => [
             'edit' => 'Edit Job',
-            'create' => 'Create Job'
+            'create' => 'Create Job',
         ],
         'projects' => [
             'edit' => 'Edit Project',
-            'create' => 'Create Project'
+            'create' => 'Create Project',
         ],
         'profiles' => [
             'edit' => 'Edit Profile',
-            'create' => 'Create Profile'
-        ]
+            'create' => 'Create Profile',
+        ],
+        'links' => [
+            'edit' => 'Edit Link',
+            'create' => 'Create Link',
+        ],
     ],
 
     'language-picker' => [
