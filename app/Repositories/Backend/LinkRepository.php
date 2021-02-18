@@ -70,6 +70,7 @@ class LinkRepository extends BaseRepository
                 'title' => $data['title'],
                 'url' => $data['url'],
                 'priority' => 0,
+                'description' => $data['description'],
                 'start_date' => $data['start_date'] ? date('Y-m-d H:i:s', strtotime($data['start_date'])) : null,
                 'end_date' => $data['end_date'] ? date('Y-m-d H:i:s', strtotime($data['end_date'])) : null,
                 'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
@@ -99,6 +100,7 @@ class LinkRepository extends BaseRepository
             if ($link->update([
                 'title' => $data['title'],
                 'url' => $data['url'],
+                'description' => $data['description'],
                 'start_date' => $data['start_date'] ? date('Y-m-d H:i:s', strtotime($data['start_date'])) : null,
                 'end_date' => $data['end_date'] ? date('Y-m-d H:i:s', strtotime($data['end_date'])) : null,
                 'is_active' => isset($data['is_active']) && $data['is_active'] === '1',
