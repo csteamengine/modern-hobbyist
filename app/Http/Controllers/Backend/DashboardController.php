@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Job;
+use App\Models\Project;
+use Carbon\Carbon;
+use App\Models\LinkVisit;
+use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 
 /**
@@ -10,10 +15,14 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     /**
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index()
     {
-        return view('backend.dashboard');
+        $linkVisits = LinkVisit::where('created_at', '>=', Carbon::now()->subDay())->count();
+        $projects = Project::where('is_active', '=', 1)->count();
+        $jobs = Job::where('is_active', '=', 1)->count();
+
+        return view('backend.dashboard')->withVisits($linkVisits)->withProjects($projects)->withJobs($jobs);
     }
 }
