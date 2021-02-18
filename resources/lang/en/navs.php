@@ -18,12 +18,15 @@ return [
         'about' => 'About Me',
         'projects' => [
             'index' => 'Projects',
-            'show' => 'Project'
+            'show' => 'Project',
         ],
         'career' => [
             'index' => 'Career',
-            'show' => 'Job'
-        ]
+            'show' => 'Job',
+        ],
+        'links' => [
+            'index' => 'Links',
+        ],
     ],
 
     'frontend' => [
