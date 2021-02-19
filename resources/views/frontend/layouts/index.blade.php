@@ -17,6 +17,7 @@
         <meta property="og:title" content="{{app_name()}}" />
         <meta property="og:description" content="@yield('meta_description', 'Modern Hobbyist')" />
         <link rel="icon" href="{{asset('storage/ModHobFaviconFinal.png')}}" type="image/png" sizes="16x16">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C33CV6KX0M"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
