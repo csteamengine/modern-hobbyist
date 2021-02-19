@@ -12,6 +12,27 @@
             <h1 class="m-auto">Links</h1>
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col-8 col-sm-6 m-auto text-center p-0">
+            <div class="row m-auto">
+                <div class="col-4">
+                    <a href="{{$active_profile->youtube_url}}" target="_blank">
+                        <i class="fab fa-3x fa-youtube sm-icons"></i>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="{{$active_profile->instagram_url}}" target="_blank">
+                        <i class="fab fa-3x fa-instagram sm-icons"></i>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="{{$active_profile->github_url}}" target="_blank">
+                        <i class="fab fa-3x fa-github sm-icons"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="links" class="content-sections row text-center w-100 p-0 mr-0 ml-0 justify-content-center">
         <div class="col position-relative">
             <div class="row justify-content-center mt-5">
