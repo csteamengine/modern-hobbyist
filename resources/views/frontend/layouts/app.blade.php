@@ -5,6 +5,14 @@
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @endlangrtl
     <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C33CV6KX0M"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C33CV6KX0M');
+        </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,14 +26,7 @@
         <meta property="og:description" content="@yield('meta_description', 'Modern Hobbyist')" />
         <link rel="icon" href="{{asset('storage/ModHobFaviconFinal.png')}}" type="image/png" sizes="16x16">
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C33CV6KX0M"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'G-C33CV6KX0M');
-        </script>
         @yield('meta')
 
         {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
